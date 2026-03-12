@@ -20,15 +20,22 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/benguimbis/pevrdc/graph/badge.svg)](https://app.codecov.io/gh/benguimbis/pevrdc)
 <!-- badges: end -->
 
-The goal of pevrdc is to ...
+The goal of hpdRDC is to standardize the analysis of DRC EPI DHIS 2 immunization and surveillance data with now external dependency. The goal is to improve reproducibility, facilitate auditing and ease the data cleaning and analysis workflows.
 
 ## Installation
 
-You can install the development version of pevrdc like so:
+You can install the development version of hpdRDC from [GitHub](https://github.com/) with:
 
 ``` r
-# FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
+# install.packages("pak")
+pak::pak("benguimbis/hpdDRC")
 ```
+
+
+
+## Documentation
+
+Full documentation website on: https://benguimbis.github.io/hpdDRC
 
 ## Documentation
 
@@ -36,25 +43,14 @@ Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Example
 
-This is a basic example which shows you how to solve a common problem:
+Here we show to compute the the target administrative population for march 2026 by province.
 
 ```{r example}
 library(pevrdc)
-## basic example code
+## Computing the aggregated target on march
+
+pops <- pop2026
+population <- agg_pop(naissance_mois_admin, orgunitlevel2, month = 3, pops = pops)
+head(population)
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
-
-```{r cars}
-summary(cars)
-```
-
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.
