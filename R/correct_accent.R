@@ -14,8 +14,8 @@
 #' datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 #'
 #' vacc <- readRDS(datafile)
-#' correct_accent(vacc, pattern =  "[\u00C3\u00A9]", replacement = "e")
-correct_accent <- function(data, pattern = "[\u00C3\u00A9]", replacement = "e") {
+#' correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
+correct_accent <- function(data, pattern = "\u00C3\u00A9", replacement = "e") {
   variables <- colnames(data)
   data_list <- Map(function(x)data[[x]] <- gsub(pattern, replacement, data[[x]], ), variables)
   data <- as.data.frame(data_list)

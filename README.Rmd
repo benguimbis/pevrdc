@@ -32,13 +32,6 @@ pak::pak("benguimbis/pevrdc")
 ```
 
 
-
-## Documentation
-
-Full documentation website on: https://benguimbis.github.io/hpdDRC
-
-## Documentation
-
 Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Documentation

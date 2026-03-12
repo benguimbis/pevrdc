@@ -4,7 +4,7 @@
 \alias{correct_accent}
 \title{A function to remove accented characters from all the character values of a data frame}
 \usage{
-correct_accent(data, pattern = "[Ã©]", replacement = "e")
+correct_accent(data, pattern = "Ã©", replacement = "e")
 }
 \arguments{
 \item{data}{Dataframe, usually the DHIS2 immunization dataframe}
@@ -23,5 +23,5 @@ A function to remove accented characters from all the character values of a data
 datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile)
-correct_accent(vacc, pattern =  "[\u00C3\u00A9]", replacement = "e")
+correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 }

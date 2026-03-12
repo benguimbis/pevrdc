@@ -75,7 +75,7 @@ After inflating the template
 datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile)
-correct_accent(vacc, pattern =  "[\u00C3\u00A9]", replacement = "e")
+correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 ```
 
 

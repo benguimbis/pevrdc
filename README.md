@@ -25,13 +25,6 @@ pak::pak("benguimbis/pevrdc")
 ```
 
 
-
-## Documentation
-
-Full documentation website on: https://benguimbis.github.io/hpdDRC
-
-## Documentation
-
 Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Documentation
@@ -48,13 +41,14 @@ library(pevrdc)
 ## Computing the aggregated target on march
 
 pops <- pop2026
-#> Error:
-#> ! object 'pop2026' not found
 population <- agg_pop(naissance_mois_admin, orgunitlevel2, month = 3, pops = pops)
-#> Error in `agg_pop()`:
-#> ! could not find function "agg_pop"
 head(population)
-#> Error:
-#> ! object 'population' not found
+#>              orgunitlevel2 naissance_mois_admin
+#> 1     bu Bas Uele Province             16712.25
+#> 2     eq Equateur Province             29853.50
+#> 3 hk Haut Katanga Province             93271.75
+#> 4  hl Haut Lomami Province             44739.00
+#> 5    hu Haut Uele Province             25622.00
+#> 6        it Ituri Province             69074.25
 ```
 
