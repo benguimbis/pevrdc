@@ -13,7 +13,7 @@ output: github_document
 [![Codecov test coverage](https://codecov.io/gh/benguimbis/pevrdc/graph/badge.svg)](https://app.codecov.io/gh/benguimbis/pevrdc)
 <!-- badges: end -->
 
-The goal of hpdRDC is to standardize the analysis of DRC EPI DHIS 2 immunization and surveillance data with now external dependency. The goal is to improve reproducibility, facilitate auditing and ease the data cleaning and analysis workflows.
+The goal of pevrdc is to standardize the analysis of DRC EPI DHIS 2 immunization and surveillance data with now external dependency. The goal is to improve reproducibility, facilitate auditing and ease the data cleaning and analysis workflows.
 
 ## Installation
 
@@ -21,7 +21,7 @@ You can install the development version of hpdRDC from [GitHub](https://github.c
 
 ``` r
 # install.packages("pak")
-pak::pak("benguimbis/hpdDRC")
+pak::pak("benguimbis/pevrdc")
 ```
 
 
@@ -29,6 +29,10 @@ pak::pak("benguimbis/hpdDRC")
 ## Documentation
 
 Full documentation website on: https://benguimbis.github.io/hpdDRC
+
+## Documentation
+
+Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Documentation
 
