@@ -65,19 +65,10 @@
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
 <span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"benguimbis/pevrdc"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level2">
-<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
-</h2>
-<p>Full documentation website on: <a href="https://benguimbis.github.io/hpdDRC" class="external-link uri">https://benguimbis.github.io/hpdDRC</a></p>
-</div>
-<div class="section level2">
-<h2 id="documentation-1">Documentation<a class="anchor" aria-label="anchor" href="#documentation-1"></a>
-</h2>
 <p>Full documentation website on: <a href="https://benguimbis.github.io/pevrdc" class="external-link uri">https://benguimbis.github.io/pevrdc</a></p>
 </div>
 <div class="section level2">
-<h2 id="documentation-2">Documentation<a class="anchor" aria-label="anchor" href="#documentation-2"></a>
+<h2 id="documentation">Documentation<a class="anchor" aria-label="anchor" href="#documentation"></a>
 </h2>
 <p>Full documentation website on: <a href="https://benguimbis.github.io/pevrdc" class="external-link uri">https://benguimbis.github.io/pevrdc</a></p>
 </div>
@@ -90,14 +81,15 @@
 <span><span class="co">## Computing the aggregated target on march</span></span>
 <span></span>
 <span><span class="va">pops</span> <span class="op">&lt;-</span> <span class="va">pop2026</span></span>
-<span><span class="co">#&gt; Error:</span></span>
-<span><span class="co">#&gt; ! object 'pop2026' not found</span></span>
 <span><span class="va">population</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/agg_pop.html">agg_pop</a></span><span class="op">(</span><span class="va">naissance_mois_admin</span>, <span class="va">orgunitlevel2</span>, month <span class="op">=</span> <span class="fl">3</span>, pops <span class="op">=</span> <span class="va">pops</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error in `agg_pop()`:</span></span>
-<span><span class="co">#&gt; ! could not find function "agg_pop"</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html" class="external-link">head</a></span><span class="op">(</span><span class="va">population</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Error:</span></span>
-<span><span class="co">#&gt; ! object 'population' not found</span></span></code></pre></div>
+<span><span class="co">#&gt;              orgunitlevel2 naissance_mois_admin</span></span>
+<span><span class="co">#&gt; 1     bu Bas Uele Province             16712.25</span></span>
+<span><span class="co">#&gt; 2     eq Equateur Province             29853.50</span></span>
+<span><span class="co">#&gt; 3 hk Haut Katanga Province             93271.75</span></span>
+<span><span class="co">#&gt; 4  hl Haut Lomami Province             44739.00</span></span>
+<span><span class="co">#&gt; 5    hu Haut Uele Province             25622.00</span></span>
+<span><span class="co">#&gt; 6        it Ituri Province             69074.25</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
