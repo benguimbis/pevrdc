@@ -1,24 +1,28 @@
 Package: pevrdc
-Version: 0.0.0.9000
 Title: Pevrdc
-Description: An internal package to streamline immunization and surveillance analysis of DRC data without any dependency.
-Authors@R: c(person(given = "Benedict",
-         family = "Nguimbis",
-         role = c("aut", "cre"),
-         email = "nguimbisb@who.int"),
-  person(given = "Celestin",
-         family = "Danwang",
-         role = c("rev", "ctb"),
-         email = "danwangc@who.int"),
-  person(given = "Cedric",
-         family = "Nwanga",
-         role = "dtc",
-         email = "mwangac@who.int"),
-  person(given = "Franck",
-         family = "Mboussou",
-         role = c("ths", "cph"),
-         email = "mboussouf@who.int"))
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Benedict", "Nguimbis", , "nguimbisb@who.int", role = c("aut", "cre")),
+    person("Celestin", "Danwang", , "danwangc@who.int", role = c("rev", "ctb")),
+    person("Cedric", "Nwanga", , "mwangac@who.int", role = "dtc"),
+    person("Franck", "Mboussou", , "mboussouf@who.int", role = c("ths", "cph"))
+  )
+Description: An internal package to streamline immunization and
+    surveillance analysis of DRC data without any dependency.
 License: file LICENSE
+Depends: 
+    R (>= 3.5)
+Imports: 
+    stats
+Suggests: 
+    knitr,
+    rmarkdown,
+    testthat
+VignetteBuilder: 
+    knitr
+Config/fusen/version: 0.7.2
 Encoding: UTF-8
+LazyData: true
+LazyDataCompression: xz
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3

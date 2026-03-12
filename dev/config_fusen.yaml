@@ -1,0 +1,27 @@
+flat_first.Rmd:
+  path: dev/flat_first.Rmd
+  state: active
+  R:
+  - R/add_antennes.R
+  - R/agg_pop.R
+  - R/correct_accent.R
+  - R/is_outbreak.R
+  - R/vaccine_coverage.R
+  - R/vaccine_sums.R
+  - R/data.R
+  tests:
+  - tests/testthat/test-correct_accent.R
+  - tests/testthat/test-vaccine_sums.R
+  - tests/testthat/test-agg_pop.R
+  - tests/testthat/test-vaccine_coverage.R
+  - tests/testthat/test-is_outbreak.R
+  vignettes: vignettes/get-started.Rmd
+  inflate:
+    flat_file: dev/flat_first.Rmd
+    vignette_name: Get started
+    open_vignette: true
+    check: true
+    document: true
+    overwrite: ask
+    clean: ask
+    codecov: false

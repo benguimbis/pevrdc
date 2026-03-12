@@ -125,10 +125,11 @@ pkgdown::build_site()
 
 # build the tar.gz with vignettes to share with others
 devtools::build(vignettes = TRUE)
+devtools::build_readme()
 
 # Share your package and its documentation on GitHub
 # usethis::create_github_token()
 # gitcreds::gitcreds_set()
 fusen::init_share_on_github()
-```
+y```
 

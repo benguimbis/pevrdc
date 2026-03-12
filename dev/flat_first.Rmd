@@ -40,14 +40,25 @@ and `system.file()` to read it in your examples.
 pkgload::load_all(path = here::here(), export_all = FALSE)
 
 # You will be able to read your example data file in each of your function examples and tests as follows - see chunks below
-datafile <- system.file("nyc_squirrels_sample.csv", package = "pevrdc")
-nyc_squirrels <- read.csv(datafile, encoding = "UTF-8")
+datafile <- system.file(c("pop2024.RDS", "pop2025.RDS","pop2026.RDS","antennes.RDS", "vacc_data.RDS", "shape.RDS"), package = "pevrdc")
 
-nyc_squirrels
+pop2024 <- readRDS(datafile[1])
+pop2025 <- readRDS(datafile[2])
+pop2026 <- readRDS(datafile[3])
+antennes <- readRDS(datafile[4])
+vacc_data <- readRDS(datafile[5])
+shape <- readRDS(datafile[6])
+
+usethis::use_data(pop2024, overwrite = TRUE)
+usethis::use_data(pop2025, overwrite = TRUE)
+usethis::use_data(pop2026, overwrite = TRUE)
+usethis::use_data(antennes, overwrite = TRUE)
+usethis::use_data(vacc_data, overwrite = TRUE)
+usethis::use_data(shape, overwrite = TRUE)
 ```
 
 
-# The first function of the package: Calculate the median of a vector
+# Removing accents from character values stored in variables  of DHIS2 datasets
 
 <!--
 Create a chunk for the core of the function
@@ -67,23 +78,29 @@ After inflating the template
 # Prepare the code of your function here
 ```
 
-```{r function}
-#' My median
+```{r function-correct_accent}
+#' A function to remove accented characters from all the character values of a data frame
 #'
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
+#' @param data Dataframe, usually the DHIS2 immunization dataframe
+#' @param pattern A character value to match or a regular expression. Default "Ã©|Ã©"
+#' @param replacement A character value to replace the pattern. Default "e"
 #'
 #' @return
-#' Median of vector x
+#' A dataframe with values corrected
 #' @export
 #'
 #' @examples
-my_median <- function(x, na.rm = TRUE) {
-  if (!is.numeric(x)) {
-    stop("x should be numeric")
-  }
-  stats::median(x, na.rm = na.rm)
+correct_accent <- function(data, pattern = "\u00C3\u00A9", replacement = "e") {
+  variables <- colnames(data)
+  data_list <- Map(function(x)data[[x]] <- gsub(pattern, replacement, data[[x]], ), variables)
+  data <- as.data.frame(data_list)
+
+  colnames(data) <- tolower(gsub("\\.", "_", colnames(data)))
+
+  return(data)
 }
+
+
 ```
 
 <!--
@@ -100,14 +117,11 @@ After inflating the template
 - This example will automatically be added in the vignette created from this Rmd template
 -->
 
-```{r examples}
-my_median(1:12)
+```{r examples-correct_accent}
+datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 
-# Example with your dataset in "inst/"
-datafile <- system.file("nyc_squirrels_sample.csv", package = "pevrdc")
-nyc_squirrels <- read.csv(datafile, encoding = "UTF-8")
-# Apply my function
-my_median(nyc_squirrels[, "hectare_squirrel_number"])
+vacc <- readRDS(datafile)
+correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 ```
 
 <!--
@@ -123,22 +137,189 @@ After inflating the template
 -  This test code will automatically be added in the "tests/testthat/" directory
 -->
 
-```{r tests}
-test_that("my_median works properly and show error if needed", {
-  expect_true(my_median(1:12) == 6.5)
-  expect_error(my_median("text"))
+```{r tests-correct_accent}
+df <- data.frame(A = c("aè", "bè", "cè"), B = c("èt", "èx", "èy"))
+
+df_correct <- correct_accent(df, "è", "e")
+
+test_that("correct_accent replaces all the accented characters in the dataset", {
+  expect_true(sum(grepl("e$", df_correct$a)) == sum(grepl("è$", df$A)) )
+  expect_true(sum(grepl("^e", df_correct$b)) == sum(grepl("^è", df$B)) )
 })
 
-# Test with your dataset in "inst/"
-datafile <- system.file("nyc_squirrels_sample.csv", package = "pevrdc")
-nyc_squirrels <- read.csv(datafile, encoding = "UTF-8")
+
+```
+
+
+# Tally of vaccinated 
+
+
+```{r function-vaccine_sums}
+#' A function to compute the cummulative monthly tally of vaccinated per organization levels using DHIS2 exported data
+#'
+#' @param data Dataframe, usually the DHIS2 immunization dataframe
+#' @param vaccine Column name of the vaccine of interest. Should be one of the following: BCG, DTC1, DTC3, VPO0, VAA, VAR1, VAR2, VPI1, VPI2, Pneumo13, Rota1, Rota2, Rota3, VAP1, VAP2, VAP3, VAP4, DTC2, Pneumo13_2, VPI 2, VPO1, VPO2, VPO3 & TD2 
+#' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District, or Antenne 
+#' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
+#' @param accent A logical to specify whether the dataset values contains accented characters. Set to TRUE as default 
+#' @importFrom stats aggregate reformulate setNames
+#' @return
+#' A dataframe with aggregated sums of vaccinated between 
+#' @export
+#'
+#' @examples
+vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
+  vacc_list <- c(
+    "BCG" = "bcg_0_et_11_mois",
+    "DTC1" = "dtc_hepb_hib1_0_et_11",
+    "DTC3" = "dtc_hepb_hib3_0_et_11",
+    "VPO0" = "vpo_0_0_et_11",
+    "VAA" = "vaa_0_et_11",
+    "VAR1" = "var_1_rr_1_0_et_11",
+    "VAR2" = "var_2_rr_2_0_et_11_mois|var_2_rr_2_12_et_23_mois",
+    "VPI1" = "vpi_1_0_et_11",
+    "VPI2" = "vpi_2_0_et_11",
+    "Pneumo13" = "pcv_13__1__0_et_11",
+    "Rota1" = "rota_1_0_et_11",
+    "Rota2" = "rota_2_0_et_11",
+    "Rota3" = "rota_3_0_et_11",
+    "VAP1" = "vap_1_0_et_11",
+    "VAP2" = "vap_2_0_et_11",
+    "VAP3" = "vap_3_0_et_11",
+    "VAP4" = "vap_4_0_et_11|vap_4_12_et_23",
+    "DTC2" = "dtc_hepb_hib2_0_et_11",
+    "Pneumo13_2" = "pcv_13__2__0_et_11",
+    "VPI 2" = "vpi_2_0_et_11_mois",
+    "VPO1" = "vpo_1_0_et_11",
+    "VPO2" = "vpo_2_0_et_11",
+    "VPO3" = "vpo_3_0_et_11",
+    "TD2" = "td_[2-5]"
+  )
+
+  unit <- c(
+    "Country" = "orgunitlevel1", "Province" = "orgunitlevel2", "District" = "orgunitlevel3", "Aire" = "orgunitlevel4",
+    "Fosa" = "orgunitlevel5", "Antenne" = "orgunitlevel6"
+  )
+
+  vaccine1 <- {if(is.character(deparse1(substitute(vaccine)))) as.character(substitute(vaccine)) else deparse1(substitute(vaccine))}
+
+  level1 <- eval(substitute(level), stats::setNames(as.list(unit), names(unit)), parent.frame())
+
+
+  stopifnot(length(vaccine1) == 1, !is.null(data), vaccine1 %in% names(vacc_list), all(level1 %in% unit), !is.null(level1), !is.null(vaccine1))
+  
+  if(month < 1 || month > 12)
+    stop("month should be between 1 and 12")
+  
+  if(accent)
+    data <- correct_accent(data)
+
+  level <- level1
+  vacc_name <- vaccine1
+  vaccine <- vacc_list[vaccine1]
+  # Adding antenna
+  if (any(grepl("Antenne", names(level)))) {
+    # Adding antenna
+    data <- add_antennes(data, dhis = TRUE)
+    message("Antennes were added to the data")
+  }
+
+
+  data <- do.call(cbind, list(data["periodname"], data[level], Map(as.numeric, data[grepl(vaccine, colnames(data))])))
+
+
+  # removing all NAs
+  data[is.na(data)] <- 0
+  # Calculating the period
+
+  syst_time <- Sys.getlocale("LC_TIME")
+
+  Sys.setlocale(category = "LC_TIME", locale = "English_United States.utf8")
+
+
+  period <- c(
+    "Janvier" = 1, "Fevrier" = 2, "Mars" = 3, "Avril" = 4, "Mai" = 5, "Juin" = 6, "Juillet" = 7,
+    "Aout" = 8, "Septembre" = 9, "Octobre" = 10, "Novembre" = 11, "Decembre" = 12
+  )
+  period_eng <- c(
+    "January" = 1, "February" = 2, "March" = 3, "April" = 4, "May" = 5, "June" = 6, "July" = 7,
+    "August" = 8, "September" = 9, "October" = 10, "November" = 11, "December" = 12
+  )
+  if (all(nchar(as.character(data[["periodname"]])) == 10)) {
+    data[, "periodname"] <- as.Date(data[["periodname"]])
+    data$period <- period_eng[format(data$periodname, "%B")]
+  } else {
+    data$period <- unname(period[trimws(gsub("[0-9]", "", data$periodname), "both")])
+  }
+  
+  data <- subset(data, period <= month)
+
+  on.exit(Sys.setlocale(category = "LC_TIME", locale = syst_time))
+
+  data$vaccsum <- Reduce(`+`, data[, grepl(vaccine, colnames(data))])
+
+  vacc_agg <- stats::aggregate(stats::reformulate(level, response = "vaccsum"), data = data, FUN = sum)
+
+
+  names(vacc_agg)[names(vacc_agg) == "vaccsum"] <- vacc_name
+
+  return(vacc_agg)
+}
+
+
+
+
+```
+
+<!--
+Create a chunk with an example of use for your function
+
+- The chunk needs to be named `examples` at least
+- It contains working examples of your function
+- The chunk is better be named `examples-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This example will automatically be added in the '@examples' part of our function above in the "R/" directory
+- This example will automatically be added in the vignette created from this Rmd template
+-->
+
+```{r examples-vaccine_sums}
+datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
+
+vacc <- readRDS(datafile)
+vaccine_sums(vacc, DTC1, District, 2)
+```
+
+<!--
+Create a chunk with a test of use for your function
+
+- The chunk needs to be named `tests` at least
+- It contains working tests of your function
+- The chunk is better be named `tests-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This test code will automatically be added in the "tests/testthat/" directory
+-->
+
+```{r tests-vaccine_sums}
+datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
+
+vacc <- readRDS(datafile)
+penta1 <- vaccine_sums(vacc, DTC1, District, 2)
+penta3 <- vaccine_sums(vacc, DTC3, District, 2)
+
 # Apply test on my function
-test_that("my_median works properly with internal dataset", {
-  expect_equal(my_median(nyc_squirrels[, "hectare_squirrel_number"]), 3)
+test_that("vaccine_sums coherently aggregates vaccines numbers", {
+  expect_true(sum(penta3$DTC3) <= sum(penta1$DTC1))
 })
 ```
 
-# Calculate the mean of a vector
+
+# Calculate target populations
 
 <!--
 There can be other functions, examples and tests in your flat template.
@@ -147,42 +328,745 @@ Each of them will be inflated in a different file, provided that there is a leve
 
 ## Use sub-functions in the same chunk
 
-```{r function-my_other_median}
-#' My Other median
+```{r function-agg_pop}
+#' A function that aggregates the immunization population tallies of DRC per organization level using built-in 2025 population dataset
 #'
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
+#' @param var Column name of the variable containing the population numbers. For the pops dataset monthly targets immunization use naissance_mois_ajust or survivant_mois_ajust. For surveillance use population_totale  
+#' @param group The organization level orgunitlevel1 for country, orgunitlevel2 for province, orgunitlevel3 for district and orgunitlevel6 for antennes
+#' @param month A numeric value between 1 and 12 to specify the number of months for immunization targets
+#' @param pops A dataframe with population data 
 #'
 #' @return
-#' Median of vector x
+#' A dataframe of aggregated populations 
 #' @export
 #'
 #' @examples
-my_other_median <- function(x, na.rm = TRUE) {
-  if (!is.numeric(x)) {
-    stop("x should be numeric")
-  }
-  sub_median(x, na.rm = na.rm)
+agg_pop <- function(var, group, month = 1, pops) {
+
+  agg_pop_q(substitute(var), substitute(group), month, pops = pops)
 }
 
-#' Core of the median not exported
-#' @param x Vector of Numeric values
-#' @inheritParams stats::median
-sub_median <- function(x, na.rm = TRUE) {
-  stats::median(x, na.rm)
+
+#' A version of agg_pop that does not use NSE, more convenient to use within other functions. Variables arguments are characters
+#'
+#' @param var Column name of the variable containing the population numbers. For the pops dataset monthly targets immunization use naissance_mois_ajust or survivant_mois_ajust. For surveillance use population_totale  
+#' @param group The organization level orgunitlevel1 for country, orgunitlevel2 for province, orgunitlevel3 for district and orgunitlevel6 for antennes
+#' @param month A numeric value between 1 and 12 to specify the number of months for immunization targets
+#' @param pops A dataframe with population data
+#' @importFrom stats aggregate reformulate
+#' @return
+#' A dataframe of aggregated populations 
+#' @export
+#'
+
+agg_pop_2 <- function(var, group, month = 1, pops) {
+  # --- Argument checks ---
+  stopifnot(is.character(var), length(var) == 1)
+  stopifnot(is.character(group), length(group) >= 1)
+  stopifnot(is.numeric(month), month >= 1, month <= 12)
+  stopifnot(var %in% names(pops))
+  stopifnot(all(group %in% names(pops)))
+
+  # --- Aggregate ---
+  agg_data <- stats::aggregate(
+    stats::reformulate(group, response = var),
+    data = pops,
+    FUN = sum
+  )
+
+  # --- Apply month multiplier when appropriate ---
+  if (!grepl("totale", var))
+    agg_data[[var]] <- agg_data[[var]] * month
+
+  return(agg_data)
+}
+
+
+#' Core of agg_pop not exported. A function that aggregates the immunization population tallies of DRC per organization level using built-in 2025 population dataset
+#' @param var Column name of the variable containing the population numbers. For the pops dataset monthly targets immunization use naissance_mois_ajust or survivant_mois_ajust. For surveillance use population_totale  
+#' @param group The organization level orgunitlevel1 for country, orgunitlevel2 for province, orgunitlevel3 for district and orgunitlevel6 for antennes
+#' @param month A numeric value between 1 and 12 to specify the number of months for immunization targets
+#' @param pops  A dataframe with population data
+#' @importFrom stats aggregate reformulate setNames
+#' @return
+#' A dataframe of aggregated populations 
+agg_pop_q <- function(var, group, month = 1, pops) {
+
+  var1 <- {if(is.character(var)) as.character(var) else eval(var, stats::setNames(as.list(names(pops)), names(pops)), parent.frame())}
+  group1 <- eval(group, stats::setNames(as.list(names(pops)), names(pops)), parent.frame())
+  
+   if(month < 1 || month > 12)
+    stop("month should be between 1 and 12")
+  
+  
+  stopifnot(is.numeric(pops[[var1]]))
+
+  agg_data <- stats::aggregate(
+    stats::reformulate(group1, response = var1),
+    data = pops,
+    FUN = sum
+  )
+
+  if(!grepl("totale",var1))
+    agg_data[[var1]] <-agg_data[[var1]] * month
+
+  return(agg_data)
 }
 ```
 
-```{r examples-my_other_median}
-my_other_median(1:12)
+
+```{r examples-agg_pop}
+
+datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
+
+pops <- readRDS(datafile)
+agg_pop(naissance_mois_admin, orgunitlevel2, month = 8, pops = pops)
+
+agg_pop_2("naissance_mois_admin", "orgunitlevel2", month = 8, pops = pops)
 ```
 
-```{r tests-my_other_median}
-test_that("my_median works properly and show error if needed", {
-  expect_true(my_other_median(1:12) == 6.5)
-  expect_error(my_other_median("text"))
+```{r tests-agg_pop}
+datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
+
+pops <- readRDS(datafile)
+population <- agg_pop(naissance_mois_admin, orgunitlevel2, month = 1, pops = pops)
+
+# Apply test on my function
+test_that("agg_pop outputs a dataframe of 2 columns, one character and the other numeric", {
+  expect_true(ncol(population) == 2)
+  expect_false(is.numeric(population[,1]))
+  expect_false(is.character(population[,2]))
 })
 ```
+
+
+# Vaccine Coverage 
+
+
+
+
+```{r function-vaccine_coverage}
+#' A function to compute the cummulative monthly vaccine coverage  per organization levels using DHIS2 exported data
+#'
+#' @param data Dataframe, usually the DHIS2 immunization dataframe already aggregated
+#' @param vaccine Column name of the vaccine of interest. Should be one of the following: BCG, DTC1, DTC3, VPO0, VAA, VAR1, VAR2, VPI1, VPI2, Pneumo13, Rota1, Rota2, Rota3, VAP1, VAP2, VAP3, VAP4, DTC2, Pneumo13_2, VPI 2, VPO1, VPO2, VPO3 & TD2 
+#' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District or Antenne 
+#' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
+#' @param pops An aggregated dataset of target populations.
+#' @importFrom stats aggregate reformulate setNames
+#' @return
+#' A dataframe with vaccines coverage 
+#' @export
+#'
+#' @examples
+
+vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
+  vac <- c(
+    "BCG", "DTC1", "DTC3", "VPO0", "VAA", "VAR1", "VAR2", "VPI1",
+    "VPI2", "Pneumo13", "Rota1", "Rota2", "Rota3", "VAP1", "VAP2",
+    "VAP3", "VAP4", "DTC2", "Pneumo13_2", "VPI 2", "VPO1", "VPO2",
+    "VPO3", "TD2"
+  )
+  unit <- c(
+    "Country" = "orgunitlevel1", "Province" = "orgunitlevel2", "District" = "orgunitlevel3", "Aire" = "orgunitlevel4",
+    "Fosa" = "orgunitlevel5", "Antenne" = "orgunitlevel6"
+  )
+
+  level1 <- eval(substitute(level), stats::setNames(as.list(unit), names(unit)), parent.frame())
+
+  vaccine1 <-{if(is.character(deparse1(substitute(vaccine)))) as.character(substitute(vaccine)) else deparse1(substitute(vaccine))}
+
+  vaccine <- vaccine1
+
+  stopifnot(is.numeric(month), !is.null(data), vaccine %in% vac, vaccine %in% colnames(data), all(level1 %in% unit))
+
+  level <- level1
+
+
+
+  data <- stats::aggregate(stats::reformulate(level, response = vaccine), FUN = sum, data = data)
+
+
+  if (vaccine %in% c("BCG", "VPO0")) {
+    num_vars <- c("naissance_mois_admin", "naissance_mois_ajust")
+  } else {
+    num_vars <- c("survivants_mois_admin", "survivant_mois_ajust")
+  }
+
+  pop1 <- agg_pop_2(num_vars[1],level, month = month, pops = pops)
+  pop2 <- agg_pop_2(num_vars[2],level, month = month, pops = pops)
+
+
+  populations <- merge(pop1, pop2, by = level)
+
+
+
+  merged_data <- merge(data, populations, by = level)
+
+
+
+  merged_data[[paste0(vaccine, "_admin")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[1]]], 2)
+  merged_data[[paste0(vaccine, "_ajust")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[2]]], 2)
+
+  if(vaccine == "DTC1"){
+    merged_data[["zero_dose_admin"]] <- round(merged_data[[num_vars[1]]] - merged_data[[vaccine]])
+    merged_data[["zero_dose_ajust"]] <- round(merged_data[[num_vars[2]]] - merged_data[[vaccine]])
+
+  }
+
+  return(merged_data)
+}
+
+
+```
+
+<!--
+Create a chunk with an example of use for your function
+
+- The chunk needs to be named `examples` at least
+- It contains working examples of your function
+- The chunk is better be named `examples-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This example will automatically be added in the '@examples' part of our function above in the "R/" directory
+- This example will automatically be added in the vignette created from this Rmd template
+-->
+
+```{r examples-vaccine_coverage}
+datafile <- system.file(c("vacc_data.RDS", "pop2025.RDS"), package = "pevrdc")
+
+vacc <- readRDS(datafile[1])
+pops <- readRDS(datafile[2])
+vacc_tots <- vaccine_sums(vacc, DTC1, District, 2)
+vaccine_coverage(vacc_tots, DTC1, District, month = 2, pops = pops)
+
+```
+
+<!--
+Create a chunk with a test of use for your function
+
+- The chunk needs to be named `tests` at least
+- It contains working tests of your function
+- The chunk is better be named `tests-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This test code will automatically be added in the "tests/testthat/" directory
+-->
+
+```{r tests-vaccine_coverage}
+
+datafile <- system.file(c("vacc_data.RDS", "pop2025.RDS"), package = "pevrdc")
+
+vacc <- readRDS(datafile[1])
+pops <- readRDS(datafile[2])
+penta1 <- vaccine_sums(vacc, DTC1, District, 2)
+penta1_cov <- vaccine_coverage(penta1, DTC1, District, month = 2, pops = pops)
+penta3 <- vaccine_sums(vacc, DTC3, District, 2)
+penta3_cov <- vaccine_coverage(penta3, DTC3, District, month = 2, pops = pops)
+variables1 <- c("orgunitlevel3", "DTC1", "survivants_mois_admin", "survivant_mois_ajust", 
+"DTC1_admin", "DTC1_ajust", "zero_dose_admin", "zero_dose_ajust"
+)
+variables2 <- c("orgunitlevel3", "DTC3", "survivants_mois_admin", "survivant_mois_ajust", 
+"DTC3_admin", "DTC3_ajust"
+)
+
+
+
+
+
+
+test_that("vaccine_coverage outputs expected variables and variables types", {
+  expect_true(all(colnames(penta1_cov) == variables1))
+  expect_true(all(colnames(penta3_cov) == variables2))
+  types <- table(unlist(Map(function(x)typeof(penta1_cov[[x]]), variables1)))
+  expect_true(types["double"] == 7)
+  types2 <- table(unlist(Map(function(x)typeof(penta3_cov[[x]]), variables2)))
+  expect_true(types2["double"] == 5)
+
+ # expect_error(my_median("text"))
+})
+
+
+```
+
+
+
+# Cleaning names 
+
+
+<!--
+There can be other functions, examples and tests in your flat template.
+Each of them will be inflated in a different file, provided that there is a level-1 or level-2 section title to separate from previous functions.
+-->
+
+## Use sub-functions in the same chunk
+
+```{r function-clean_dhis_names}
+#' A function that removes DRC DHIS prefixes and suffixes 
+#'
+#' @param data The dataset containing variables to be cleaned  
+#' @param column The column containing values to be cleaned espcially organization levels of DRC EPI
+#' @param has_prefix An integer specifying the number of characters of the prefix to be removed. Set to 0 if no prefix
+#' @param suffix A character value that specifies the suffix to be removed
+#'
+#' @return
+#' A dataframe with cleaned names
+#' @export
+#'
+#' @examples
+clean_dhis_names <- function(data, column, has_prefix = 2, 
+                             suffix = "(Province|Zone de Sant[e\u00e9]|Aire de Sant[e\u00e9]|Centre de Sant[e\u00e9])"){
+ clean_dhis_names_q(data, substitute(column), has_prefix, suffix)
+
+}
+
+
+
+#' Core of clean_dhis_names not exported.#'
+#' @param data The dataset containing variables to be cleaned  
+#' @param column The column containing values to be cleaned espcially organization levels of DRC EPI
+#' @param has_prefix An integer specifying the number of characters of the prefix to be removed. Set to 0 if no prefix
+#' @param suffix A character value that specifies the suffix to be removed
+#'
+#' @return
+#' A dataframe with cleaned names
+
+clean_dhis_names_q <- function(data, column, has_prefix = 2,
+                               suffix = "(Province|Zone de Sant[e\u00e9]|Aire de Sant[e\u00e9]|Centre de Sant[e\u00e9])"){
+
+  column1 <- eval(column, setNames(as.list(names(data)), names(data)), parent.frame())
+
+  column <- column1
+
+  stopifnot(!is.null(data), !is.null(column), is.character(column), is.character(suffix), is.numeric(has_prefix), length(column) == 1)
+
+  if (!column %in% names(data)) stop("Column not found in data: ", column)
+
+  has_prefix <- as.integer(has_prefix)
+
+  suffix <- gsub("([.|()\\^{}+$*?]|\\[|\\]|\\\\)", "\\\\\\1", suffix)
+
+  string <- paste0("(^[A-Za-z]", "{", has_prefix,"})|(", suffix,"$)")
+
+  data[[column]] <- trimws(gsub(string, "", data[[column]], perl = TRUE), "both")
+
+  if(suffix == "") warning("No suffix was trimmed")
+
+  if(has_prefix == 0) warning("No prefix was trimmed")
+
+  return(data)
+
+
+}
+
+
+
+#' A function that removes DRC's DHIS 2 prefixes and suffixes  from a vector
+#'
+#' @param x A character vector to be cleaned especially organization levels of DRC EPI. More convenient to use within other functions
+#' @param has_prefix An integer specifying the number of characters of the prefix to be removed. Set to 0 if no prefix
+#' @param suffix A character value that specifies the suffix to be removed
+#'
+#' @return
+#' A character vector
+#' @export
+#'
+
+
+
+clean_names_dhis <- function(x, has_prefix = 2, 
+                             suffix = "(Province|Zone de Sant[e\u00e9]|Aire de Sant[e\u00e9]|Centre de Sant[e\u00e9])") {
+  stopifnot(is.character(x), !is.null(x),  is.character(suffix), is.numeric(has_prefix))
+  pattern <- paste0("(^[A-Za-z]{", has_prefix, "}\\s*)|(\\s*", suffix, "$)")
+
+  cleaned <- trimws(gsub(pattern, "", x, perl = TRUE))
+
+  return(cleaned)
+}
+
+
+
+
+
+```
+
+```{r examples-clean_dhis_names}
+
+datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
+
+vacc <- readRDS(datafile)
+clean_dhis_names(vacc, column = orgunitlevel2, has_prefix = 2, suffix = "Province")
+
+clean_names_dhis(vacc$orgunitlevel2,  has_prefix = 2,
+                 suffix = "(Province|Zone de Sant[e\u00e9]|Aire de Sant[e\u00e9]|Centre de Sant[e\u00e9])")
+```
+
+```{r tests-clean_dhis_names}
+datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
+
+pop <- readRDS(datafile)
+
+pop <- clean_dhis_names(pop, column = orgunitlevel3, has_prefix = 2, suffix = "Zone de Sante")
+
+
+
+
+test_that("clean_dhis_names removes all the suffixes", {
+  expect_true(sum(grepl("(Zone de Sante)$", pop$orgunitlevel1)) == 0)
+})
+```
+
+# Antenne
+
+
+```{r function-add_antennes}
+#' A function that adds DRC antennes to a dataset not having them
+#'
+#' @param data A dataset with no variable containing antennes, usually DHIS 2 datasets  
+#' @param dhis A boolean to indicate whether the dataset is from the DHIS 2, set to TRUE as default
+#' @param zone_sante A variable with health zones names if data are not from DHIS 2, set to NULL as default
+#' @param rename_antenne A logical to indicate renaming antennes following DHIS 2 standard 
+#'
+#' @return
+#' A dataframe with a variable with antennes
+#' @export
+#'
+
+add_antennes <- function(data, dhis = TRUE, zone_sante = NULL, rename_antenne = TRUE) {
+  stopifnot(!is.null(data), is.data.frame(data))
+  
+  if (!dhis) {
+    if (!dhis & missing(zone_sante)) {
+      stop("zone_sante variable not supplied as data are not from the DHIS 2")
+    }
+  }
+  
+  antennes <- get("antennes", "package:hpdDRC")
+  
+  if (!dhis && !missing(zone_sante)) zone_sante <- deparse1(substitute(zone_sante))
+  
+  if (!dhis) {
+    merged_data <- tryCatch({merge(data, antennes, by.x = zone_sante, by.y = "zonesante", rename_antenne = TRUE)}, 
+                            error = function(e) message("There is an error: ",e))
+    
+    return(merged_data)
+  }
+  
+  data$zs <- trimws(gsub("^[A-Za-z]{2}|Zone de Sant[e\u00e9]$", "", data[["orgunitlevel3"]]), "both")
+  
+  merged_data <- merge(data, antennes, by.x = "zs", by.y = "zonesante")
+  
+  merged_data$zs <- NULL
+  
+  if (rename_antenne) {
+    merged_data$orgunitlevel6 <- merged_data$Antenne
+    
+    merged_data$Antenne <- NULL
+    
+    cat("Antenne column is renamed orgunitlevel6")
+  }
+  
+  
+  return(merged_data)
+}
+
+
+```
+
+
+
+# Outbreak classification
+
+
+
+
+
+```{r function-is_outbreak}
+#' This is function returns TRUE after n successive TRUE and FALSE otherwise. This is a convenient function to classify areas with outbreak following consecutive
+#' positive cases of diseases recorded within n weeks.
+#' @param x an ordered logical vector 
+#' @param nwk a numeric value that specifies the window frame for the assessment of consecutive logical values of x 
+#' @return
+#' A logical vecor of similar length with x
+#' @export
+#'
+#' @examples
+
+is_outbreak <- function(x, nwk = 4) {
+  stopifnot(is.logical(x)|is.numeric(x))
+  if(is.numeric(x)){
+    x <- as.logical(x)
+    warning("x was coerced to logical")
+  }
+  if (anyNA(x)){
+    warning("NA values present; treated as FALSE")
+    x[is.na(x)] <- FALSE}
+
+  sapply(seq_along(x), function(i) {
+    sum(x[max((i - nwk + 1),0):i]) >= 3
+  })
+}
+
+
+
+```
+
+<!--
+Create a chunk with an example of use for your function
+
+- The chunk needs to be named `examples` at least
+- It contains working examples of your function
+- The chunk is better be named `examples-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This example will automatically be added in the '@examples' part of our function above in the "R/" directory
+- This example will automatically be added in the vignette created from this Rmd template
+-->
+
+```{r examples-is_outbreak}
+
+is_outbreak(c(TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE), 4)
+
+```
+
+<!--
+Create a chunk with a test of use for your function
+
+- The chunk needs to be named `tests` at least
+- It contains working tests of your function
+- The chunk is better be named `tests-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This test code will automatically be added in the "tests/testthat/" directory
+-->
+
+```{r tests-is_outbreak}
+
+x <- c(FALSE, TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE)
+
+test_that("is_outbreak  works properly and show error if needed", {
+  expect_equal(sum(is_outbreak(x)), 7)
+})
+
+```
+
+
+
+
+```{r function-district_epi}
+#' This is function is wrapper around is_outbreak to identify districts with an outbreak. 
+#' @param df A dataset with a weekly number of cases or a logical indication of a case detected
+#' @param district A variable containing districts names
+#' @param wk A numeric variable specifying the successive week numbers 
+#' @param status A logical or numeric variable with either indication of case recorded or the number of cases
+#' @param nwk A numeric value that specifies the window frame for the assessment of consecutive logical values of x 
+#' @param sorted A logical value to specify whether the dataset is ordered per week and district
+#' @param pre_yr A logical value to specify whether dataset contains data from the previous year
+#' @param year A numeric variable containing the year of the data
+#' @return
+#' A dataframe with an additional logical variable epi_status
+#' @export
+#'
+#' @examples
+district_epi <- function(df, district, wk, status, nwk = 4, sorted = FALSE, pre_yr = FALSE, year = NULL){
+
+  district <- deparse1(substitute(district))
+
+  wk <- deparse1(substitute(wk))
+
+  status <- deparse1(substitute(status))
+
+  if(!is.null(year))
+    year <- deparse1(substitute(year))
+
+  stopifnot(!is.null(df), !is.null(district), !is.null(wk), !is.null(status))
+
+
+  if(!sorted)
+    df <- df[order(df[[district]], df[[wk]]),]
+
+  if(pre_yr){
+    if(is.null(year))
+      stop("year must be specified if pre_yr is set to TRUE")
+    yr <- sort(unique(as.numeric(df[[year]])))
+    if (length(yr) != 2)
+      stop("pre_yr = TRUE requires exactly two distinct years in the dataset.")
+    if((yr[2] - 1)!= yr[1])
+      stop("Years are not consecutive")
+
+    pre <- df[df[[year]] == yr[1]]
+
+    current <- df[df[[year]] == yr[2]]
+
+    pre <- pre[order(pre[[district]], pre[[wk]]),]
+
+    current <- current[order(current[[district]], current[[wk]]),]
+
+    df <- rbind(pre, current)}
+
+
+
+  sp <- split(df, df[[district]])
+
+
+  for (i in 1:length(sp)){
+
+    sp[[i]][["epi_status"]] <- is_outbreak(sp[[i]][[status]], nwk = nwk)
+
+  }
+
+  epi_districts <- do.call(rbind, sp)
+
+  row.names(epi_districts) <- NULL
+
+  return(epi_districts)
+
+
+}
+
+
+```
+
+<!--
+Create a chunk with an example of use for your function
+
+- The chunk needs to be named `examples` at least
+- It contains working examples of your function
+- The chunk is better be named `examples-my_median` to be handled
+correctly when inflated as a vignette
+
+After inflating the template
+
+-  This example will automatically be added in the '@examples' part of our function above in the "R/" directory
+- This example will automatically be added in the vignette created from this Rmd template
+-->
+
+```{r examples-district_epi}
+
+df <- data.frame(district = c(rep("A", 4), rep("B", 5)),
+                 week = c(1:4, 1:5), 
+                 status = c(TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE))
+
+district_epi(df, district, week, status, 3, sorted = TRUE)
+
+```
+
+
+
+# Data 
+
+
+```{r function-pop2024}
+#' A dataset containing DRC's 2024 target immunization populations at health districts levels
+#'
+#' @format A data frame with 519 observations and 6 variables:
+#' \describe{
+#'\item{orgunitlevel2}{character; Province}
+#'\item{orgunitlevel3}{character; Zone de santé (health district)  }
+#'\item{naissance_mois_admin}{numeric; monthly number of livebirths}
+#'\item{survivants_mois_admin}{numeric; monthly number of surviving children}
+#'\item{naissance_mois_ajust}{numeric; monthly number of livebirths ajusted}
+#'\item{survivant_mois_ajust}{numeric; monthly number of surviving children ajusted}
+#'\item{orgunitlevel6}{character; antenne}
+#' }
+#' @source Programme Élargie de Vaccination de RDC.
+"pop2024"
+
+```
+
+
+
+```{r function-pop2025}
+#' A dataset containing DRC's 2025 target immunization populations at health districts levels
+#'
+#' @format A data frame with 519 observations and 6 variables:
+#' \describe{
+#'\item{orgunitlevel2}{character; Province}
+#'\item{orgunitlevel3}{character; Zone de santé (health district)  }
+#'\item{naissance_mois_admin}{numeric; monthly number of livebirths}
+#'\item{survivants_mois_admin}{numeric; monthly number of surviving children}
+#'\item{naissance_mois_ajust}{numeric; monthly number of livebirths ajusted}
+#'\item{survivant_mois_ajust}{numeric; monthly number of surviving children ajusted}
+#'\item{orgunitlevel6}{character; antenne}
+#' }
+#' @source Programme Élargie de Vaccination de RDC.
+"pop2025"
+
+```
+
+
+
+```{r function-pop2026}
+#' A dataset containing DRC's 2024 target immunization populations at health districts levels
+#'
+#' @format A data frame with 519 observations and 6 variables:
+#' \describe{
+#'\item{orgunitlevel2}{character; Province}
+#'\item{orgunitlevel3}{character; Zone de santé (health district)  }
+#'\item{naissance_mois_admin}{numeric; monthly number of livebirths}
+#'\item{survivants_mois_admin}{numeric; monthly number of surviving children}
+#'\item{naissance_mois_ajust}{numeric; monthly number of livebirths ajusted}
+#'\item{survivant_mois_ajust}{numeric; monthly number of surviving children ajusted}
+#'\item{orgunitlevel6}{character; antenne}
+#' }
+#' @source Programme Élargie de Vaccination de RDC.
+"pop2026"
+
+```
+
+
+
+
+```{r function-antennes}
+#' A dataset containing DRC's health antennas and health districts
+#'
+#' @format A data frame with 519 observations and 3 variables:
+#' \describe{
+#'\item{province}{character; provinces}
+#'\item{antenne}{character; health antennas}
+#'\item{zonesante}{character; health zones}
+#' }
+#' @source Programme Élargie de Vaccination de RDC.
+"antennes"
+```
+
+
+```{r function-vacc_data}
+#' A dataset with simulated DHIS 2 imuundata containing DRC's health antennas and health districts
+#' Please refer to DHIS 2 for a complete codebook of the data
+#' @format A data frame with 1000 observations and 225 variables:
+#' @source Programme Élargie de Vaccination de RDC.
+"vacc_data"
+```
+
+
+```{r function-shape}
+#' A dataset with the DRC shapefile at health zone level, necessitate the sf package to load.
+#' @format A data frame with 519 observations and 5 variables:
+#' \describe{
+#'\item{pays}{character}
+#'\item{province}{character}
+#'\item{antenne}{character}
+#'\item{zonesante}{character}
+#'\item{SHAPE}{multipolygon}
+#' }
+#' @source GRID-3.
+"shape"
+```
+
+
+
+
+
+
 
 <!--
 # There can be development actions
