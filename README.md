@@ -1,13 +1,19 @@
+---
+output: github_document
+---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+
+
 
 # pevrdc
 
 <!-- badges: start -->
-
+[![R-CMD-check](https://github.com/benguimbis/pevrdc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benguimbis/pevrdc/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/benguimbis/pevrdc/graph/badge.svg)](https://app.codecov.io/gh/benguimbis/pevrdc)
 <!-- badges: end -->
 
-The goal of pevrdc is to …
+The goal of pevrdc is to ...
 
 ## Installation
 
@@ -17,17 +23,22 @@ You can install the development version of pevrdc like so:
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
 
+## Documentation
+
+Full documentation website on: https://benguimbis.github.io/pevrdc
+
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
+
 
 ``` r
 library(pevrdc)
 ## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
 
 ``` r
 summary(cars)
@@ -40,12 +51,13 @@ summary(cars)
 #>  Max.   :25.0   Max.   :120.00
 ```
 
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date. `devtools::build_readme()` is handy for this.
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
 
 You can also embed plots, for example:
 
-<img src="man/figures/README-pressure-1.png" alt="" width="100%" />
+<div class="figure">
+<img src="man/figures/README-pressure-1.png" alt="plot of chunk pressure" width="100%" />
+<p class="caption">plot of chunk pressure</p>
+</div>
 
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

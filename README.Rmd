@@ -16,6 +16,8 @@ knitr::opts_chunk$set(
 # pevrdc
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/benguimbis/pevrdc/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/benguimbis/pevrdc/actions/workflows/R-CMD-check.yaml)
+[![Codecov test coverage](https://codecov.io/gh/benguimbis/pevrdc/graph/badge.svg)](https://app.codecov.io/gh/benguimbis/pevrdc)
 <!-- badges: end -->
 
 The goal of pevrdc is to ...
@@ -27,6 +29,10 @@ You can install the development version of pevrdc like so:
 ``` r
 # FILL THIS IN! HOW CAN PEOPLE INSTALL YOUR DEV PACKAGE?
 ```
+
+## Documentation
+
+Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Example
 
