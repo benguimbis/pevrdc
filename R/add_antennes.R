@@ -21,7 +21,7 @@ add_antennes <- function(data, dhis = TRUE, zone_sante = NULL, rename_antenne = 
     }
   }
   
-  antennes <- get("antennes", "package:hpdDRC")
+  antennes <- get("antennes", "package:pevrdc")
   
   if (!dhis && !missing(zone_sante)) zone_sante <- deparse1(substitute(zone_sante))
   
