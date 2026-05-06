@@ -39,9 +39,9 @@ add_antennes <- function(data, dhis = TRUE, zone_sante = NULL, rename_antenne = 
   merged_data$zs <- NULL
   
   if (rename_antenne) {
-    merged_data$orgunitlevel6 <- merged_data$Antenne
+    merged_data$orgunitlevel6 <- merged_data$antenne
     
-    merged_data$Antenne <- NULL
+    merged_data$antenne <- NULL
     
     cat("Antenne column is renamed orgunitlevel6")
   }
