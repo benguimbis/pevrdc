@@ -64,6 +64,7 @@ A dataframe with an additional logical variable epi_status
 ## Examples
 
 ``` r
+
 df <- data.frame(district = c(rep("A", 4), rep("B", 5)),
                  week = c(1:4, 1:5), 
                  status = c(TRUE, FALSE, TRUE, TRUE, FALSE, TRUE, TRUE, TRUE, FALSE))

@@ -40,6 +40,7 @@ A dataframe with cleaned names
 ## Examples
 
 ``` r
+
 datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile)

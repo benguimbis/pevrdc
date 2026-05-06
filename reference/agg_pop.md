@@ -38,6 +38,7 @@ A dataframe of aggregated populations
 ## Examples
 
 ``` r
+
 datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
 
 pops <- readRDS(datafile)

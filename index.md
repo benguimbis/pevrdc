@@ -11,9 +11,14 @@ You can install the development version of hpdRDC from
 [GitHub](https://github.com/) with:
 
 ``` r
+
 # install.packages("pak")
 pak::pak("benguimbis/pevrdc")
 ```
+
+Full documentation website on: <https://benguimbis.github.io/pevrdc>
+
+## Documentation
 
 Full documentation website on: <https://benguimbis.github.io/pevrdc>
 
@@ -27,6 +32,7 @@ Here we show to compute the the target administrative population for
 march 2026 by province.
 
 ``` r
+
 library(pevrdc)
 ## Computing the aggregated target on march
 

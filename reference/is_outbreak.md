@@ -29,6 +29,7 @@ A logical vecor of similar length with x
 ## Examples
 
 ``` r
+
 is_outbreak(c(TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE), 4)
 #> [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
 ```

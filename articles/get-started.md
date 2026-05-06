@@ -1,6 +1,7 @@
 # Get started
 
 ``` r
+
 library(pevrdc)
 ```
 
@@ -9,6 +10,7 @@ library(pevrdc)
 ## Removing accents from character values stored in variables of DHIS2 datasets
 
 ``` r
+
 datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile)
@@ -58759,6 +58761,7 @@ correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 ## Tally of vaccinated
 
 ``` r
+
 datafile <- system.file(c("vacc_data.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile)
@@ -58871,6 +58874,7 @@ vaccine_sums(vacc, DTC1, District, 2)
 
 ``` r
 
+
 datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
 
 pops <- readRDS(datafile)
@@ -58936,6 +58940,7 @@ agg_pop_2("naissance_mois_admin", "orgunitlevel2", month = 8, pops = pops)
 ## Vaccine Coverage
 
 ``` r
+
 datafile <- system.file(c("vacc_data.RDS", "pop2025.RDS"), package = "pevrdc")
 
 vacc <- readRDS(datafile[1])
@@ -58956,6 +58961,7 @@ vaccine_coverage(vacc_tots, DTC1, District, month = 2, pops = pops)
 ### Use sub-functions in the same chunk
 
 ``` r
+
 
 datafile <- system.file(c("pop2025.RDS"), package = "pevrdc")
 
@@ -60675,11 +60681,13 @@ clean_names_dhis(vacc$orgunitlevel2,  has_prefix = 2,
 
 ``` r
 
+
 is_outbreak(c(TRUE, FALSE, TRUE, TRUE, TRUE, TRUE, TRUE), 4)
 #> [1] FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
 ```
 
 ``` r
+
 
 df <- data.frame(district = c(rep("A", 4), rep("B", 5)),
                  week = c(1:4, 1:5), 
