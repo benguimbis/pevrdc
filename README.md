@@ -25,15 +25,10 @@ pak::pak("benguimbis/pevrdc")
 ```
 
 
-Full documentation website on: https://benguimbis.github.io/pevrdc
-
 ## Documentation
 
 Full documentation website on: https://benguimbis.github.io/pevrdc
 
-## Documentation
-
-Full documentation website on: https://benguimbis.github.io/pevrdc
 
 ## Documentation
 

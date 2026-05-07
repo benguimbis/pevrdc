@@ -218,7 +218,7 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
   vacc_name <- vaccine1
   vaccine <- vacc_list[vaccine1]
   # Adding antenna
-  if (any(grepl("Antenne", names(level)))) {
+  if ( "orgunitlevel6" %in% level ) {
     # Adding antenna
     data <- add_antennes(data, dhis = TRUE)
     message("Antennes were added to the data")
