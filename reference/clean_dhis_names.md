@@ -1094,529 +1094,529 @@ clean_dhis_names(vacc, column = orgunitlevel2, has_prefix = 2, suffix = "Provinc
 #> 522             850.0000              546.5833             452.4167
 #> 523             437.8333              411.4167             315.3333
 #>       orgunitlevel6                    orgunitlevel1
-#> 1             Isiro Republique democratique du Congo
-#> 2         Gbadolite Republique democratique du Congo
-#> 3               Aru Republique democratique du Congo
-#> 4               Aru Republique democratique du Congo
-#> 5              Buta Republique democratique du Congo
-#> 6           Butembo Republique democratique du Congo
-#> 7             Kindu Republique democratique du Congo
-#> 8              Buta Republique democratique du Congo
-#> 9               Aru Republique democratique du Congo
-#> 10           Kabalo Republique democratique du Congo
-#> 11              Aru Republique democratique du Congo
-#> 12              Aru Republique democratique du Congo
-#> 13              Aru Republique democratique du Congo
-#> 14        Kisangani Republique democratique du Congo
-#> 15        Kisangani Republique democratique du Congo
-#> 16         Bandundu Republique democratique du Congo
-#> 17           Bukavu Republique democratique du Congo
-#> 18           Kamina Republique democratique du Congo
-#> 19             Goma Republique democratique du Congo
-#> 20            Bunia Republique democratique du Congo
-#> 21        Kisangani Republique democratique du Congo
-#> 22   Kinshasa Ouest Republique democratique du Congo
-#> 23         Bandundu Republique democratique du Congo
-#> 24         Tshikapa Republique democratique du Congo
-#> 25           Gemena Republique democratique du Congo
-#> 26           Inongo Republique democratique du Congo
-#> 27   Kinshasa Ouest Republique democratique du Congo
-#> 28           Lokutu Republique democratique du Congo
-#> 29         Mbandaka Republique democratique du Congo
-#> 30           Lokutu Republique democratique du Congo
-#> 31           Boende Republique democratique du Congo
-#> 32            Lodja Republique democratique du Congo
-#> 33          Kananga Republique democratique du Congo
-#> 34          Kananga Republique democratique du Congo
-#> 35        Kisangani Republique democratique du Congo
-#> 36          Butembo Republique democratique du Congo
-#> 37       Mbuji Mayi Republique democratique du Congo
-#> 38          Butembo Republique democratique du Congo
-#> 39         Mbandaka Republique democratique du Congo
-#> 40             Buta Republique democratique du Congo
-#> 41        Gbadolite Republique democratique du Congo
-#> 42             Buta Republique democratique du Congo
-#> 43        Gbadolite Republique democratique du Congo
-#> 44          Kananga Republique democratique du Congo
-#> 45           Lisala Republique democratique du Congo
-#> 46             Goma Republique democratique du Congo
-#> 47   Kinshasa Ouest Republique democratique du Congo
-#> 48   Kinshasa Ouest Republique democratique du Congo
-#> 49       Mbuji Mayi Republique democratique du Congo
-#> 50             Goma Republique democratique du Congo
-#> 51              Aru Republique democratique du Congo
-#> 52     Kinshasa Est Republique democratique du Congo
-#> 53          Kananga Republique democratique du Congo
-#> 54           Boende Republique democratique du Congo
-#> 55            Bunia Republique democratique du Congo
-#> 56           Gemena Republique democratique du Congo
-#> 57            Kenge Republique democratique du Congo
-#> 58    Mbanza Ngungu Republique democratique du Congo
-#> 59           Gemena Republique democratique du Congo
-#> 60            Nioki Republique democratique du Congo
-#> 61          Bokungu Republique democratique du Congo
-#> 62         Mbandaka Republique democratique du Congo
-#> 63            Nioki Republique democratique du Congo
-#> 64         Mbandaka Republique democratique du Congo
-#> 65             Boma Republique democratique du Congo
-#> 66             Boma Republique democratique du Congo
-#> 67            Isiro Republique democratique du Congo
-#> 68           Gemena Republique democratique du Congo
-#> 69         Mbandaka Republique democratique du Congo
-#> 70             Buta Republique democratique du Congo
-#> 71           Lisala Republique democratique du Congo
-#> 72       Mbuji Mayi Republique democratique du Congo
-#> 73           Lisala Republique democratique du Congo
-#> 74           Lisala Republique democratique du Congo
-#> 75            Nioki Republique democratique du Congo
-#> 76        Gbadolite Republique democratique du Congo
-#> 77           Lisala Republique democratique du Congo
-#> 78           Gemena Republique democratique du Congo
-#> 79           Gemena Republique democratique du Congo
-#> 80   Kabondo Dianda Republique democratique du Congo
-#> 81            Mweka Republique democratique du Congo
-#> 82           Gemena Republique democratique du Congo
-#> 83           Kikwit Republique democratique du Congo
-#> 84            Bumba Republique democratique du Congo
-#> 85  Kinshasa Centre Republique democratique du Congo
-#> 86            Bunia Republique democratique du Congo
-#> 87          Kolwezi Republique democratique du Congo
-#> 88          Kananga Republique democratique du Congo
-#> 89           Bukavu Republique democratique du Congo
-#> 90          Bokungu Republique democratique du Congo
-#> 91        Gbadolite Republique democratique du Congo
-#> 92             Buta Republique democratique du Congo
-#> 93          Butembo Republique democratique du Congo
-#> 94   Kabondo Dianda Republique democratique du Congo
-#> 95           Gemena Republique democratique du Congo
-#> 96       Mbuji Mayi Republique democratique du Congo
-#> 97       Mbuji Mayi Republique democratique du Congo
-#> 98            Bunia Republique democratique du Congo
-#> 99            Mweka Republique democratique du Congo
-#> 100         Kananga Republique democratique du Congo
-#> 101         Kananga Republique democratique du Congo
-#> 102      Mbuji Mayi Republique democratique du Congo
-#> 103         Tshumbe Republique democratique du Congo
-#> 104         Kolwezi Republique democratique du Congo
-#> 105         Kisenge Republique democratique du Congo
-#> 106      Mbuji Mayi Republique democratique du Congo
-#> 107           Lodja Republique democratique du Congo
-#> 108          Boende Republique democratique du Congo
-#> 109        Mbandaka Republique democratique du Congo
-#> 110        Bandundu Republique democratique du Congo
-#> 111           Isiro Republique democratique du Congo
-#> 112           Bunia Republique democratique du Congo
-#> 113           Isiro Republique democratique du Congo
-#> 114           Isiro Republique democratique du Congo
-#> 115           Bunia Republique democratique du Congo
-#> 116          Lubutu Republique democratique du Congo
-#> 117           Kenge Republique democratique du Congo
-#> 118           Uvira Republique democratique du Congo
-#> 119         Kolwezi Republique democratique du Congo
-#> 120            Buta Republique democratique du Congo
-#> 121       Gbadolite Republique democratique du Congo
-#> 122          Gemena Republique democratique du Congo
-#> 123           Bunia Republique democratique du Congo
-#> 124            Goma Republique democratique du Congo
-#> 125           Isiro Republique democratique du Congo
-#> 126  Kinshasa Ouest Republique democratique du Congo
-#> 127   Mbanza Ngungu Republique democratique du Congo
-#> 128          Kikwit Republique democratique du Congo
-#> 129           Uvira Republique democratique du Congo
-#> 130          Bukavu Republique democratique du Congo
-#> 131        Mbandaka Republique democratique du Congo
-#> 132          Kikwit Republique democratique du Congo
-#> 133          Bukavu Republique democratique du Congo
-#> 134         Bokungu Republique democratique du Congo
-#> 135           Mweka Republique democratique du Congo
-#> 136          Matadi Republique democratique du Congo
-#> 137        Mbandaka Republique democratique du Congo
-#> 138          Inongo Republique democratique du Congo
-#> 139          Kikwit Republique democratique du Congo
-#> 140        Mbandaka Republique democratique du Congo
-#> 141          Lokutu Republique democratique du Congo
-#> 142           Isiro Republique democratique du Congo
-#> 143            Goma Republique democratique du Congo
-#> 144           Uvira Republique democratique du Congo
-#> 145           Bunia Republique democratique du Congo
-#> 146          Kabalo Republique democratique du Congo
-#> 147         Kasongo Republique democratique du Congo
-#> 148          Bukavu Republique democratique du Congo
-#> 149      Mbuji Mayi Republique democratique du Congo
-#> 150         Kabinda Republique democratique du Congo
-#> 151       Kisangani Republique democratique du Congo
-#> 152  Kabondo Dianda Republique democratique du Congo
-#> 153          Kamina Republique democratique du Congo
-#> 154          Bukavu Republique democratique du Congo
-#> 155         Kisenge Republique democratique du Congo
-#> 156      Lubumbashi Republique democratique du Congo
-#> 157         Kahemba Republique democratique du Congo
-#> 158           Kindu Republique democratique du Congo
-#> 159         Kahemba Republique democratique du Congo
-#> 160           Mweka Republique democratique du Congo
-#> 161         Kisenge Republique democratique du Congo
-#> 162         Kabinda Republique democratique du Congo
-#> 163 Kinshasa Centre Republique democratique du Congo
-#> 164 Kinshasa Centre Republique democratique du Congo
-#> 165          Bukavu Republique democratique du Congo
-#> 166         Kalemie Republique democratique du Congo
-#> 167       Mweneditu Republique democratique du Congo
-#> 168           Kindu Republique democratique du Congo
-#> 169          Bukavu Republique democratique du Congo
-#> 170           Luiza Republique democratique du Congo
-#> 171         Kabinda Republique democratique du Congo
-#> 172        Tshikapa Republique democratique du Congo
-#> 173          Bukavu Republique democratique du Congo
-#> 174         Butembo Republique democratique du Congo
-#> 175      Lubumbashi Republique democratique du Congo
-#> 176         Kabinda Republique democratique du Congo
-#> 177         Butembo Republique democratique du Congo
-#> 178             Aru Republique democratique du Congo
-#> 179          Likasi Republique democratique du Congo
-#> 180       Mweneditu Republique democratique du Congo
-#> 181          Kamina Republique democratique du Congo
-#> 182          Bukavu Republique democratique du Congo
-#> 183        Tshikapa Republique democratique du Congo
-#> 184      Lubumbashi Republique democratique du Congo
-#> 185         Kasongo Republique democratique du Congo
-#> 186        Tshikapa Republique democratique du Congo
-#> 187         Kananga Republique democratique du Congo
-#> 188       Mweneditu Republique democratique du Congo
-#> 189            Boma Republique democratique du Congo
-#> 190          Kamina Republique democratique du Congo
-#> 191          Bukavu Republique democratique du Congo
-#> 192      Mbuji Mayi Republique democratique du Congo
-#> 193         Kalemie Republique democratique du Congo
-#> 194        Tshikapa Republique democratique du Congo
-#> 195         Kolwezi Republique democratique du Congo
-#> 196         Kisenge Republique democratique du Congo
-#> 197          Likasi Republique democratique du Congo
-#> 198       Gbadolite Republique democratique du Congo
-#> 199            Goma Republique democratique du Congo
-#> 200 Kinshasa Centre Republique democratique du Congo
-#> 201         Kisenge Republique democratique du Congo
-#> 202      Mbuji Mayi Republique democratique du Congo
-#> 203      Lubumbashi Republique democratique du Congo
-#> 204      Lubumbashi Republique democratique du Congo
-#> 205         Kasongo Republique democratique du Congo
-#> 206           Kenge Republique democratique du Congo
-#> 207           Lodja Republique democratique du Congo
-#> 208          Bukavu Republique democratique du Congo
-#> 209         Kananga Republique democratique du Congo
-#> 210         Kananga Republique democratique du Congo
-#> 211            Goma Republique democratique du Congo
-#> 212      Lubumbashi Republique democratique du Congo
-#> 213         Butembo Republique democratique du Congo
-#> 214          Kamina Republique democratique du Congo
-#> 215            Goma Republique democratique du Congo
-#> 216          Bukavu Republique democratique du Congo
-#> 217           Kenge Republique democratique du Congo
-#> 218      Lubumbashi Republique democratique du Congo
-#> 219          Kabalo Republique democratique du Congo
-#> 220            Goma Republique democratique du Congo
-#> 221         Kasongo Republique democratique du Congo
-#> 222            Goma Republique democratique du Congo
-#> 223          Matadi Republique democratique du Congo
-#> 224    Kinshasa Est Republique democratique du Congo
-#> 225        Bandundu Republique democratique du Congo
-#> 226          Likasi Republique democratique du Congo
-#> 227          Kikwit Republique democratique du Congo
-#> 228          Kikwit Republique democratique du Congo
-#> 229          Likasi Republique democratique du Congo
-#> 230           Bunia Republique democratique du Congo
-#> 231      Lubumbashi Republique democratique du Congo
-#> 232    Kinshasa Est Republique democratique du Congo
-#> 233           Kenge Republique democratique du Congo
-#> 234           Uvira Republique democratique du Congo
-#> 235   Mbanza Ngungu Republique democratique du Congo
-#> 236   Mbanza Ngungu Republique democratique du Congo
-#> 237          Kikwit Republique democratique du Congo
-#> 238   Mbanza Ngungu Republique democratique du Congo
-#> 239          Kamina Republique democratique du Congo
-#> 240           Kindu Republique democratique du Congo
-#> 241 Kinshasa Centre Republique democratique du Congo
-#> 242          Kikwit Republique democratique du Congo
-#> 243    Kinshasa Est Republique democratique du Congo
-#> 244  Kabondo Dianda Republique democratique du Congo
-#> 245            Boma Republique democratique du Congo
-#> 246  Kinshasa Ouest Republique democratique du Congo
-#> 247  Kinshasa Ouest Republique democratique du Congo
-#> 248      Lubumbashi Republique democratique du Congo
-#> 249          Inongo Republique democratique du Congo
-#> 250            Goma Republique democratique du Congo
-#> 251      Lubumbashi Republique democratique du Congo
-#> 252         Kahemba Republique democratique du Congo
-#> 253   Mbanza Ngungu Republique democratique du Congo
-#> 254 Kinshasa Centre Republique democratique du Congo
-#> 255        Tshikapa Republique democratique du Congo
-#> 256           Kenge Republique democratique du Congo
-#> 257          Kamina Republique democratique du Congo
-#> 258            Boma Republique democratique du Congo
-#> 259          Bukavu Republique democratique du Congo
-#> 260            Boma Republique democratique du Congo
-#> 261  Kinshasa Ouest Republique democratique du Congo
-#> 262           Lodja Republique democratique du Congo
-#> 263           Bunia Republique democratique du Congo
-#> 264          Kabalo Republique democratique du Congo
-#> 265          Kikwit Republique democratique du Congo
-#> 266      Lubumbashi Republique democratique du Congo
-#> 267            Boma Republique democratique du Congo
-#> 268         Kasongo Republique democratique du Congo
-#> 269          Gemena Republique democratique du Congo
-#> 270           Nioki Republique democratique du Congo
-#> 271   Mbanza Ngungu Republique democratique du Congo
-#> 272         Butembo Republique democratique du Congo
-#> 273             Aru Republique democratique du Congo
-#> 274 Kinshasa Centre Republique democratique du Congo
-#> 275           Uvira Republique democratique du Congo
-#> 276          Gemena Republique democratique du Congo
-#> 277          Likasi Republique democratique du Congo
-#> 278            Buta Republique democratique du Congo
-#> 279        Mbandaka Republique democratique du Congo
-#> 280 Kinshasa Centre Republique democratique du Congo
-#> 281           Bunia Republique democratique du Congo
-#> 282          Boende Republique democratique du Congo
-#> 283  Kinshasa Ouest Republique democratique du Congo
-#> 284          Lisala Republique democratique du Congo
-#> 285           Bunia Republique democratique du Congo
-#> 286           Lodja Republique democratique du Congo
-#> 287             Aru Republique democratique du Congo
-#> 288       Gbadolite Republique democratique du Congo
-#> 289           Bumba Republique democratique du Congo
-#> 290           Bunia Republique democratique du Congo
-#> 291           Lodja Republique democratique du Congo
-#> 292        Mbandaka Republique democratique du Congo
-#> 293       Kisangani Republique democratique du Congo
-#> 294         Kolwezi Republique democratique du Congo
-#> 295           Luiza Republique democratique du Congo
-#> 296         Kabinda Republique democratique du Congo
-#> 297         Butembo Republique democratique du Congo
-#> 298      Mbuji Mayi Republique democratique du Congo
-#> 299         Kananga Republique democratique du Congo
-#> 300         Kolwezi Republique democratique du Congo
-#> 301      Lubumbashi Republique democratique du Congo
-#> 302         Kananga Republique democratique du Congo
-#> 303       Kisangani Republique democratique du Congo
-#> 304         Kananga Republique democratique du Congo
-#> 305       Kisangani Republique democratique du Congo
-#> 306          Lubutu Republique democratique du Congo
-#> 307         Kabinda Republique democratique du Congo
-#> 308           Mweka Republique democratique du Congo
-#> 309           Luiza Republique democratique du Congo
-#> 310      Lubumbashi Republique democratique du Congo
-#> 311      Mbuji Mayi Republique democratique du Congo
-#> 312        Mbandaka Republique democratique du Congo
-#> 313         Kananga Republique democratique du Congo
-#> 314            Boma Republique democratique du Congo
-#> 315          Bukavu Republique democratique du Congo
-#> 316          Matadi Republique democratique du Congo
-#> 317       Mweneditu Republique democratique du Congo
-#> 318           Lodja Republique democratique du Congo
-#> 319          Kikwit Republique democratique du Congo
-#> 320         Kasongo Republique democratique du Congo
-#> 321  Kabondo Dianda Republique democratique du Congo
-#> 322         Butembo Republique democratique du Congo
-#> 323             Aru Republique democratique du Congo
-#> 324 Kinshasa Centre Republique democratique du Congo
-#> 325        Mbandaka Republique democratique du Congo
-#> 326       Kisangani Republique democratique du Congo
-#> 327           Watsa Republique democratique du Congo
-#> 328       Mweneditu Republique democratique du Congo
-#> 329  Kabondo Dianda Republique democratique du Congo
-#> 330    Kinshasa Est Republique democratique du Congo
-#> 331    Kinshasa Est Republique democratique du Congo
-#> 332           Bunia Republique democratique du Congo
-#> 333        Mbandaka Republique democratique du Congo
-#> 334           Bunia Republique democratique du Congo
-#> 335           Bunia Republique democratique du Congo
-#> 336          Matadi Republique democratique du Congo
-#> 337       Kisangani Republique democratique du Congo
-#> 338         Butembo Republique democratique du Congo
-#> 339         Kolwezi Republique democratique du Congo
-#> 340          Kabalo Republique democratique du Congo
-#> 341         Butembo Republique democratique du Congo
-#> 342          Kikwit Republique democratique du Congo
-#> 343    Kinshasa Est Republique democratique du Congo
-#> 344    Kinshasa Est Republique democratique du Congo
-#> 345            Goma Republique democratique du Congo
-#> 346   Mbanza Ngungu Republique democratique du Congo
-#> 347           Luiza Republique democratique du Congo
-#> 348          Matadi Republique democratique du Congo
-#> 349 Kinshasa Centre Republique democratique du Congo
-#> 350          Gemena Republique democratique du Congo
-#> 351        Mbandaka Republique democratique du Congo
-#> 352   Mbanza Ngungu Republique democratique du Congo
-#> 353          Gemena Republique democratique du Congo
-#> 354          Kabalo Republique democratique du Congo
-#> 355      Mbuji Mayi Republique democratique du Congo
-#> 356         Kananga Republique democratique du Congo
-#> 357           Mweka Republique democratique du Congo
-#> 358          Inongo Republique democratique du Congo
-#> 359           Uvira Republique democratique du Congo
-#> 360         Tshumbe Republique democratique du Congo
-#> 361          Bukavu Republique democratique du Congo
-#> 362          Bukavu Republique democratique du Congo
-#> 363          Likasi Republique democratique du Congo
-#> 364          Kikwit Republique democratique du Congo
-#> 365         Kalemie Republique democratique du Congo
-#> 366       Gbadolite Republique democratique du Congo
-#> 367          Kikwit Republique democratique du Congo
-#> 368          Boende Republique democratique du Congo
-#> 369         Bokungu Republique democratique du Congo
-#> 370            Buta Republique democratique du Congo
-#> 371           Bunia Republique democratique du Congo
-#> 372        Mbandaka Republique democratique du Congo
-#> 373          Boende Republique democratique du Congo
-#> 374  Kinshasa Ouest Republique democratique du Congo
-#> 375  Kinshasa Ouest Republique democratique du Congo
-#> 376          Kikwit Republique democratique du Congo
-#> 377      Mbuji Mayi Republique democratique du Congo
-#> 378            Boma Republique democratique du Congo
-#> 379          Bukavu Republique democratique du Congo
-#> 380         Kananga Republique democratique du Congo
-#> 381          Likasi Republique democratique du Congo
-#> 382  Kabondo Dianda Republique democratique du Congo
-#> 383          Kikwit Republique democratique du Congo
-#> 384      Mbuji Mayi Republique democratique du Congo
-#> 385  Kabondo Dianda Republique democratique du Congo
-#> 386         Kabinda Republique democratique du Congo
-#> 387          Bukavu Republique democratique du Congo
-#> 388      Lubumbashi Republique democratique du Congo
-#> 389          Kikwit Republique democratique du Congo
-#> 390           Mweka Republique democratique du Congo
-#> 391           Nioki Republique democratique du Congo
-#> 392         Butembo Republique democratique du Congo
-#> 393        Tshikapa Republique democratique du Congo
-#> 394         Kananga Republique democratique du Congo
-#> 395         Kolwezi Republique democratique du Congo
-#> 396         Butembo Republique democratique du Congo
-#> 397      Mbuji Mayi Republique democratique du Congo
-#> 398          Bukavu Republique democratique du Congo
-#> 399           Mweka Republique democratique du Congo
-#> 400           Kenge Republique democratique du Congo
-#> 401       Mweneditu Republique democratique du Congo
-#> 402          Bukavu Republique democratique du Congo
-#> 403            Goma Republique democratique du Congo
-#> 404          Gemena Republique democratique du Congo
-#> 405         Kananga Republique democratique du Congo
-#> 406         Kananga Republique democratique du Congo
-#> 407    Kinshasa Est Republique democratique du Congo
-#> 408           Mweka Republique democratique du Congo
-#> 409 Kinshasa Centre Republique democratique du Congo
-#> 410         Kabinda Republique democratique du Congo
-#> 411   Mbanza Ngungu Republique democratique du Congo
-#> 412 Kinshasa Centre Republique democratique du Congo
-#> 413           Bunia Republique democratique du Congo
-#> 414           Isiro Republique democratique du Congo
-#> 415           Nioki Republique democratique du Congo
-#> 416           Bunia Republique democratique du Congo
-#> 417    Kinshasa Est Republique democratique du Congo
-#> 418   Mbanza Ngungu Republique democratique du Congo
-#> 419          Matadi Republique democratique du Congo
-#> 420          Inongo Republique democratique du Congo
-#> 421        Mbandaka Republique democratique du Congo
-#> 422           Uvira Republique democratique du Congo
-#> 423        Tshikapa Republique democratique du Congo
-#> 424          Bukavu Republique democratique du Congo
-#> 425           Bunia Republique democratique du Congo
-#> 426          Bukavu Republique democratique du Congo
-#> 427             Aru Republique democratique du Congo
-#> 428         Kalemie Republique democratique du Congo
-#> 429            Goma Republique democratique du Congo
-#> 430         Kalemie Republique democratique du Congo
-#> 431      Mbuji Mayi Republique democratique du Congo
-#> 432          Matadi Republique democratique du Congo
-#> 433          Lubutu Republique democratique du Congo
-#> 434         Butembo Republique democratique du Congo
-#> 435           Lodja Republique democratique du Congo
-#> 436       Kisangani Republique democratique du Congo
-#> 437       Kisangani Republique democratique du Congo
-#> 438          Inongo Republique democratique du Congo
-#> 439           Lodja Republique democratique du Congo
-#> 440          Likasi Republique democratique du Congo
-#> 441           Kindu Republique democratique du Congo
-#> 442         Tshumbe Republique democratique du Congo
-#> 443         Kahemba Republique democratique du Congo
-#> 444           Isiro Republique democratique du Congo
-#> 445          Kikwit Republique democratique du Congo
-#> 446          Inongo Republique democratique du Congo
-#> 447          Lisala Republique democratique du Congo
-#> 448            Goma Republique democratique du Congo
-#> 449            Buta Republique democratique du Congo
-#> 450  Kinshasa Ouest Republique democratique du Congo
-#> 451           Kenge Republique democratique du Congo
-#> 452          Lubutu Republique democratique du Congo
-#> 453      Lubumbashi Republique democratique du Congo
-#> 454           Bunia Republique democratique du Congo
-#> 455             Aru Republique democratique du Congo
-#> 456      Lubumbashi Republique democratique du Congo
-#> 457           Isiro Republique democratique du Congo
-#> 458            Goma Republique democratique du Congo
-#> 459           Uvira Republique democratique du Congo
-#> 460           Bunia Republique democratique du Congo
-#> 461            Goma Republique democratique du Congo
-#> 462      Lubumbashi Republique democratique du Congo
-#> 463         Kasongo Republique democratique du Congo
-#> 464         Kisenge Republique democratique du Congo
-#> 465         Kasongo Republique democratique du Congo
-#> 466          Matadi Republique democratique du Congo
-#> 467  Kinshasa Ouest Republique democratique du Congo
-#> 468          Bukavu Republique democratique du Congo
-#> 469        Bandundu Republique democratique du Congo
-#> 470   Mbanza Ngungu Republique democratique du Congo
-#> 471          Kamina Republique democratique du Congo
-#> 472          Gemena Republique democratique du Congo
-#> 473           Bunia Republique democratique du Congo
-#> 474         Kahemba Republique democratique du Congo
-#> 475            Buta Republique democratique du Congo
-#> 476      Lubumbashi Republique democratique du Congo
-#> 477            Boma Republique democratique du Congo
-#> 478           Luiza Republique democratique du Congo
-#> 479         Kananga Republique democratique du Congo
-#> 480        Tshikapa Republique democratique du Congo
-#> 481         Kananga Republique democratique du Congo
-#> 482      Mbuji Mayi Republique democratique du Congo
-#> 483      Mbuji Mayi Republique democratique du Congo
-#> 484         Kabinda Republique democratique du Congo
-#> 485       Kisangani Republique democratique du Congo
-#> 486           Lodja Republique democratique du Congo
-#> 487         Tshumbe Republique democratique du Congo
-#> 488         Kasongo Republique democratique du Congo
-#> 489       Kisangani Republique democratique du Congo
-#> 490           Uvira Republique democratique du Congo
-#> 491            Boma Republique democratique du Congo
-#> 492        Bandundu Republique democratique du Congo
-#> 493           Lodja Republique democratique du Congo
-#> 494      Lubumbashi Republique democratique du Congo
-#> 495            Buta Republique democratique du Congo
-#> 496         Butembo Republique democratique du Congo
-#> 497            Goma Republique democratique du Congo
-#> 498          Bukavu Republique democratique du Congo
-#> 499           Isiro Republique democratique du Congo
-#> 500           Kenge Republique democratique du Congo
-#> 501        Mbandaka Republique democratique du Congo
-#> 502       Kisangani Republique democratique du Congo
-#> 503       Gbadolite Republique democratique du Congo
-#> 504       Gbadolite Republique democratique du Congo
-#> 505           Watsa Republique democratique du Congo
-#> 506          Boende Republique democratique du Congo
-#> 507         Tshumbe Republique democratique du Congo
-#> 508       Mweneditu Republique democratique du Congo
-#> 509          Lokutu Republique democratique du Congo
-#> 510       Kisangani Republique democratique du Congo
-#> 511          Lokutu Republique democratique du Congo
-#> 512       Gbadolite Republique democratique du Congo
-#> 513       Kisangani Republique democratique du Congo
-#> 514       Kisangani Republique democratique du Congo
-#> 515         Bokungu Republique democratique du Congo
-#> 516          Lokutu Republique democratique du Congo
-#> 517           Bumba Republique democratique du Congo
-#> 518           Bumba Republique democratique du Congo
-#> 519           Bumba Republique democratique du Congo
-#> 520           Luiza Republique democratique du Congo
-#> 521          Kikwit Republique democratique du Congo
-#> 522          Inongo Republique democratique du Congo
-#> 523          Gemena Republique democratique du Congo
+#> 1             Isiro Republique Democratique du Congo
+#> 2         Gbadolite Republique Democratique du Congo
+#> 3               Aru Republique Democratique du Congo
+#> 4               Aru Republique Democratique du Congo
+#> 5              Buta Republique Democratique du Congo
+#> 6           Butembo Republique Democratique du Congo
+#> 7             Kindu Republique Democratique du Congo
+#> 8              Buta Republique Democratique du Congo
+#> 9               Aru Republique Democratique du Congo
+#> 10           Kabalo Republique Democratique du Congo
+#> 11              Aru Republique Democratique du Congo
+#> 12              Aru Republique Democratique du Congo
+#> 13              Aru Republique Democratique du Congo
+#> 14        Kisangani Republique Democratique du Congo
+#> 15        Kisangani Republique Democratique du Congo
+#> 16         Bandundu Republique Democratique du Congo
+#> 17           Bukavu Republique Democratique du Congo
+#> 18           Kamina Republique Democratique du Congo
+#> 19             Goma Republique Democratique du Congo
+#> 20            Bunia Republique Democratique du Congo
+#> 21        Kisangani Republique Democratique du Congo
+#> 22   Kinshasa Ouest Republique Democratique du Congo
+#> 23         Bandundu Republique Democratique du Congo
+#> 24         Tshikapa Republique Democratique du Congo
+#> 25           Gemena Republique Democratique du Congo
+#> 26           Inongo Republique Democratique du Congo
+#> 27   Kinshasa Ouest Republique Democratique du Congo
+#> 28           Lokutu Republique Democratique du Congo
+#> 29         Mbandaka Republique Democratique du Congo
+#> 30           Lokutu Republique Democratique du Congo
+#> 31           Boende Republique Democratique du Congo
+#> 32            Lodja Republique Democratique du Congo
+#> 33          Kananga Republique Democratique du Congo
+#> 34          Kananga Republique Democratique du Congo
+#> 35        Kisangani Republique Democratique du Congo
+#> 36          Butembo Republique Democratique du Congo
+#> 37       Mbuji Mayi Republique Democratique du Congo
+#> 38          Butembo Republique Democratique du Congo
+#> 39         Mbandaka Republique Democratique du Congo
+#> 40             Buta Republique Democratique du Congo
+#> 41        Gbadolite Republique Democratique du Congo
+#> 42             Buta Republique Democratique du Congo
+#> 43        Gbadolite Republique Democratique du Congo
+#> 44          Kananga Republique Democratique du Congo
+#> 45           Lisala Republique Democratique du Congo
+#> 46             Goma Republique Democratique du Congo
+#> 47   Kinshasa Ouest Republique Democratique du Congo
+#> 48   Kinshasa Ouest Republique Democratique du Congo
+#> 49       Mbuji Mayi Republique Democratique du Congo
+#> 50             Goma Republique Democratique du Congo
+#> 51              Aru Republique Democratique du Congo
+#> 52     Kinshasa Est Republique Democratique du Congo
+#> 53          Kananga Republique Democratique du Congo
+#> 54           Boende Republique Democratique du Congo
+#> 55            Bunia Republique Democratique du Congo
+#> 56           Gemena Republique Democratique du Congo
+#> 57            Kenge Republique Democratique du Congo
+#> 58    Mbanza Ngungu Republique Democratique du Congo
+#> 59           Gemena Republique Democratique du Congo
+#> 60            Nioki Republique Democratique du Congo
+#> 61          Bokungu Republique Democratique du Congo
+#> 62         Mbandaka Republique Democratique du Congo
+#> 63            Nioki Republique Democratique du Congo
+#> 64         Mbandaka Republique Democratique du Congo
+#> 65             Boma Republique Democratique du Congo
+#> 66             Boma Republique Democratique du Congo
+#> 67            Isiro Republique Democratique du Congo
+#> 68           Gemena Republique Democratique du Congo
+#> 69         Mbandaka Republique Democratique du Congo
+#> 70             Buta Republique Democratique du Congo
+#> 71           Lisala Republique Democratique du Congo
+#> 72       Mbuji Mayi Republique Democratique du Congo
+#> 73           Lisala Republique Democratique du Congo
+#> 74           Lisala Republique Democratique du Congo
+#> 75            Nioki Republique Democratique du Congo
+#> 76        Gbadolite Republique Democratique du Congo
+#> 77           Lisala Republique Democratique du Congo
+#> 78           Gemena Republique Democratique du Congo
+#> 79           Gemena Republique Democratique du Congo
+#> 80   Kabondo Dianda Republique Democratique du Congo
+#> 81            Mweka Republique Democratique du Congo
+#> 82           Gemena Republique Democratique du Congo
+#> 83           Kikwit Republique Democratique du Congo
+#> 84            Bumba Republique Democratique du Congo
+#> 85  Kinshasa Centre Republique Democratique du Congo
+#> 86            Bunia Republique Democratique du Congo
+#> 87          Kolwezi Republique Democratique du Congo
+#> 88          Kananga Republique Democratique du Congo
+#> 89           Bukavu Republique Democratique du Congo
+#> 90          Bokungu Republique Democratique du Congo
+#> 91        Gbadolite Republique Democratique du Congo
+#> 92             Buta Republique Democratique du Congo
+#> 93          Butembo Republique Democratique du Congo
+#> 94   Kabondo Dianda Republique Democratique du Congo
+#> 95           Gemena Republique Democratique du Congo
+#> 96       Mbuji Mayi Republique Democratique du Congo
+#> 97       Mbuji Mayi Republique Democratique du Congo
+#> 98            Bunia Republique Democratique du Congo
+#> 99            Mweka Republique Democratique du Congo
+#> 100         Kananga Republique Democratique du Congo
+#> 101         Kananga Republique Democratique du Congo
+#> 102      Mbuji Mayi Republique Democratique du Congo
+#> 103         Tshumbe Republique Democratique du Congo
+#> 104         Kolwezi Republique Democratique du Congo
+#> 105         Kisenge Republique Democratique du Congo
+#> 106      Mbuji Mayi Republique Democratique du Congo
+#> 107           Lodja Republique Democratique du Congo
+#> 108          Boende Republique Democratique du Congo
+#> 109        Mbandaka Republique Democratique du Congo
+#> 110        Bandundu Republique Democratique du Congo
+#> 111           Isiro Republique Democratique du Congo
+#> 112           Bunia Republique Democratique du Congo
+#> 113           Isiro Republique Democratique du Congo
+#> 114           Isiro Republique Democratique du Congo
+#> 115           Bunia Republique Democratique du Congo
+#> 116          Lubutu Republique Democratique du Congo
+#> 117           Kenge Republique Democratique du Congo
+#> 118           Uvira Republique Democratique du Congo
+#> 119         Kolwezi Republique Democratique du Congo
+#> 120            Buta Republique Democratique du Congo
+#> 121       Gbadolite Republique Democratique du Congo
+#> 122          Gemena Republique Democratique du Congo
+#> 123           Bunia Republique Democratique du Congo
+#> 124            Goma Republique Democratique du Congo
+#> 125           Isiro Republique Democratique du Congo
+#> 126  Kinshasa Ouest Republique Democratique du Congo
+#> 127   Mbanza Ngungu Republique Democratique du Congo
+#> 128          Kikwit Republique Democratique du Congo
+#> 129           Uvira Republique Democratique du Congo
+#> 130          Bukavu Republique Democratique du Congo
+#> 131        Mbandaka Republique Democratique du Congo
+#> 132          Kikwit Republique Democratique du Congo
+#> 133          Bukavu Republique Democratique du Congo
+#> 134         Bokungu Republique Democratique du Congo
+#> 135           Mweka Republique Democratique du Congo
+#> 136          Matadi Republique Democratique du Congo
+#> 137        Mbandaka Republique Democratique du Congo
+#> 138          Inongo Republique Democratique du Congo
+#> 139          Kikwit Republique Democratique du Congo
+#> 140        Mbandaka Republique Democratique du Congo
+#> 141          Lokutu Republique Democratique du Congo
+#> 142           Isiro Republique Democratique du Congo
+#> 143            Goma Republique Democratique du Congo
+#> 144           Uvira Republique Democratique du Congo
+#> 145           Bunia Republique Democratique du Congo
+#> 146          Kabalo Republique Democratique du Congo
+#> 147         Kasongo Republique Democratique du Congo
+#> 148          Bukavu Republique Democratique du Congo
+#> 149      Mbuji Mayi Republique Democratique du Congo
+#> 150         Kabinda Republique Democratique du Congo
+#> 151       Kisangani Republique Democratique du Congo
+#> 152  Kabondo Dianda Republique Democratique du Congo
+#> 153          Kamina Republique Democratique du Congo
+#> 154          Bukavu Republique Democratique du Congo
+#> 155         Kisenge Republique Democratique du Congo
+#> 156      Lubumbashi Republique Democratique du Congo
+#> 157         Kahemba Republique Democratique du Congo
+#> 158           Kindu Republique Democratique du Congo
+#> 159         Kahemba Republique Democratique du Congo
+#> 160           Mweka Republique Democratique du Congo
+#> 161         Kisenge Republique Democratique du Congo
+#> 162         Kabinda Republique Democratique du Congo
+#> 163 Kinshasa Centre Republique Democratique du Congo
+#> 164 Kinshasa Centre Republique Democratique du Congo
+#> 165          Bukavu Republique Democratique du Congo
+#> 166         Kalemie Republique Democratique du Congo
+#> 167       Mweneditu Republique Democratique du Congo
+#> 168           Kindu Republique Democratique du Congo
+#> 169          Bukavu Republique Democratique du Congo
+#> 170           Luiza Republique Democratique du Congo
+#> 171         Kabinda Republique Democratique du Congo
+#> 172        Tshikapa Republique Democratique du Congo
+#> 173          Bukavu Republique Democratique du Congo
+#> 174         Butembo Republique Democratique du Congo
+#> 175      Lubumbashi Republique Democratique du Congo
+#> 176         Kabinda Republique Democratique du Congo
+#> 177         Butembo Republique Democratique du Congo
+#> 178             Aru Republique Democratique du Congo
+#> 179          Likasi Republique Democratique du Congo
+#> 180       Mweneditu Republique Democratique du Congo
+#> 181          Kamina Republique Democratique du Congo
+#> 182          Bukavu Republique Democratique du Congo
+#> 183        Tshikapa Republique Democratique du Congo
+#> 184      Lubumbashi Republique Democratique du Congo
+#> 185         Kasongo Republique Democratique du Congo
+#> 186        Tshikapa Republique Democratique du Congo
+#> 187         Kananga Republique Democratique du Congo
+#> 188       Mweneditu Republique Democratique du Congo
+#> 189            Boma Republique Democratique du Congo
+#> 190          Kamina Republique Democratique du Congo
+#> 191          Bukavu Republique Democratique du Congo
+#> 192      Mbuji Mayi Republique Democratique du Congo
+#> 193         Kalemie Republique Democratique du Congo
+#> 194        Tshikapa Republique Democratique du Congo
+#> 195         Kolwezi Republique Democratique du Congo
+#> 196         Kisenge Republique Democratique du Congo
+#> 197          Likasi Republique Democratique du Congo
+#> 198       Gbadolite Republique Democratique du Congo
+#> 199            Goma Republique Democratique du Congo
+#> 200 Kinshasa Centre Republique Democratique du Congo
+#> 201         Kisenge Republique Democratique du Congo
+#> 202      Mbuji Mayi Republique Democratique du Congo
+#> 203      Lubumbashi Republique Democratique du Congo
+#> 204      Lubumbashi Republique Democratique du Congo
+#> 205         Kasongo Republique Democratique du Congo
+#> 206           Kenge Republique Democratique du Congo
+#> 207           Lodja Republique Democratique du Congo
+#> 208          Bukavu Republique Democratique du Congo
+#> 209         Kananga Republique Democratique du Congo
+#> 210         Kananga Republique Democratique du Congo
+#> 211            Goma Republique Democratique du Congo
+#> 212      Lubumbashi Republique Democratique du Congo
+#> 213         Butembo Republique Democratique du Congo
+#> 214          Kamina Republique Democratique du Congo
+#> 215            Goma Republique Democratique du Congo
+#> 216          Bukavu Republique Democratique du Congo
+#> 217           Kenge Republique Democratique du Congo
+#> 218      Lubumbashi Republique Democratique du Congo
+#> 219          Kabalo Republique Democratique du Congo
+#> 220            Goma Republique Democratique du Congo
+#> 221         Kasongo Republique Democratique du Congo
+#> 222            Goma Republique Democratique du Congo
+#> 223          Matadi Republique Democratique du Congo
+#> 224    Kinshasa Est Republique Democratique du Congo
+#> 225        Bandundu Republique Democratique du Congo
+#> 226          Likasi Republique Democratique du Congo
+#> 227          Kikwit Republique Democratique du Congo
+#> 228          Kikwit Republique Democratique du Congo
+#> 229          Likasi Republique Democratique du Congo
+#> 230           Bunia Republique Democratique du Congo
+#> 231      Lubumbashi Republique Democratique du Congo
+#> 232    Kinshasa Est Republique Democratique du Congo
+#> 233           Kenge Republique Democratique du Congo
+#> 234           Uvira Republique Democratique du Congo
+#> 235   Mbanza Ngungu Republique Democratique du Congo
+#> 236   Mbanza Ngungu Republique Democratique du Congo
+#> 237          Kikwit Republique Democratique du Congo
+#> 238   Mbanza Ngungu Republique Democratique du Congo
+#> 239          Kamina Republique Democratique du Congo
+#> 240           Kindu Republique Democratique du Congo
+#> 241 Kinshasa Centre Republique Democratique du Congo
+#> 242          Kikwit Republique Democratique du Congo
+#> 243    Kinshasa Est Republique Democratique du Congo
+#> 244  Kabondo Dianda Republique Democratique du Congo
+#> 245            Boma Republique Democratique du Congo
+#> 246  Kinshasa Ouest Republique Democratique du Congo
+#> 247  Kinshasa Ouest Republique Democratique du Congo
+#> 248      Lubumbashi Republique Democratique du Congo
+#> 249          Inongo Republique Democratique du Congo
+#> 250            Goma Republique Democratique du Congo
+#> 251      Lubumbashi Republique Democratique du Congo
+#> 252         Kahemba Republique Democratique du Congo
+#> 253   Mbanza Ngungu Republique Democratique du Congo
+#> 254 Kinshasa Centre Republique Democratique du Congo
+#> 255        Tshikapa Republique Democratique du Congo
+#> 256           Kenge Republique Democratique du Congo
+#> 257          Kamina Republique Democratique du Congo
+#> 258            Boma Republique Democratique du Congo
+#> 259          Bukavu Republique Democratique du Congo
+#> 260            Boma Republique Democratique du Congo
+#> 261  Kinshasa Ouest Republique Democratique du Congo
+#> 262           Lodja Republique Democratique du Congo
+#> 263           Bunia Republique Democratique du Congo
+#> 264          Kabalo Republique Democratique du Congo
+#> 265          Kikwit Republique Democratique du Congo
+#> 266      Lubumbashi Republique Democratique du Congo
+#> 267            Boma Republique Democratique du Congo
+#> 268         Kasongo Republique Democratique du Congo
+#> 269          Gemena Republique Democratique du Congo
+#> 270           Nioki Republique Democratique du Congo
+#> 271   Mbanza Ngungu Republique Democratique du Congo
+#> 272         Butembo Republique Democratique du Congo
+#> 273             Aru Republique Democratique du Congo
+#> 274 Kinshasa Centre Republique Democratique du Congo
+#> 275           Uvira Republique Democratique du Congo
+#> 276          Gemena Republique Democratique du Congo
+#> 277          Likasi Republique Democratique du Congo
+#> 278            Buta Republique Democratique du Congo
+#> 279        Mbandaka Republique Democratique du Congo
+#> 280 Kinshasa Centre Republique Democratique du Congo
+#> 281           Bunia Republique Democratique du Congo
+#> 282          Boende Republique Democratique du Congo
+#> 283  Kinshasa Ouest Republique Democratique du Congo
+#> 284          Lisala Republique Democratique du Congo
+#> 285           Bunia Republique Democratique du Congo
+#> 286           Lodja Republique Democratique du Congo
+#> 287             Aru Republique Democratique du Congo
+#> 288       Gbadolite Republique Democratique du Congo
+#> 289           Bumba Republique Democratique du Congo
+#> 290           Bunia Republique Democratique du Congo
+#> 291           Lodja Republique Democratique du Congo
+#> 292        Mbandaka Republique Democratique du Congo
+#> 293       Kisangani Republique Democratique du Congo
+#> 294         Kolwezi Republique Democratique du Congo
+#> 295           Luiza Republique Democratique du Congo
+#> 296         Kabinda Republique Democratique du Congo
+#> 297         Butembo Republique Democratique du Congo
+#> 298      Mbuji Mayi Republique Democratique du Congo
+#> 299         Kananga Republique Democratique du Congo
+#> 300         Kolwezi Republique Democratique du Congo
+#> 301      Lubumbashi Republique Democratique du Congo
+#> 302         Kananga Republique Democratique du Congo
+#> 303       Kisangani Republique Democratique du Congo
+#> 304         Kananga Republique Democratique du Congo
+#> 305       Kisangani Republique Democratique du Congo
+#> 306          Lubutu Republique Democratique du Congo
+#> 307         Kabinda Republique Democratique du Congo
+#> 308           Mweka Republique Democratique du Congo
+#> 309           Luiza Republique Democratique du Congo
+#> 310      Lubumbashi Republique Democratique du Congo
+#> 311      Mbuji Mayi Republique Democratique du Congo
+#> 312        Mbandaka Republique Democratique du Congo
+#> 313         Kananga Republique Democratique du Congo
+#> 314            Boma Republique Democratique du Congo
+#> 315          Bukavu Republique Democratique du Congo
+#> 316          Matadi Republique Democratique du Congo
+#> 317       Mweneditu Republique Democratique du Congo
+#> 318           Lodja Republique Democratique du Congo
+#> 319          Kikwit Republique Democratique du Congo
+#> 320         Kasongo Republique Democratique du Congo
+#> 321  Kabondo Dianda Republique Democratique du Congo
+#> 322         Butembo Republique Democratique du Congo
+#> 323             Aru Republique Democratique du Congo
+#> 324 Kinshasa Centre Republique Democratique du Congo
+#> 325        Mbandaka Republique Democratique du Congo
+#> 326       Kisangani Republique Democratique du Congo
+#> 327           Watsa Republique Democratique du Congo
+#> 328       Mweneditu Republique Democratique du Congo
+#> 329  Kabondo Dianda Republique Democratique du Congo
+#> 330    Kinshasa Est Republique Democratique du Congo
+#> 331    Kinshasa Est Republique Democratique du Congo
+#> 332           Bunia Republique Democratique du Congo
+#> 333        Mbandaka Republique Democratique du Congo
+#> 334           Bunia Republique Democratique du Congo
+#> 335           Bunia Republique Democratique du Congo
+#> 336          Matadi Republique Democratique du Congo
+#> 337       Kisangani Republique Democratique du Congo
+#> 338         Butembo Republique Democratique du Congo
+#> 339         Kolwezi Republique Democratique du Congo
+#> 340          Kabalo Republique Democratique du Congo
+#> 341         Butembo Republique Democratique du Congo
+#> 342          Kikwit Republique Democratique du Congo
+#> 343    Kinshasa Est Republique Democratique du Congo
+#> 344    Kinshasa Est Republique Democratique du Congo
+#> 345            Goma Republique Democratique du Congo
+#> 346   Mbanza Ngungu Republique Democratique du Congo
+#> 347           Luiza Republique Democratique du Congo
+#> 348          Matadi Republique Democratique du Congo
+#> 349 Kinshasa Centre Republique Democratique du Congo
+#> 350          Gemena Republique Democratique du Congo
+#> 351        Mbandaka Republique Democratique du Congo
+#> 352   Mbanza Ngungu Republique Democratique du Congo
+#> 353          Gemena Republique Democratique du Congo
+#> 354          Kabalo Republique Democratique du Congo
+#> 355      Mbuji Mayi Republique Democratique du Congo
+#> 356         Kananga Republique Democratique du Congo
+#> 357           Mweka Republique Democratique du Congo
+#> 358          Inongo Republique Democratique du Congo
+#> 359           Uvira Republique Democratique du Congo
+#> 360         Tshumbe Republique Democratique du Congo
+#> 361          Bukavu Republique Democratique du Congo
+#> 362          Bukavu Republique Democratique du Congo
+#> 363          Likasi Republique Democratique du Congo
+#> 364          Kikwit Republique Democratique du Congo
+#> 365         Kalemie Republique Democratique du Congo
+#> 366       Gbadolite Republique Democratique du Congo
+#> 367          Kikwit Republique Democratique du Congo
+#> 368          Boende Republique Democratique du Congo
+#> 369         Bokungu Republique Democratique du Congo
+#> 370            Buta Republique Democratique du Congo
+#> 371           Bunia Republique Democratique du Congo
+#> 372        Mbandaka Republique Democratique du Congo
+#> 373          Boende Republique Democratique du Congo
+#> 374  Kinshasa Ouest Republique Democratique du Congo
+#> 375  Kinshasa Ouest Republique Democratique du Congo
+#> 376          Kikwit Republique Democratique du Congo
+#> 377      Mbuji Mayi Republique Democratique du Congo
+#> 378            Boma Republique Democratique du Congo
+#> 379          Bukavu Republique Democratique du Congo
+#> 380         Kananga Republique Democratique du Congo
+#> 381          Likasi Republique Democratique du Congo
+#> 382  Kabondo Dianda Republique Democratique du Congo
+#> 383          Kikwit Republique Democratique du Congo
+#> 384      Mbuji Mayi Republique Democratique du Congo
+#> 385  Kabondo Dianda Republique Democratique du Congo
+#> 386         Kabinda Republique Democratique du Congo
+#> 387          Bukavu Republique Democratique du Congo
+#> 388      Lubumbashi Republique Democratique du Congo
+#> 389          Kikwit Republique Democratique du Congo
+#> 390           Mweka Republique Democratique du Congo
+#> 391           Nioki Republique Democratique du Congo
+#> 392         Butembo Republique Democratique du Congo
+#> 393        Tshikapa Republique Democratique du Congo
+#> 394         Kananga Republique Democratique du Congo
+#> 395         Kolwezi Republique Democratique du Congo
+#> 396         Butembo Republique Democratique du Congo
+#> 397      Mbuji Mayi Republique Democratique du Congo
+#> 398          Bukavu Republique Democratique du Congo
+#> 399           Mweka Republique Democratique du Congo
+#> 400           Kenge Republique Democratique du Congo
+#> 401       Mweneditu Republique Democratique du Congo
+#> 402          Bukavu Republique Democratique du Congo
+#> 403            Goma Republique Democratique du Congo
+#> 404          Gemena Republique Democratique du Congo
+#> 405         Kananga Republique Democratique du Congo
+#> 406         Kananga Republique Democratique du Congo
+#> 407    Kinshasa Est Republique Democratique du Congo
+#> 408           Mweka Republique Democratique du Congo
+#> 409 Kinshasa Centre Republique Democratique du Congo
+#> 410         Kabinda Republique Democratique du Congo
+#> 411   Mbanza Ngungu Republique Democratique du Congo
+#> 412 Kinshasa Centre Republique Democratique du Congo
+#> 413           Bunia Republique Democratique du Congo
+#> 414           Isiro Republique Democratique du Congo
+#> 415           Nioki Republique Democratique du Congo
+#> 416           Bunia Republique Democratique du Congo
+#> 417    Kinshasa Est Republique Democratique du Congo
+#> 418   Mbanza Ngungu Republique Democratique du Congo
+#> 419          Matadi Republique Democratique du Congo
+#> 420          Inongo Republique Democratique du Congo
+#> 421        Mbandaka Republique Democratique du Congo
+#> 422           Uvira Republique Democratique du Congo
+#> 423        Tshikapa Republique Democratique du Congo
+#> 424          Bukavu Republique Democratique du Congo
+#> 425           Bunia Republique Democratique du Congo
+#> 426          Bukavu Republique Democratique du Congo
+#> 427             Aru Republique Democratique du Congo
+#> 428         Kalemie Republique Democratique du Congo
+#> 429            Goma Republique Democratique du Congo
+#> 430         Kalemie Republique Democratique du Congo
+#> 431      Mbuji Mayi Republique Democratique du Congo
+#> 432          Matadi Republique Democratique du Congo
+#> 433          Lubutu Republique Democratique du Congo
+#> 434         Butembo Republique Democratique du Congo
+#> 435           Lodja Republique Democratique du Congo
+#> 436       Kisangani Republique Democratique du Congo
+#> 437       Kisangani Republique Democratique du Congo
+#> 438          Inongo Republique Democratique du Congo
+#> 439           Lodja Republique Democratique du Congo
+#> 440          Likasi Republique Democratique du Congo
+#> 441           Kindu Republique Democratique du Congo
+#> 442         Tshumbe Republique Democratique du Congo
+#> 443         Kahemba Republique Democratique du Congo
+#> 444           Isiro Republique Democratique du Congo
+#> 445          Kikwit Republique Democratique du Congo
+#> 446          Inongo Republique Democratique du Congo
+#> 447          Lisala Republique Democratique du Congo
+#> 448            Goma Republique Democratique du Congo
+#> 449            Buta Republique Democratique du Congo
+#> 450  Kinshasa Ouest Republique Democratique du Congo
+#> 451           Kenge Republique Democratique du Congo
+#> 452          Lubutu Republique Democratique du Congo
+#> 453      Lubumbashi Republique Democratique du Congo
+#> 454           Bunia Republique Democratique du Congo
+#> 455             Aru Republique Democratique du Congo
+#> 456      Lubumbashi Republique Democratique du Congo
+#> 457           Isiro Republique Democratique du Congo
+#> 458            Goma Republique Democratique du Congo
+#> 459           Uvira Republique Democratique du Congo
+#> 460           Bunia Republique Democratique du Congo
+#> 461            Goma Republique Democratique du Congo
+#> 462      Lubumbashi Republique Democratique du Congo
+#> 463         Kasongo Republique Democratique du Congo
+#> 464         Kisenge Republique Democratique du Congo
+#> 465         Kasongo Republique Democratique du Congo
+#> 466          Matadi Republique Democratique du Congo
+#> 467  Kinshasa Ouest Republique Democratique du Congo
+#> 468          Bukavu Republique Democratique du Congo
+#> 469        Bandundu Republique Democratique du Congo
+#> 470   Mbanza Ngungu Republique Democratique du Congo
+#> 471          Kamina Republique Democratique du Congo
+#> 472          Gemena Republique Democratique du Congo
+#> 473           Bunia Republique Democratique du Congo
+#> 474         Kahemba Republique Democratique du Congo
+#> 475            Buta Republique Democratique du Congo
+#> 476      Lubumbashi Republique Democratique du Congo
+#> 477            Boma Republique Democratique du Congo
+#> 478           Luiza Republique Democratique du Congo
+#> 479         Kananga Republique Democratique du Congo
+#> 480        Tshikapa Republique Democratique du Congo
+#> 481         Kananga Republique Democratique du Congo
+#> 482      Mbuji Mayi Republique Democratique du Congo
+#> 483      Mbuji Mayi Republique Democratique du Congo
+#> 484         Kabinda Republique Democratique du Congo
+#> 485       Kisangani Republique Democratique du Congo
+#> 486           Lodja Republique Democratique du Congo
+#> 487         Tshumbe Republique Democratique du Congo
+#> 488         Kasongo Republique Democratique du Congo
+#> 489       Kisangani Republique Democratique du Congo
+#> 490           Uvira Republique Democratique du Congo
+#> 491            Boma Republique Democratique du Congo
+#> 492        Bandundu Republique Democratique du Congo
+#> 493           Lodja Republique Democratique du Congo
+#> 494      Lubumbashi Republique Democratique du Congo
+#> 495            Buta Republique Democratique du Congo
+#> 496         Butembo Republique Democratique du Congo
+#> 497            Goma Republique Democratique du Congo
+#> 498          Bukavu Republique Democratique du Congo
+#> 499           Isiro Republique Democratique du Congo
+#> 500           Kenge Republique Democratique du Congo
+#> 501        Mbandaka Republique Democratique du Congo
+#> 502       Kisangani Republique Democratique du Congo
+#> 503       Gbadolite Republique Democratique du Congo
+#> 504       Gbadolite Republique Democratique du Congo
+#> 505           Watsa Republique Democratique du Congo
+#> 506          Boende Republique Democratique du Congo
+#> 507         Tshumbe Republique Democratique du Congo
+#> 508       Mweneditu Republique Democratique du Congo
+#> 509          Lokutu Republique Democratique du Congo
+#> 510       Kisangani Republique Democratique du Congo
+#> 511          Lokutu Republique Democratique du Congo
+#> 512       Gbadolite Republique Democratique du Congo
+#> 513       Kisangani Republique Democratique du Congo
+#> 514       Kisangani Republique Democratique du Congo
+#> 515         Bokungu Republique Democratique du Congo
+#> 516          Lokutu Republique Democratique du Congo
+#> 517           Bumba Republique Democratique du Congo
+#> 518           Bumba Republique Democratique du Congo
+#> 519           Bumba Republique Democratique du Congo
+#> 520           Luiza Republique Democratique du Congo
+#> 521          Kikwit Republique Democratique du Congo
+#> 522          Inongo Republique Democratique du Congo
+#> 523          Gemena Republique Democratique du Congo
 
 clean_names_dhis(vacc$orgunitlevel2,  has_prefix = 2,
                  suffix = "(Province|Zone de Sant[e\u00e9]|Aire de Sant[e\u00e9]|Centre de Sant[e\u00e9])")
