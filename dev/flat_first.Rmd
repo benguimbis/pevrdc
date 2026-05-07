@@ -43,6 +43,7 @@ pkgload::load_all(path = here::here(), export_all = FALSE)
 datafile <- system.file(c("pop2024.RDS", "pop2025.RDS","pop2026.RDS","antennes.RDS", "vacc_data.RDS", "shape.RDS"), package = "pevrdc")
 
 pop2024 <- readRDS(datafile[1])
+
 pop2025 <- readRDS(datafile[2])
 pop2026 <- readRDS(datafile[3])
 antennes <- readRDS(datafile[4])
