@@ -52,6 +52,10 @@ Full documentation website on: <https://benguimbis.github.io/pevrdc>
 
 Full documentation website on: <https://benguimbis.github.io/pevrdc>
 
+## Documentation
+
+Full documentation website on: <https://benguimbis.github.io/pevrdc>
+
 ## Example
 
 Here we show to compute the the target administrative population for
