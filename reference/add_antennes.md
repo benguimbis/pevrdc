@@ -5,7 +5,7 @@ A function that adds DRC antennes to a dataset not having them
 ## Usage
 
 ``` r
-add_antennes(data, col, rename_antenne = TRUE)
+add_antennes(data, province, zone, rename_antenne = TRUE)
 ```
 
 ## Arguments
@@ -15,9 +15,13 @@ add_antennes(data, col, rename_antenne = TRUE)
   A dataset with no variable containing antennes, usually DHIS 2
   datasets
 
-- col:
+- province:
 
-  A vector of variables containing the keys for joining dataset
+  A Column with province
+
+- zone:
+
+  A column with health zones
 
 - rename_antenne:
 
