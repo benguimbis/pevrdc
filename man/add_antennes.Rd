@@ -4,12 +4,14 @@
 \alias{add_antennes}
 \title{A function that adds DRC antennes to a dataset not having them}
 \usage{
-add_antennes(data, col, rename_antenne = TRUE)
+add_antennes(data, province, zone, rename_antenne = TRUE)
 }
 \arguments{
 \item{data}{A dataset with no variable containing antennes, usually DHIS 2 datasets}
 
-\item{col}{A vector of variables containing the keys for joining dataset}
+\item{province}{A Column with province}
+
+\item{zone}{A column with health zones}
 
 \item{rename_antenne}{A logical to indicate renaming antennes following DHIS 2 standard}
 }

@@ -65,12 +65,6 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
   level <- level1
   vacc_name <- vaccine1
   vaccine <- vacc_list[vaccine1]
-  # Adding antenna
-  if ( "orgunitlevel6" %in% level ) {
-    # Adding antenna
-    data <- add_antennes(data, col = level)
-    message("Antennes were added to the data")
-  }
 
 
   data <- do.call(cbind, list(data["periodname"], data[level], Map(as.numeric, data[grepl(vaccine, colnames(data))])))
