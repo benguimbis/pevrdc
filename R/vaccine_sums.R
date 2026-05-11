@@ -38,7 +38,6 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
     "VAP4" = "vap_4_0_et_11|vap_4_12_et_23",
     "DTC2" = "dtc_hepb_hib2_0_et_11",
     "Pneumo13_2" = "pcv_13__2__0_et_11",
-    "VPI 2" = "vpi_2_0_et_11_mois",
     "VPO1" = "vpo_1_0_et_11",
     "VPO2" = "vpo_2_0_et_11",
     "VPO3" = "vpo_3_0_et_11",
@@ -69,7 +68,7 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
   # Adding antenna
   if ( "orgunitlevel6" %in% level ) {
     # Adding antenna
-    data <- add_antennes(data, dhis = TRUE)
+    data <- add_antennes(data, col = level)
     message("Antennes were added to the data")
   }
 

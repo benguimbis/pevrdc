@@ -3,8 +3,7 @@
 #' A function that adds DRC antennes to a dataset not having them
 #'
 #' @param data A dataset with no variable containing antennes, usually DHIS 2 datasets  
-#' @param dhis A boolean to indicate whether the dataset is from the DHIS 2, set to TRUE as default
-#' @param zone_sante A variable with health zones names if data are not from DHIS 2, set to NULL as default
+#' @param col A vector of variables containing the keys for joining dataset 
 #' @param rename_antenne A logical to indicate renaming antennes following DHIS 2 standard 
 #'
 #' @return
@@ -12,31 +11,52 @@
 #' @export
 #'
 
-add_antennes <- function(data, dhis = TRUE, zone_sante = NULL, rename_antenne = TRUE) {
+
+
+add_antennes <- function(data, col, rename_antenne = TRUE) {
   stopifnot(!is.null(data), is.data.frame(data))
   
-  if (!dhis) {
-    if (!dhis & missing(zone_sante)) {
-      stop("zone_sante variable not supplied as data are not from the DHIS 2")
-    }
-  }
+
+    org <- c("orgunitlevel2",  "orgunitlevel3")
+  
+   level <- eval(substitute(col), stats::setNames(as.list(org), org), parent.frame())
+  
   
   antennes <- get("antennes", "package:pevrdc")
   
-  if (!dhis && !missing(zone_sante)) zone_sante <- deparse1(substitute(zone_sante))
-  
-  if (!dhis) {
-    merged_data <- tryCatch({merge(data, antennes, by.x = zone_sante, by.y = "zonesante", rename_antenne = TRUE)}, 
-                            error = function(e) message("There is an error: ",e))
+  if(all(level %in% org )){
+    colnames(antennes) <- c(org[1], "antenne", org[2])
+    data$zs <- trimws(gsub("^[A-Za-z]{2}|Zone de Sant[e\u00e9]$", "", data[[org[2]]]), "both")
+    data$prov<- trimws(gsub("^[A-Za-z]{2}|Province$", "", data[[org[1]]]), "both")
     
-    return(merged_data)
+    merged_data <- merge(data, antennes, by.x = c("prov","zs"), by.y = org)
+    
+    merged_data$zs <- NULL
+    merged_data$prov <- NULL
+    
+  } else if("orgunitlevel2" %in% level){
+
+    colnames(antennes) <- c(org[1], "antenne", "zonesante")
+    
+    data$prov<- trimws(gsub("^[A-Za-z]{2}|Province$", "", data[[org[1]]]), "both")
+    
+    merged_data <- merge(data, antennes, by.x = "prov", by.y = org[1])
+    
+    merged_data$prov <- NULL
+    
+  } else {
+
+    colnames(antennes) <- c("province", "antenne", org[2])
+    
+    data$zs <- trimws(gsub("^[A-Za-z]{2}|Zone de Sant[e\u00e9]$", "", data[[org[2]]]), "both")
+    
+    merged_data <- merge(data, antennes, by.x = "zs", by.y = org[2])
+    
+    merged_data$zs <- NULL
+    
   }
   
-  data$zs <- trimws(gsub("^[A-Za-z]{2}|Zone de Sant[e\u00e9]$", "", data[["orgunitlevel3"]]), "both")
   
-  merged_data <- merge(data, antennes, by.x = "zs", by.y = "zonesante")
-  
-  merged_data$zs <- NULL
   
   if (rename_antenne) {
     merged_data$orgunitlevel6 <- merged_data$antenne
@@ -49,5 +69,8 @@ add_antennes <- function(data, dhis = TRUE, zone_sante = NULL, rename_antenne = 
   
   return(merged_data)
 }
+
+
+
 
 
