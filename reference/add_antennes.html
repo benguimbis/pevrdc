@@ -43,7 +43,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_antennes</span><span class="op">(</span><span class="va">data</span>, dhis <span class="op">=</span> <span class="cn">TRUE</span>, zone_sante <span class="op">=</span> <span class="cn">NULL</span>, rename_antenne <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">add_antennes</span><span class="op">(</span><span class="va">data</span>, <span class="va">col</span>, rename_antenne <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -54,12 +54,8 @@
 <dd><p>A dataset with no variable containing antennes, usually DHIS 2 datasets</p></dd>
 
 
-<dt id="arg-dhis">dhis<a class="anchor" aria-label="anchor" href="#arg-dhis"></a></dt>
-<dd><p>A boolean to indicate whether the dataset is from the DHIS 2, set to TRUE as default</p></dd>
-
-
-<dt id="arg-zone-sante">zone_sante<a class="anchor" aria-label="anchor" href="#arg-zone-sante"></a></dt>
-<dd><p>A variable with health zones names if data are not from DHIS 2, set to NULL as default</p></dd>
+<dt id="arg-col">col<a class="anchor" aria-label="anchor" href="#arg-col"></a></dt>
+<dd><p>A vector of variables containing the keys for joining dataset</p></dd>
 
 
 <dt id="arg-rename-antenne">rename_antenne<a class="anchor" aria-label="anchor" href="#arg-rename-antenne"></a></dt>
