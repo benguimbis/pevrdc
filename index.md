@@ -56,6 +56,10 @@ Full documentation website on: <https://benguimbis.github.io/pevrdc>
 
 Full documentation website on: <https://benguimbis.github.io/pevrdc>
 
+## Documentation
+
+Full documentation website on: <https://benguimbis.github.io/pevrdc>
+
 ## Example
 
 Here we show to compute the the target administrative population for
@@ -70,10 +74,10 @@ pops <- pop2026
 population <- agg_pop(naissance_mois_admin, orgunitlevel2, month = 3, pops = pops)
 head(population)
 #>              orgunitlevel2 naissance_mois_admin
-#> 1     bu Bas Uele Province             16712.25
-#> 2     eq Equateur Province             29853.50
-#> 3 hk Haut Katanga Province             93271.75
-#> 4  hl Haut Lomami Province             44739.00
-#> 5    hu Haut Uele Province             25622.00
-#> 6        it Ituri Province             69074.25
+#> 1     bu Bas Uele Province              19556.0
+#> 2     Eq Equateur Province              34157.5
+#> 3 hk Haut Katanga Province             101061.0
+#> 4  hl Haut Lomami Province              51925.0
+#> 5    hu Haut Uele Province              30495.0
+#> 6        It Ituri Province              80421.0
 ```
