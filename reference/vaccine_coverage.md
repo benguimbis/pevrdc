@@ -6,7 +6,15 @@ organization levels using DHIS2 exported data
 ## Usage
 
 ``` r
-vaccine_coverage(data, vaccine, level, month = 1, pops)
+vaccine_coverage(
+  data,
+  vaccine,
+  level,
+  month = 1,
+  pops,
+  vap_intro = pevrdc::vap_intro,
+  year = 2026
+)
 ```
 
 ## Arguments
@@ -36,9 +44,26 @@ vaccine_coverage(data, vaccine, level, month = 1, pops)
 
   An aggregated dataset of target populations.
 
+- vap_intro:
+
+  A dataframe of VAP introduction dates per health district, as the
+  built-in vap_intro dataset. Used only for VAP1 to VAP4: the target
+  population of a district only counts the months since it introduced
+  the vaccine, and districts that have not introduced it have no target
+  (coverage NA). Set to NULL to use all months for all districts.
+
+- year:
+
+  The calendar year of the data, used to compare with the introduction
+  dates. Default 2026.
+
 ## Value
 
-A dataframe with vaccines coverage
+A dataframe with vaccines coverage For VAP1 to VAP4 the target
+population columns are prefixed with vap\_ (vap_survivants_mois_admin,
+vap_survivant_mois_ajust) because they only cover the months since
+introduction, so they differ from the targets of the other vaccines and
+tables can be merged by key without losing rows.
 
 ## Examples
 
@@ -50,6 +75,7 @@ pops <- readRDS(datafile[2])
 vacc_tots <- vaccine_sums(vacc, DTC1, District, 2)
 #> Warning: OS reports request to set locale to "English_United States.utf8" cannot be honored
 vaccine_coverage(vacc_tots, DTC1, District, month = 2, pops = pops)
+#> Warning: 96 unit(s) have no matching target population and were dropped from the coverage table. Check that names in the data and in pops are spelled identically.
 #> [1] orgunitlevel3         DTC1                  survivants_mois_admin
 #> [4] survivant_mois_ajust  DTC1_admin            DTC1_ajust           
 #> [7] zero_dose_admin       zero_dose_ajust      

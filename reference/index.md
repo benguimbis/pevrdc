@@ -25,6 +25,8 @@
   accented characters from all the character values of a data frame
 - [`district_epi()`](district_epi.md) : This is function is wrapper
   around is_outbreak to identify districts with an outbreak.
+- [`flag_outliers()`](flag_outliers.md) : Flag outlying monthly
+  vaccination counts
 - [`is_outbreak()`](is_outbreak.md) : This is function returns TRUE
   after n successive TRUE and FALSE otherwise. This is a convenient
   function to classify areas with outbreak following consecutive
@@ -46,3 +48,5 @@
 - [`vaccine_sums()`](vaccine_sums.md) : A function to compute the
   cummulative monthly tally of vaccinated per organization levels using
   DHIS2 exported data
+- [`vap_intro`](vap_intro.md) : A dataset containing the date VAP was
+  introduced in each DRC health district

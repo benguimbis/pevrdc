@@ -1052,7 +1052,7 @@ correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 #> 125                      kn Nsola Aire de Sante
 #> 126                      eq Ipeko Aire de Sante
 #> 127                    sk Kikonde Aire de Sante
-#> 128        it CE 39 Iga BarriÃ¨re Aire de Sante
+#> 128         it CE 39 Iga Barriere Aire de Sante
 #> 129                    kl Mabundu Aire de Sante
 #> 130                   eq Isampoka Aire de Sante
 #> 131                     sn Opombo Aire de Sante
@@ -1286,7 +1286,7 @@ correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 #> 359                   su Kondonga Aire de Sante
 #> 360                       kl Luka Aire de Sante
 #> 361                   ke Kabala 2 Aire de Sante
-#> 362              md Mabala KasaÃ¯ Aire de Sante
+#> 362               md Mabala Kasai Aire de Sante
 #> 363                   kc District Aire de Sante
 #> 364                    kl Kimbulu Aire de Sante
 #> 365                  hu Kitambala Aire de Sante
@@ -1361,7 +1361,7 @@ correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 #> 434                      mg Bumba Aire de Sante
 #> 435                    it Bankoko Aire de Sante
 #> 436                    kn Kasai 2 Aire de Sante
-#> 437         kn Kinsuka PÃªcheur 1 Aire de Sante
+#> 437          kn Kinsuka Pecheur 1 Aire de Sante
 #> 438                    kr Lupanza Aire de Sante
 #> 439                     sk Kitoga Aire de Sante
 #> 440                       kg Sefu Aire de Sante
@@ -1369,896 +1369,896 @@ correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 #> 442                    tu YengeÂ  Aire de Sante
 #> 443                     ks Kizito Aire de Sante
 #> 444                      mg Upoto Aire de Sante
-#>                                      orgunitlevel5 organisationunitid
-#> 1             bu Assa Centre de Sante de Reference        O03K0oAbMAV
-#> 2                     hk Mwangaza  Centre de Sante        EeY2KsYQkkY
-#> 3                       eq Ngondola Poste de Sante        Z6x7hwNSVBC
-#> 4                        kn Elykia Centre de Sante        xLo1SLilzEu
-#> 5                       ll Mapendo Centre de Sante        edJKDeFAoLu
-#> 6                      it Tuendelee Poste de Sante        vnc5ETZyRfs
-#> 7                      sk Mugawaji Centre de Sante        e2os34LyOjk
-#> 8                        kl Muhange Poste de Sante        qd7v5PbwcgC
-#> 9                     hk Ste Agnes Centre de Sante        Oco3QFcis6D
-#> 10                      sn Longala Centre de Sante        HrRpSxdUXJK
-#> 11                        hk Benita Centre Medical        qZcy9DdJiPZ
-#> 12                        hk Gradi Centre de Sante        iLdZWsnnnnQ
-#> 13                    it Deogratias Poste de Sante        BnPwHryPZt7
-#> 14                       mn Kahimbe Poste de Sante        XDuxPkt7Ucy
-#> 15            nk Lume Centre de Sante de Reference        Sh0C931x2Qr
-#> 16                    kn E Manenga Centre de Sante        AIfKweNVYhj
-#> 17                         hl Nkana Poste de Sante        BPnDDzJKFZN
-#> 18                   it La Guerison Poste de Sante        PYd1gaqThUV
-#> 19                     ke La GrÃ¢ce Poste de Sante        WbxKv8LV0SP
-#> 20                    nk Binyambuli Poste de Sante        h6pVQzJoCEV
-#> 21                 ks Tuye Kumpala Centre de Sante        DF8JHfQtmBo
-#> 22                         md Manga Poste de Sante        o0P5irQMKni
-#> 23                       lm Misombo Poste de Sante        KBy7NKfWdQz
-#> 24                   ks Domiongo 2 Centre de Sante        KE5gI66LXv2
-#> 25               kr Ntambue Lomami Centre de Sante        oK9Bkb5AsMm
-#> 26                      lm Katabayi Poste de Sante        tEUF9fMqSJb
-#> 27                      hk Euphata Centre de Sante        xTjz4tDmcdW
-#> 28                       it Rikazu Centre de Sante        NFYNP2MW6Ci
-#> 29                       mn Samueli Poste de Sante        dqETQa9F7zU
-#> 30                     hk Cepromec Centre de Sante        eyeaJd3WoRO
-#> 31                     hk Andralie Centre de Sante        LuH1TMBNhNV
-#> 32              kc Sagesse Kongo 2 Centre de Sante        z0aDWRmL8aR
-#> 33                       su Boyafio Poste de Sante        cH2Woh7qBoZ
-#> 34                    kl Munzabala Centre de Sante        Ije9766RL1k
-#> 35                       kn La Foi Centre de Sante        grufnOSIcco
-#> 36                       sn Efefete Poste de Sante        x46Igd17FH5
-#> 37                        hk JEIEL Centre de Sante        oSYrpkc9VRf
-#> 38                  kc El Rapha Centre Hospitalier        JmoKu13Wvzk
-#> 39                       it Ndrele Centre de Sante        N2MV9lMmdM3
-#> 40                it Eru Yofenyiri Centre de Sante        JF1GrHzZvpO
-#> 41                      mg Bomenge Centre de Sante        hGl82mYpb9i
-#> 42    lm Kalonda Est HÃ´pital General de Reference        yuKN4pTHjf0
-#> 43                      mn Longonya Poste de Sante        Qaw3Wv9cExa
-#> 44                       ll Mulesu Centre de Sante        ihDa2H3enbu
-#> 45                      kg Kabuita Centre de Sante        ka5pRNS1sEL
-#> 46                    kr Kalombayi Centre de Sante        CNw8ZNZgqcQ
-#> 47                       kc Kisiama Poste de Sante        B6kSe9oQqeT
-#> 48                        tu Lokata Poste de Sante        tHaPU4YK95b
-#> 49                       mn Amuladi Poste de Sante        SnUYxWzxzgE
-#> 50                       hk Kapata Centre de Sante        AukZw5HuSpd
-#> 51                     sk Tshigoma Centre de Sante        gL3tROtVBxa
-#> 52                     hk Victoire Centre de Sante        ggdhT4Wfklf
-#> 53                   it Nyakasanza Centre de Sante        ecyp6W3PbDS
-#> 54                  kc Henri Dunant Poste de Sante        XYO68dwTqdV
-#> 55             hk OUA Centre de Sante de Reference        uMUz9eI97er
-#> 56  hu Boma Mangbetu HÃ´pital General de Reference        p29OeOPpWTs
-#> 57                   kc La Moisson Centre de Sante        LneYx1yz47T
-#> 58                       kg Katondi Poste de Sante        rhD6jtIQFVh
-#> 59                         sn Owala Poste de Sante        y1CcIFyD2VL
-#> 60            hk Christ Redempteur Centre de Sante        sdYFvX9Hfvq
-#> 61                  kc Beto na Beto Centre Medical        XFP0zO8audA
-#> 62                      kc Patience Centre Medical        njYpLY2dICs
-#> 63                       ll Ntembu Centre de Sante        GrAHBIihRnG
-#> 64           kl Pierre Declerck Centre Hospitalier        qMLWaJ4ldEl
-#> 65         tn Manono HÃ´pital General de Reference        elSnjDOghqS
-#> 66                        hu Ngili Centre de Sante        aAtHok4P3aI
-#> 67                  bu Maselebende Centre de Sante        Q5gDzl0RG0q
-#> 68                   kc Tsese Ntinu Poste de Sante        xF9hfENPzFb
-#> 69                        md Monsui Poste de Sante        UBQTL7xwq54
-#> 70                      lm Tshileu Centre de Sante        X97cz1GV0vp
-#> 71                        it Avari Centre de Sante        gT4mD7tCDpE
-#> 72                       mn Kasuku Centre de Sante        s6BR4Z32WzI
-#> 73                       tp Bodela Centre de Sante        gaOKK3Z6JMi
-#> 74                     kl Kitambwe Centre de Sante        t0MQvfynBft
-#> 75                      sn Kabondo Centre de Sante        ymchfojqgV7
-#> 76                kc La Benediction Poste de Sante        Km2vIlOmTxq
-#> 77                       kc Bosembo Poste de Sante        efa2tOoNx8n
-#> 78                          kn CMV Centre de Sante        UsbUNHKB1JJ
-#> 79                        md Police Poste de Sante        WdmBguuckes
-#> 80                    tp Bafwagali Centre de Sante        NfmIRy8UyBT
-#> 81                     kl Kimwanza Centre de Sante        AjpQEXtz1UQ
-#> 82                       hk Pauline Centre Medical        hCo4u2MyHu9
-#> 83                         hk Neema Centre Medical        YxufOjs3Bbk
-#> 84                    hk Dikulushi Centre de Sante        w34SvU1cM7v
-#> 85                      hu Makpulu Centre de Sante        CoiYvmUlIc6
-#> 86                        it ABEF Centre Convivial        IYeo5omA522
-#> 87                kc Gloire Ã  Dieu Poste de Sante        Mse3SVOfaIn
-#> 88                  it Bongwupanda Centre de Sante        Lat3g7gHWNm
-#> 89                   ks Sanga Sanga Poste de Sante        o5bZT8kDAND
-#> 90                       it Mandje Centre de Sante        LFy6Vivy8Bp
-#> 91                  kc Kikongomenga Poste de Sante        XXCcpQyJeMW
-#> 92                    hk Vainqueur Centre de Sante        U9c9uuJFwqr
-#> 93                       kn Breche Centre de Sante        bDGxa8R94DJ
-#> 94                    kn Espoir MS Centre de Sante        L15ZoYEO8ZP
-#> 95             nk Methodistes Unis Centre de Sante        myoEbppkCrp
-#> 96                nk Muhatikani Centre Hospitalier        rUxaJBHw2si
-#> 97                      kc Kingoma Centre de Sante        RwLNKR7Xx65
-#> 98                      kc Prosante Centre Medical        Xmjlk4t8DRi
-#> 99                   kn C.C.Koweit Centre de Sante        KVXxPdhK9r1
-#> 100                        it Ayini Poste de Sante        ZzxEw1PCD5b
-#> 101                      tp Bokpeku Poste de Sante        N8fCI0PpggB
-#> 102                        kc Diasi Poste de Sante        zUbtTc1yc1f
-#> 103                     kc Kinzinga Poste de Sante        lZ91pWWWMmS
-#> 104          kl Ekubi Centre de Sante de Reference        qEH8SPr7GSH
-#> 105                   hk Mine d'Or Centre de Sante        qCY4fMbaVvV
-#> 106                      it Wadaka Centre de Sante        xatj2S3Uj5L
-#> 107             kn Saint Victorien Centre de Sante        VnRBPG4Ng5L
-#> 108                     kl Kimputu Centre de Sante        ybFvvblz2bh
-#> 109                    bu Bonzengo Centre de Sante        o1InspXtiT1
-#> 110                      bu Dembia Centre de Sante        XqfB1mmEF5H
-#> 111           kn Bon Berger de Sao Centre de Sante        buL5mdtnjj1
-#> 112                  hu La Guerison Poste de Sante        ymdV40EUTCO
-#> 113                       kn Exauce Centre Medical        ymrQrhWb9xi
-#> 114                      nu Bomago Centre de Sante        HHCs2FPMY47
-#> 115              kr Luse lua Nzambi Poste de Sante        HD0IXQDbH23
-#> 116                     nk Mabambi Centre de Sante        sCmYIvKTvhW
-#> 117                     eq Bongale Centre de Sante        e0aKE7GSoRF
-#> 118                             it Shalom Clinique        NwN44Msmzbo
-#> 119                       kg Lobiko Poste de Sante        oAuWYcW68Kz
-#> 120                      tn Kasawa Centre de Sante        SzqlqHT405C
-#> 121                   hk St Martin Centre de Sante        ckqgWJHCQwW
-#> 122                       hl Kayeye Poste de Sante        nzlgPBVwbK1
-#> 123                      kn Mushie Centre de Sante        OX6ejkgImed
-#> 124                      nk Midede Centre de Sante        U1DEF1lITn4
-#> 125                      kn Lutete Centre de Sante        zNFMZ4ltpn9
-#> 126                      eq Bondeko Centre Medical        bHZwCW9GOLv
-#> 127                      sk Ekengya Poste de Sante        WsveEHleHQq
-#> 128                       it Salama Poste de Sante        FTzBoKa2Oqi
-#> 129                     kl Mabundu Centre de Sante        hyj1pWYwOZd
-#> 130                        eq Orlus Poste de Sante        GpZlP9U9IAS
-#> 131                      sn Tshendo Poste de Sante        xzmHA0MMqWC
-#> 132                        kn Diki Centre de Sante        gM1znqasKSv
-#> 133                        md Mobie Poste de Sante        TUmSdxJsx8e
-#> 134                     sk Ishungu Centre de Sante        RZJHrCngfJ1
-#> 135                   ke Merveille Centre de Sante        mrnmka8wpDq
-#> 136                      tu Yampete Poste de Sante        P8WglX5ad4Q
-#> 137                         hl Buyo Poste de Sante        w86M75lz9HM
-#> 138                         ke Syka Poste de Sante        LCai1uGkeaH
-#> 139                      kr Sauveur Poste de Sante        vukruxvGuS2
-#> 140                      kn Kitoko Centre de Sante        HFEEwI5VGWx
-#> 141                     kr Luyamba Centre de Sante        ETBdtRl7N3t
-#> 142                     hu Makoleru Poste de Sante        o0XocVzL3rm
-#> 143                   kc Kikiangala Poste de Sante        XZGwmmiyk7Q
-#> 144                     ks Malenga Centre de Sante        tgC6vIJYDKA
-#> 145         kl Anciens Combattants Centre de Sante        LhaxSjpB7nx
-#> 146        md Lonio 1 Centre de Sante de Reference        WG4wo1i19D3
-#> 147              kn Salem Kimbwala Centre de Sante        MSFPGVCn5lc
-#> 148                       kn Libiki Centre Medical        HgXkzhZ9B2S
-#> 149                       hk Joyce Centre de Sante        r2HqqN0uyhF
-#> 150                       tp Ketele Poste de Sante        CFvxBXuQZWG
-#> 151                       lm Kapele Poste de Sante        SeW1eov8vJw
-#> 152                        eq Bosie Poste de Sante        Gavhmi6CCmf
-#> 153                     lm Kanyana Centre de Sante        QhyayAudV1m
-#> 154                      kc Kimbala Poste de Sante        P7zJz5Ng3Dr
-#> 155                      ks Ilenge Centre de Sante        ieQ9GsSYIQ7
-#> 156                     it Sanduku Centre de Sante        aJZC3cFLaP2
-#> 157                          kn OCC Centre Medical        JUOdHT9Nn5l
-#> 158                      hk Nehema Centre de Sante        wpJWHpxxUpb
-#> 159                   ke Kaleya Centre Hospitalier        HL7kernsEOy
-#> 160                        hk Elim Centre de Sante        PGIkuP3xh41
-#> 161                kc Mbanza Ngombe Poste de Sante        LsVizLUwMyB
-#> 162                      kc Kalungu Poste de Sante        M8yqVXgioYu
-#> 163                  mn Penendjali Centre de Sante        plLHxyZKawR
-#> 164        hk Adra 41 Centre de Sante de Reference        s3J65WytnNX
-#> 165                       mg Upoto Centre de Sante        OH6r9M26K7Y
-#> 166                       tn Kyoko Centre de Sante        IrKtCwNN8Hk
-#> 167                   eq Boso Nduku Poste de Sante        qIQ7qplIuoD
-#> 168                    sk Numbi Centre Hospitalier        BAXjZBVazBB
-#> 169                     ks Malundu Centre de Sante        w53kcvQ7OwC
-#> 170                    it Mungu Mupinyaji Clinique        XTF4fop8cjl
-#> 171                      kn Kamifa Centre de Sante        ghvf5a3ySHz
-#> 172        ks Kinda 1 Centre de Sante de Reference        jpoLB1gPnBW
-#> 173                   nu Capsabolo Centre de Sante        xJdj5gtlU3v
-#> 174                    sk Bitobolo Centre de Sante        jqwVtbf270E
-#> 175                     sn Kingombe Poste de Sante        bHASljdd9gb
-#> 176                         sk Espoir Polyclinique        ZtppvZMFqxR
-#> 177                 sn Kole Pilote Centre de Sante        KyLcdOpkhzi
-#> 178                       it Faraja Poste de Sante        ZE43FjKUQbX
-#> 179                       eq Lokoba Poste de Sante        jKoGzbrqYM3
-#> 180                 kc Gued Medical Poste de Sante        P1kdBotv0yx
-#> 181                      ke Buloba Centre de Sante        Am1gPDelX0h
-#> 182                     hk Emmanuel Centre Medical        tfMS77qEgoQ
-#> 183                        tu Isaka Poste de Sante        LtTlT6q1rUP
-#> 184                      sk Luganda Poste de Sante        xzy2Bt9dqZg
-#> 185               hk La Gloire Kal Centre de Sante        ZzkmxDvJZ8U
-#> 186                     mg Bandala Centre de Sante        rc7JjAJUq6c
-#> 187                        it Dz'lo Poste de Sante        iF9AJiq473B
-#> 188                     hk Propice Centre de Sante        jaHFBfcL8Xk
-#> 189        eq Lusengo Centre de Sante de Reference        Q4XF1xZfW5U
-#> 190                   kl Kinguendi Centre de Sante        cLc2uthCRfm
-#> 191                 nk Bethesda Centre Hospitalier        sTVzd2ikl1v
-#> 192                    nk Kyaghala Centre de Sante        aKZLEwKZXwc
-#> 193                       md Bosano Poste de Sante        H8wGLfSi8A0
-#> 194                   hk Saint Luc Centre de Sante        YaKc6EAbjyo
-#> 195               kl Bon Samaritin Centre de Sante        C88x3rqtopm
-#> 196                 kc Kimbanguiste Poste de Sante        FibYkHdN4cV
-#> 197                        kn Onyx Centre de Sante        sXCqayKuFCZ
-#> 198           lm MÃ¨res et Enfants Centre de Sante        xM9lLvwKwO3
-#> 199                     sn Mukwasa Centre de Sante        l59Io57vB4A
-#> 200                     lm Nsungula Poste de Sante        RoYshw9v4QU
-#> 201                   it Mont Meyo Centre de Sante        LsI8b44wKma
-#> 202                   tu Catholique Poste de Sante        Fco9rgzcIDa
-#> 203              kc La Consolatrice Poste de Sante        NF8EG50NTAl
-#> 204            lm Sainte IrÃ¨ne Centre Hospitalier        HZ3YlO3QH2v
-#> 205                      bu Bokoyo Centre de Sante        Bd8yRtcEUGN
-#> 206                  hk 3Ã¨me Pull Centre de Sante        xUp21QW6WHt
-#> 207                 mg Boso Mayale Centre de Sante        t5cywpQdxgv
-#> 208                      sk La Charite Dispensaire        aEIbneE5YK8
-#> 209                        it Wadda Poste de Sante        SpghXptkB8O
-#> 210                   lm Wa Kubuila Poste de Sante        GadtB4okoAz
-#> 211      hk Disanga 2 Centre de Sante de Reference        gnOTB6ZHxHL
-#> 212                  ks Muena Luse Centre de Sante        YQXVub7JsFs
-#> 213             hk Secours Medical Centre de Sante        HAsWDhBe2HO
-#> 214           kc Patu Centre de Sante de Reference        n7XJIPnSwf9
-#> 215                   hl Kasengayi Centre de Sante        Db2EhcbIcdG
-#> 216                       nk Baraka Centre Medical        BPXVTdHE962
-#> 217                       it Ondere Poste de Sante        RoticnTW1xG
-#> 218                    su Ngbulutu Centre de Sante        XfAI2KDXHAF
-#> 219                kr Mbumba chutte Poste de Sante        KwNd29KgQpV
-#> 220                       md Lukeni Poste de Sante        pPvkmxqVVAT
-#> 221                      hk Mwinda Centre de Sante        vCo9gG2PrxQ
-#> 222            II Mission Possible Centre de Sante        Y2Zno48cVsM
-#> 223                      kc Mankala Poste de Sante        Wow4EJOZvn7
-#> 224                   sk Kitopo Centre Hospitalier        Ty9uFgaLApU
-#> 225                      tn Kiluba Centre de Sante        yUpHNdXdYU5
-#> 226                      kc Kinkasi Poste de Sante        MFSPAFxNkuY
-#> 227                      lm Musuma Centre de Sante        ZpW4jUk7BKs
-#> 228    ke Bakwa Sumba Centre de Sante de Reference        CBbI0px8S67
-#> 229                     kn Bosungi Centre de Sante        d61awNCltB0
-#> 230                        tn Keba Centre de Sante        GqK4aLSui8L
-#> 231                     hk light KM Centre Medical        sdosa6ZhzNz
-#> 232                   bu Nebanguma Centre de Sante        qKiTm3ox0hQ
-#> 233                      sk Saint Luc Polyclinique        uodZW3ueeRu
-#> 234                        kn Dina Centre de Sante        hAYVvlY3AgF
-#> 235                     kc PÃ¨lerin Centre Medical        TYLifnutAIQ
-#> 236        sn Lomela HÃ´pital General de Reference        mLUfiypCjB6
-#> 237           tp Mumba Losuna Etat Centre de Sante        Zy9WvI066Hx
-#> 238                      md Bombole Poste de Sante        UdR3vtzuTuW
-#> 239                       ks Luhelo Poste de Sante        kjxX95YohCd
-#> 240                     ks Muanetu Centre de Sante        GQErhde7mDV
-#> 241                     tu Mondjoku Poste de Sante        METJ1QOpEsc
-#> 242                 nu Kongba Bema Centre de Sante        SN8EKtXSdnI
-#> 243                   it Bora Uzima Poste de Sante        YzEFB0h7tMC
-#> 244                      md Nzinzi Centre de Sante        lQy6FpdKrSg
-#> 245                        md Tahou Poste de Sante        xYymMOTAvlw
-#> 246              ke Tshiaba Centre Centre de Sante        isFHLrivA10
-#> 247                  ks Dienzelayi Centre de Sante        xYPQDDYdaLW
-#> 248                       kc APHBAC Poste de Sante        Yhe6cwdtdAG
-#> 249                       kn Joyce Centre de Sante        WSRWnvoitzf
-#> 250                        kl Salab Poste de Sante        oRaf0R8OTCD
-#> 251                     kl Fambiesi Poste de Sante        UQucHEezJf3
-#> 252                      sk Mudusa Centre de Sante        aHycetrS1gn
-#> 253                      it Badiya Centre de Sante        Lj7L8PXCBEZ
-#> 254                    ks Bethesda Centre de Sante        LAflktAcc4n
-#> 255                   nk Alimbongo Centre de Sante        hITUDafuo1b
-#> 256                sk Kiniezire Centre Hospitalier        VRIDwqmuITt
-#> 257                 kl Kimbanguiste Poste de Sante        XLyPO0rY2CI
-#> 258                       it Ngenge Poste de Sante        t51FDEr9mvC
-#> 259                lm Muana Muzang Centre de Sante        P4539sFaCh8
-#> 260                       mn Kaswa Centre de Sante        EqVCznDyUAG
-#> 261                      eq Bolingo Centre Medical        J0qjAIi3G39
-#> 262                   ks Diezelayi Centre de Sante        y4xzytchW6L
-#> 263                          ks BLM Poste de Sante        zq7ZAJtuv0m
-#> 264                   hk Suzanella Centre de Sante        GFLPMADAyR7
-#> 265                    sn Ometshuha Poste de Sante        kXU5995InIa
-#> 266                      hk Gabaon Centre de Sante        aWAC92AnTld
-#> 267                     hl Kabunda Centre de Sante        Dz7AztEYC2D
-#> 268                    lm Kamatombo Poste de Sante        LHioDdLx62t
-#> 269                      mg Bolombo Poste de Sante        LRC5QrxMOVA
-#> 270         kc Bidi Ngengomo Dispensaire Maternite        cjGFXK0oB5p
-#> 271                      ke Edidiom Poste de Sante        XYgTAyeu6t8
-#> 272               tn Majengo Mapya Centre de Sante        s5VwcWoRDBm
-#> 273                     mn Katambwe Poste de Sante        E2eWvfBk2e2
-#> 274                 kc Saint Pierre Centre Medical        c4FXh2Fi722
-#> 275                        tp Ikela Poste de Sante        tKHflFCQnwe
-#> 276                     kc Kimbauka Poste de Sante        DSxVuDZ1eGn
-#> 277                   mn Penesenga Centre de Sante        Vvt704lhpcZ
-#> 278                      hu Djabir Centre de Sante        GxalZjK8ByU
-#> 279                     kl Muwanda Centre de Sante        rISAxx1ZkNN
-#> 280                     hk Kabimbi Centre de Sante        UlbbjwtQTY3
-#> 281             kc Kinzau Mvuete B Centre de Sante        U3HET5zzJDE
-#> 282                     sk Lumanya Centre de Sante        wSpMfCTLjhE
-#> 283                    kr Malongila Poste de Sante        YytE49WZJsn
-#> 284                       md Ngali Centre de Sante        nrPS87OZAvJ
-#> 285                      kc Khienge Centre Medical        bbvJ1UBnaYu
-#> 286                        hk Doris Poste de Sante        dWUHr3MBwjL
-#> 287                         nk Butembo Antenne PEV        GOnegWPOvKX
-#> 288            tu Yaa Centre de Sante de Reference        GbmuvaX7DAH
-#> 289                       tn Musebe Poste de Sante        fWjDr4lYJO6
-#> 290                kn Maman Celine Centre de Sante        XaOidTR1hoZ
-#> 291                  kc Nienze Bata Poste de Sante        YtC4YWg24fV
-#> 292                   it Drobukolo Centre de Sante        ZkqJ16bTzKi
-#> 293                       eq Mpombi Poste de Sante        i20zrtseFf5
-#> 294                   kc Christ Roi Centre Medical        tyylDZV0DLH
-#> 295                  it Apala Etat Centre de Sante        OamOl6uBYbr
-#> 296                     sn Omeonga Centre de Sante        dY4kiVZJlwf
-#> 297               kc ABEF-Kimpese Centre Convivial        pql9dON2jZp
-#> 298                      kn Bomoko Centre de Sante        SRgwNZCegv9
-#> 299                       sk Ikoma Centre de Sante        SoemzCgdKWf
-#> 300                   kc De la Paix Centre Medical        nSRATppiTnf
-#> 301                     lm Alcament Poste de Sante        BeJ21EjYV5Q
-#> 302                       ke Kyria Centre de Sante        uVCqw93A9z0
-#> 303                        eq Wamba Poste de Sante        elrLZPHGC2f
-#> 304                    mg Yanbenga Centre de Sante        difTpChNCB9
-#> 305                 it Panvitalisme Poste de Sante        HL9QBc9C25K
-#> 306                  ll Fraternite Centre de Sante        axcSYWdqi9U
-#> 307           kn Fonction Publique Centre de Sante        EGaO0lEldOW
-#> 308                          it Rau Poste de Sante        hkEQEpkRaaS
-#> 309                       tp Mokote Poste de Sante        b7caNkQNSvW
-#> 310            hl MÃ¨re du Sauveur Centre de Sante        clky9c8yLoP
-#> 311                       tp Yatoko Poste de Sante        mdrACwTUmVz
-#> 312                       hu Wanga centre de Sante        fAlR1fFOdOd
-#> 313                      tp Mokongo Poste de Sante        VLeDRPnDfma
-#> 314                     ks Lungumba Poste de Sante        oLmXNEKbPq6
-#> 315                       tp Rekapi Centre Medical        YDGJd00jtJ1
-#> 316                       sk Miowe Centre de Sante        OLU0htLZx2r
-#> 317                   kl Mudimbimbi Poste de Sante        SAq1NRC7Cj4
-#> 318                hk Hero Medical Centre de Sante        LyXT47zhren
-#> 319                    mn Afia Bora Centre Medical        qyXI8TLv6Zy
-#> 320                     kr Tujukayi Poste de Sante        YvazA1L2DMp
-#> 321                kn Christ Amour Centre de Sante        K9799BY7t90
-#> 322                   kr Lulengele Centre de Sante        rIlwbzNNalx
-#> 323                     kr Kalualua Poste de Sante        cafMucNhKzQ
-#> 324                       it Mutubi Poste de Sante        gDKzxVkIjVJ
-#> 325                        it Ukemo Poste de Sante        DL1lqxcbqGP
-#> 326                      hu 3 Ponts Poste de Sante        pmKcgF9vyaR
-#> 327                      kr Kasamba Poste de Sante        liXfwqqrnsu
-#> 328                    sk Muranvya Centre de Sante        qM2lWiqWAzY
-#> 329                      it Tujenge Poste de Sante        vtCVudPhE1D
-#> 330                    hk Kilombwa Centre de Sante        F8DGzeuC7SW
-#> 331                   lm Tshilundu Centre de Sante        ab4hRHzeUH0
-#> 332                  eq Boso-inzoke Poste de Sante        zjVKmQu6T0A
-#> 333                       lm Musuyi Poste de Sante        YL9eENr2xkb
-#> 334                   nk Saint Raphael Dispensaire        E59qmoTt2zz
-#> 335                         it Pono Poste de Sante        Ozj8Ir9IJES
-#> 336                    ke La Kenda Centre de Sante        YoPoSPPgDiB
-#> 337                       kn Shift Centre de Sante        E1S87JYgJ4R
-#> 338                      hu Nadumbe Poste de Sante        NyDu8otp7Qy
-#> 339                    kr Tudimuena Poste de Sante        IWGTaqGDVtg
-#> 340                  hk La Charite Centre de Sante        tmyi8A7JZpT
-#> 341                  kc Kiasi Kolo Centre de Sante        bp7pkwnLRSg
-#> 342          hk Christ vainqueur 2 Centre de Sante        Jafq2uYrpOW
-#> 343                     kn Mubiala Centre de Sante        CVbFxOnksnA
-#> 344                      md Bokenge Poste de Sante        Hka20AKwYDq
-#> 345                su Bogose Nubea Centre de Sante        H691EzR1gti
-#> 346          md Mbien Centre de Sante de Reference        LM5OwAqZdk2
-#> 347                      md Lebama Centre de Sante        p4LWbZsWhNE
-#> 348                       hk Uzima Centre de Sante        ZAkQzqLWSp2
-#> 349              kc Tsanga Makuanzi Poste de Sante        HquOOIAU9p8
-#> 350                      nk Katiri Centre de Sante        MedZym3cKVb
-#> 351                        ks CMTK Centre de Sante        FK7YodkGMpt
-#> 352                kr Shatshikumba Centre de Sante        kLfCDiOs4oa
-#> 353                        md Ikila Poste de Sante        UguS17vAFb6
-#> 354               kl Dibaya Matadi Centre de Sante        JHjYEv08Jz7
-#> 355                 ks Kampungu Centre Hospitalier        dvMGojVGPXM
-#> 356               kl Dongo Selenge Centre de Sante        sIk9iRW4avE
-#> 357                  kl Bumba Puta Centre de Sante        HtULefrJQAw
-#> 358                    hk St Felix Centre de Sante        GCRInSq8C4w
-#> 359                    su Kondonga Centre de Sante        iZCi648iMiE
-#> 360                        kl Nenga Poste de Sante        LbjvNEYwPSY
-#> 361                    ke Kabala 2 Centre de Sante        CLMhtKsOpyu
-#> 362                md Mabala Kasai Centre de Sante        fak3Fy0hHGP
-#> 363                         kc Istm Centre Medical        Ql4zqvyiL4R
-#> 364                     kl Kimbulu Centre de Sante        PFzvFlMeLg8
-#> 365                     hu Abhamva Centre de Sante        lj4f8JVluOc
-#> 366                     lm Babengie Poste de Sante        IgfIkObA7da
-#> 367             kr Kamanga Kamukasa Poste de Sante        dNWMXycOAci
-#> 368                       kl Kinga Centre de Sante        A54TK5cwitP
-#> 369                     sk Kakenge Centre de Sante        FHNsUEaVav4
-#> 370       kn Centre de Transfusion Sanguine (PNTS)        SGIUpdeASip
-#> 371                 kn PÃ¨re Damien Centre Medical        zRlMQN4ZJBx
-#> 372                   it Masumbuko Centre de Sante        CokuB8e0GYz
-#> 373                        sk Dima Centre de Sante        h9Wnu3cY7Fc
-#> 374                     ks Kapepula Poste de Sante        m6EMsy79jPm
-#> 375                      hk Bonzola Poste de Sante        vmC5IpYrDh4
-#> 376                    ke Carriere Centre de Sante        eVB7M3IEpBg
-#> 377                     kn Accacia Centre de Sante        g4pglmjl0Dp
-#> 378                     sk Labotte Centre de Sante        yPfhsrF15h3
-#> 379                    sk Bushonga Centre de Sante        pN2hrwoPqYn
-#> 380                      tn Balanga Poste de Sante        dL5YPxXAAzG
-#> 381                       it Marie Claire Clinique        O4e7imgKbGJ
-#> 382                      kn Naweza Centre de Sante        LssN5almqFa
-#> 383        kc Tuidi Mambengo Dispensaire Maternite        cbYlVlEaGIE
-#> 384                       kn Funzi Centre de Sante        EvjhzoUjhRX
-#> 385                       hu Matete Poste de Sante        KlTxT82X7Rh
-#> 386                     ke Berkamed Poste de Sante        p5xhvPGSouM
-#> 387                       kl Nkili Centre de Sante        ik2qggg0cyU
-#> 388                       eq Mekoko Poste de Sante        GANwDad0Gmh
-#> 389                        tp Akebo Poste de Sante        jVfbIqFZ44q
-#> 390                        kl Ngadi Poste de Sante        qxjwyucdBe9
-#> 391             kr Mukanya Kalamba Centre de Sante        tSA4pXRgxMl
-#> 392                         kc SNEL Poste de Sante        xZo0d0VJN4k
-#> 393    hk Au secours de l'humanite Centre de Sante        XRCKKlYfF9C
-#> 394                     mg Liyango Centre de Sante        SQVLsXDJ0Cs
-#> 395                   mg Boso Mane Centre de Sante        V2nFlOtC3RI
-#> 396                       bu Ebale Centre de Sante        AH3ntXTEQ3Q
-#> 397                         mg Pem Centre de Sante        mRALI7Mvn9O
-#> 398                  ks Ngela Longo Poste de Sante        bPLUQ6IHn37
-#> 399                      eq Boyera Centre de Sante        xxRkkcfLKaF
-#> 400               kl Kanzombi Etat Centre de Sante        A7qpwafHb9k
-#> 401                       bu Sombe Centre de Sante        PL78OjzLRmB
-#> 402                mn La Vie Combat Centre Medical        tDX3ybI3PrZ
-#> 403                   sk Camp Saio Centre de Sante        NrX2Mx5VWBn
-#> 404                      kn Mpongo Centre de Sante        beD2W36UL1o
-#> 405                     it Aungusto Poste de Sante        gHBmU2hU3Oz
-#> 406           ks Kalala Ngangabuka Centre de Sante        POurD4pJxyq
-#> 407                     hk Kalunda Centre de Sante        yPkIJR9ZiUv
-#> 408                      kl Kaggwa Centre de Sante        pPHJKcBHhfv
-#> 409               kl Ngunda minango Poste de Sante        m8g6XHDD4bj
-#> 410                 sk Sky Born Centre Hospitalier        ab7syIH2pDH
-#> 411                     eq Lobengo Centre de Sante        iwh9gE9pbyG
-#> 412                kc Nkaka Mawete Centre de Sante        hipslD3FfZC
-#> 413                ll Tshimbalanga Centre de Sante        ruK9K1pYZQL
-#> 414                 kn Arc-en-ciel Centre de Sante        JacZLVsRgBE
-#> 415                      nu Pasagba Poste de Sante        cH8q58a1FAl
-#> 416                   mn Dieu Benit Centre Medical        a5FsI2S8E1w
-#> 417                     sk Bwegera Centre de Sante        RWIRHkhBOoo
-#> 418                         hk Kiba Poste de Sante        ZwP6CzgsLJP
-#> 419               eq Makolo Manonga Poste de Sante        g6qEcbm6cDc
-#> 420               mn Nyembo Lukengo Poste de Sante        XV9JonW2aCC
-#> 421                          hl Baraka Dispensaire        rvOoQTdjnWj
-#> 422    kc Tsanga Nord Centre de Sante de Reference        Ucy6XSgMJ8B
-#> 423                  lm Kananganan Centre de Sante        XCsnrobqyhl
-#> 424                  nk Katolo Lac Centre de Sante        re55QdOheaC
-#> 425                       ks Mbelo Centre de Sante        VNpbVynMTcD
-#> 426                      nk Ibanga Centre de Sante        ShrZPVgomwh
-#> 427                        kn Elie Centre de Sante        gjk9OtwAuZw
-#> 428             kr Ntambue Kayembe Centre de Sante        T4jCnJ9JuwB
-#> 429                      kg Mapungu Poste de Sante        nG6ZXTiXqA3
-#> 430                      mg Bodala Centre de Sante        bQgQvh8JLJh
-#> 431                        ks Buinu Poste de Sante        u16QWkjcxrF
-#> 432                       nk Kasave Poste de Sante        Z9q0T27pCKy
-#> 433                      kn Mpongo Centre de Sante        beD2W36UL1o
-#> 434         mg Bumba HÃ´pital General de Reference        UByIbrLg3NO
-#> 435                             it Shalom Clinique        HLX5Ak5UDOM
-#> 436                         kn Cna Centre de Sante        SoBXhGz59YR
-#> 437                     kn Galilee Centre de Sante        PBLfp91XGpa
-#> 438                       kr Mabala Poste de Sante        IooZ6Lgo20p
-#> 439                      sk Kitoga Centre de Sante        nDWXtw4y1xe
-#> 440              kg Sefu/Swa-tenda Centre de Sante        mCwMG3juTMq
-#> 441                       mn Kakiki Poste de Sante        vyKqqj7B39t
-#> 442                      tu Iyenge Centre de Sante        etbI8uYd5sQ
-#> 443                         ks CMK Centre de Sante        dec1yWQSt9r
-#> 444                    mg Boso Godo Poste de Sante        K9wfvmurjPb
-#>                               organisationunitname organisationunitcode
-#> 1             bu Assa Centre de Sante de Reference                 <NA>
-#> 2                     hk Mwangaza  Centre de Sante                 <NA>
-#> 3                       eq Ngondola Poste de Sante     41240307-4100498
-#> 4                        kn Elykia Centre de Sante     10230102-1000685
-#> 5                       ll Mapendo Centre de Sante     73470110-7300377
-#> 6                      it Tuendelee Poste de Sante     54520305-5400742
-#> 7                      sk Mugawaji Centre de Sante     62230218-6200510
-#> 8                        kl Muhange Poste de Sante     31350320-3100810
-#> 9                     hk Ste Agnes Centre de Sante     71120120-7100716
-#> 10                      sn Longala Centre de Sante                 <NA>
-#> 11                        hk Benita Centre Medical                 <NA>
-#> 12                        hk Gradi Centre de Sante                 <NA>
-#> 13                    it Deogratias Poste de Sante                 <NA>
-#> 14                       mn Kahimbe Poste de Sante                 <NA>
-#> 15            nk Lume Centre de Sante de Reference     61310613-6100884
-#> 16                    kn E Manenga Centre de Sante     10280108-1000726
-#> 17                         hl Nkana Poste de Sante                 <NA>
-#> 18                   it La Guerison Poste de Sante                 <NA>
-#> 19                     ke La GrÃ¢ce Poste de Sante     81110107-8100634
-#> 20                    nk Binyambuli Poste de Sante     61220311-6100537
-#> 21                 ks Tuye Kumpala Centre de Sante                 <NA>
-#> 22                         md Manga Poste de Sante     33230126-3300550
-#> 23                       lm Misombo Poste de Sante     82410205-8200277
-#> 24                   ks Domiongo 2 Centre de Sante     92340409-9200654
-#> 25               kr Ntambue Lomami Centre de Sante     91210209-9100120
-#> 26                      lm Katabayi Poste de Sante                 <NA>
-#> 27                      hk Euphata Centre de Sante                 <NA>
-#> 28                       it Rikazu Centre de Sante     54550216-5400021
-#> 29                       mn Samueli Poste de Sante     63250207-6300170
-#> 30                     hk Cepromec Centre de Sante                 <NA>
-#> 31                     hk Andralie Centre de Sante     71120109-7100649
-#> 32              kc Sagesse Kongo 2 Centre de Sante                 <NA>
-#> 33                       su Boyafio Poste de Sante     45310506-4500355
-#> 34                    kl Munzabala Centre de Sante                 <NA>
-#> 35                       kn La Foi Centre de Sante     10310204-1000665
-#> 36                       sn Efefete Poste de Sante                 <NA>
-#> 37                        hk JEIEL Centre de Sante     71110112-7100330
-#> 38                  kc El Rapha Centre Hospitalier                 <NA>
-#> 39                       it Ndrele Centre de Sante     54540517-5400623
-#> 40                it Eru Yofenyiri Centre de Sante     54550112-5400142
-#> 41                      mg Bomenge Centre de Sante     42620204-4200341
-#> 42    lm Kalonda Est HÃ´pital General de Reference                 <NA>
-#> 43                      mn Longonya Poste de Sante     63260309-6300477
-#> 44                       ll Mulesu Centre de Sante                 <NA>
-#> 45                      kg Kabuita Centre de Sante     32510302-3200267
-#> 46                    kr Kalombayi Centre de Sante     91240112-9100151
-#> 47                       kc Kisiama Poste de Sante                 <NA>
-#> 48                        tu Lokata Poste de Sante     43750202-4300125
-#> 49                       mn Amuladi Poste de Sante     63270208-6300368
-#> 50                       hk Kapata Centre de Sante                 <NA>
-#> 51                     sk Tshigoma Centre de Sante     62260225-6200058
-#> 52                     hk Victoire Centre de Sante                 <NA>
-#> 53                   it Nyakasanza Centre de Sante     54510215-5400329
-#> 54                  kc Henri Dunant Poste de Sante     20330109-2000245
-#> 55             hk OUA Centre de Sante de Reference     71710113-7100515
-#> 56  hu Boma Mangbetu HÃ´pital General de Reference     53460208-5300052
-#> 57                   kc La Moisson Centre de Sante                 <NA>
-#> 58                       kg Katondi Poste de Sante                 <NA>
-#> 59                         sn Owala Poste de Sante                 <NA>
-#> 60            hk Christ Redempteur Centre de Sante                 <NA>
-#> 61                  kc Beto na Beto Centre Medical                 <NA>
-#> 62                      kc Patience Centre Medical                 <NA>
-#> 63                       ll Ntembu Centre de Sante     73430119-7300236
-#> 64           kl Pierre Declerck Centre Hospitalier     31430134-3100489
-#> 65         tn Manono HÃ´pital General de Reference     74630103-7400175
-#> 66                        hu Ngili Centre de Sante     53440214-5300302
-#> 67                  bu Maselebende Centre de Sante     52310107-5200076
-#> 68                   kc Tsese Ntinu Poste de Sante     20330103-2000218
-#> 69                        md Monsui Poste de Sante     33630115-3300383
-#> 70                      lm Tshileu Centre de Sante                 <NA>
-#> 71                        it Avari Centre de Sante     54540310-5400176
-#> 72                       mn Kasuku Centre de Sante     63220103-6300229
-#> 73                       tp Bodela Centre de Sante     51210106-5100067
-#> 74                     kl Kitambwe Centre de Sante     31350411-3100834
-#> 75                      sn Kabondo Centre de Sante                 <NA>
-#> 76                kc La Benediction Poste de Sante                 <NA>
-#> 77                       kc Bosembo Poste de Sante                 <NA>
-#> 78                          kn CMV Centre de Sante     10200211-1000538
-#> 79                        md Police Poste de Sante                 <NA>
-#> 80                    tp Bafwagali Centre de Sante     51220105-5100033
-#> 81                     kl Kimwanza Centre de Sante                 <NA>
-#> 82                       hk Pauline Centre Medical                 <NA>
-#> 83                         hk Neema Centre Medical                 <NA>
-#> 84                    hk Dikulushi Centre de Sante                 <NA>
-#> 85                      hu Makpulu Centre de Sante     53410207-5300228
-#> 86                        it ABEF Centre Convivial                 <NA>
-#> 87                kc Gloire Ã  Dieu Poste de Sante                 <NA>
-#> 88                  it Bongwupanda Centre de Sante     54520106-5400712
-#> 89                   ks Sanga Sanga Poste de Sante     92330323-9200631
-#> 90                       it Mandje Centre de Sante     54531006-5400780
-#> 91                  kc Kikongomenga Poste de Sante                 <NA>
-#> 92                    hk Vainqueur Centre de Sante     71110215-7100583
-#> 93                       kn Breche Centre de Sante     10180105-1000555
-#> 94                    kn Espoir MS Centre de Sante                 <NA>
-#> 95             nk Methodistes Unis Centre de Sante     61120112-6100361
-#> 96                nk Muhatikani Centre Hospitalier     61230608-6100745
-#> 97                      kc Kingoma Centre de Sante     20430103-2000276
-#> 98                      kc Prosante Centre Medical     20210111-2000131
-#> 99                   kn C.C.Koweit Centre de Sante                 <NA>
-#> 100                        it Ayini Poste de Sante                 <NA>
-#> 101                      tp Bokpeku Poste de Sante                 <NA>
-#> 102                        kc Diasi Poste de Sante                 <NA>
-#> 103                     kc Kinzinga Poste de Sante                 <NA>
-#> 104          kl Ekubi Centre de Sante de Reference                 <NA>
-#> 105                   hk Mine d'Or Centre de Sante                 <NA>
-#> 106                      it Wadaka Centre de Sante     54540318-5400189
-#> 107             kn Saint Victorien Centre de Sante                 <NA>
-#> 108                     kl Kimputu Centre de Sante     31310225-3100213
-#> 109                    bu Bonzengo Centre de Sante     52320107-5200007
-#> 110                      bu Dembia Centre de Sante     52350105-5200093
-#> 111           kn Bon Berger de Sao Centre de Sante     10330116-1000599
-#> 112                  hu La Guerison Poste de Sante     53460105-5300428
-#> 113                       kn Exauce Centre Medical     10150108-1000043
-#> 114                      nu Bomago Centre de Sante                 <NA>
-#> 115              kr Luse lua Nzambi Poste de Sante     91250207-9100382
-#> 116                     nk Mabambi Centre de Sante     61230710-6100836
-#> 117                     eq Bongale Centre de Sante     41220308-4100469
-#> 118                             it Shalom Clinique     54550114-5400746
-#> 119                       kg Lobiko Poste de Sante                 <NA>
-#> 120                      tn Kasawa Centre de Sante     74650206-7400206
-#> 121                   hk St Martin Centre de Sante     71110111-7100327
-#> 122                       hl Kayeye Poste de Sante     72550307-7200098
-#> 123                      kn Mushie Centre de Sante     10210113-1000445
-#> 124                      nk Midede Centre de Sante     61230509-6100725
-#> 125                      kn Lutete Centre de Sante                 <NA>
-#> 126                      eq Bondeko Centre Medical     41120106-4100426
-#> 127                      sk Ekengya Poste de Sante                 <NA>
-#> 128                       it Salama Poste de Sante                 <NA>
-#> 129                     kl Mabundu Centre de Sante                 <NA>
-#> 130                        eq Orlus Poste de Sante     41210117-4100028
-#> 131                      sn Tshendo Poste de Sante                 <NA>
-#> 132                        kn Diki Centre de Sante     10320105-1000792
-#> 133                        md Mobie Poste de Sante     33240301-3300401
-#> 134                     sk Ishungu Centre de Sante     62280406-6200874
-#> 135                   ke Merveille Centre de Sante     81150105-8100170
-#> 136                      tu Yampete Poste de Sante     43740218-4300329
-#> 137                         hl Buyo Poste de Sante     72550318-7200134
-#> 138                         ke Syka Poste de Sante                 <NA>
-#> 139                      kr Sauveur Poste de Sante                 <NA>
-#> 140                      kn Kitoko Centre de Sante     10310106-1000634
-#> 141                     kr Luyamba Centre de Sante     91240307-9100590
-#> 142                     hu Makoleru Poste de Sante     53440115-5300156
-#> 143                   kc Kikiangala Poste de Sante     20530105-2000397
-#> 144                     ks Malenga Centre de Sante     92310212-9200857
-#> 145         kl Anciens Combattants Centre de Sante     31430123-3100471
-#> 146        md Lonio 1 Centre de Sante de Reference     33210310-3300480
-#> 147              kn Salem Kimbwala Centre de Sante     10280205-1000757
-#> 148                       kn Libiki Centre Medical                 <NA>
-#> 149                       hk Joyce Centre de Sante                 <NA>
-#> 150                       tp Ketele Poste de Sante     51120109-5100322
-#> 151                       lm Kapele Poste de Sante                 <NA>
-#> 152                        eq Bosie Poste de Sante                 <NA>
-#> 153                     lm Kanyana Centre de Sante     82430305-8200479
-#> 154                      kc Kimbala Poste de Sante     20410302-2000308
-#> 155                      ks Ilenge Centre de Sante                 <NA>
-#> 156                     it Sanduku Centre de Sante     54530714-5400565
-#> 157                          kn OCC Centre Medical     10160102-1000184
-#> 158                      hk Nehema Centre de Sante                 <NA>
-#> 159                   ke Kaleya Centre Hospitalier     81210212-8100106
-#> 160                        hk Elim Centre de Sante     71150107-7100359
-#> 161                kc Mbanza Ngombe Poste de Sante     20420210-2001158
-#> 162                      kc Kalungu Poste de Sante     20330112-2000263
-#> 163                  mn Penendjali Centre de Sante     63240208-6300399
-#> 164        hk Adra 41 Centre de Sante de Reference     71160102-7100006
-#> 165                       mg Upoto Centre de Sante     42610134-4200337
-#> 166                       tn Kyoko Centre de Sante     74610209-7400259
-#> 167                   eq Boso Nduku Poste de Sante                 <NA>
-#> 168                    sk Numbi Centre Hospitalier     62260316-6200662
-#> 169                     ks Malundu Centre de Sante                 <NA>
-#> 170                    it Mungu Mupinyaji Clinique                 <NA>
-#> 171                      kn Kamifa Centre de Sante                 <NA>
-#> 172        ks Kinda 1 Centre de Sante de Reference     92340314-9200198
-#> 173                   nu Capsabolo Centre de Sante     44540110-4400048
-#> 174                    sk Bitobolo Centre de Sante     62260203-6200030
-#> 175                     sn Kingombe Poste de Sante     83310103-8300201
-#> 176                         sk Espoir Polyclinique                 <NA>
-#> 177                 sn Kole Pilote Centre de Sante     83320105-8300109
-#> 178                       it Faraja Poste de Sante     54510214-5400324
-#> 179                       eq Lokoba Poste de Sante     41110104-4100532
-#> 180                 kc Gued Medical Poste de Sante     20520111-2000882
-#> 181                      ke Buloba Centre de Sante     81210208-8100096
-#> 182                     hk Emmanuel Centre Medical                 <NA>
-#> 183                        tu Isaka Poste de Sante     43710107-4300042
-#> 184                      sk Luganda Poste de Sante                 <NA>
-#> 185               hk La Gloire Kal Centre de Sante                 <NA>
-#> 186                     mg Bandala Centre de Sante     42620301-4200410
-#> 187                        it Dz'lo Poste de Sante     54530812-5400591
-#> 188                     hk Propice Centre de Sante     71130114-7100169
-#> 189        eq Lusengo Centre de Sante de Reference     41270310-4100384
-#> 190                   kl Kinguendi Centre de Sante     31320208-3100691
-#> 191                 nk Bethesda Centre Hospitalier     61110110-6100228
-#> 192                    nk Kyaghala Centre de Sante     61250517-6100510
-#> 193                       md Bosano Poste de Sante     33220202-3300561
-#> 194                   hk Saint Luc Centre de Sante                 <NA>
-#> 195               kl Bon Samaritin Centre de Sante                 <NA>
-#> 196                 kc Kimbanguiste Poste de Sante                 <NA>
-#> 197                        kn Onyx Centre de Sante                 <NA>
-#> 198           lm MÃ¨res et Enfants Centre de Sante                 <NA>
-#> 199                     sn Mukwasa Centre de Sante     83310111-8300215
-#> 200                     lm Nsungula Poste de Sante     82410122-8200129
-#> 201                   it Mont Meyo Centre de Sante     54550510-5400241
-#> 202                   tu Catholique Poste de Sante     43720101-4300002
-#> 203              kc La Consolatrice Poste de Sante                 <NA>
-#> 204            lm Sainte IrÃ¨ne Centre Hospitalier                 <NA>
-#> 205                      bu Bokoyo Centre de Sante     52340107-5200026
-#> 206                  hk 3Ã¨me Pull Centre de Sante                 <NA>
-#> 207                 mg Boso Mayale Centre de Sante     42640414-4200387
-#> 208                      sk La Charite Dispensaire     62240315-6200388
-#> 209                        it Wadda Poste de Sante     54530309-5400374
-#> 210                   lm Wa Kubuila Poste de Sante     82430118-8200645
-#> 211      hk Disanga 2 Centre de Sante de Reference     71760103-7100048
-#> 212                  ks Muena Luse Centre de Sante                 <NA>
-#> 213             hk Secours Medical Centre de Sante                 <NA>
-#> 214           kc Patu Centre de Sante de Reference     20330215-2000707
-#> 215                   hl Kasengayi Centre de Sante     72520108-7200245
-#> 216                       nk Baraka Centre Medical     61420108-6100180
-#> 217                       it Ondere Poste de Sante     54550116-5400149
-#> 218                    su Ngbulutu Centre de Sante     45320109-4500131
-#> 219                kr Mbumba chutte Poste de Sante                 <NA>
-#> 220                       md Lukeni Poste de Sante     33240206-3300146
-#> 221                      hk Mwinda Centre de Sante                 <NA>
-#> 222            II Mission Possible Centre de Sante                 <NA>
-#> 223                      kc Mankala Poste de Sante                 <NA>
-#> 224                   sk Kitopo Centre Hospitalier     62240208-6200213
-#> 225                      tn Kiluba Centre de Sante     74630212-7400316
-#> 226                      kc Kinkasi Poste de Sante                 <NA>
-#> 227                      lm Musuma Centre de Sante                 <NA>
-#> 228    ke Bakwa Sumba Centre de Sante de Reference     81210206-8100092
-#> 229                     kn Bosungi Centre de Sante                 <NA>
-#> 230                        tn Keba Centre de Sante     74650110-7400150
-#> 231                     hk light KM Centre Medical                 <NA>
-#> 232                   bu Nebanguma Centre de Sante     52350116-5200104
-#> 233                      sk Saint Luc Polyclinique     62130111-6200144
-#> 234                        kn Dina Centre de Sante                 <NA>
-#> 235                     kc PÃ¨lerin Centre Medical     20320106-2000192
-#> 236        sn Lomela HÃ´pital General de Reference     83330110-8300178
-#> 237           tp Mumba Losuna Etat Centre de Sante     51250211-5100502
-#> 238                      md Bombole Poste de Sante     33230212-3300352
-#> 239                       ks Luhelo Poste de Sante     92410502-9200885
-#> 240                     ks Muanetu Centre de Sante     92410401-9200697
-#> 241                     tu Mondjoku Poste de Sante     43750311-4300429
-#> 242                 nu Kongba Bema Centre de Sante     44520407-4400199
-#> 243                   it Bora Uzima Poste de Sante     54520407-5400833
-#> 244                      md Nzinzi Centre de Sante     33630118-3300391
-#> 245                        md Tahou Poste de Sante                 <NA>
-#> 246              ke Tshiaba Centre Centre de Sante     81230213-8100598
-#> 247                  ks Dienzelayi Centre de Sante                 <NA>
-#> 248                       kc APHBAC Poste de Sante     20240202-2001192
-#> 249                       kn Joyce Centre de Sante                 <NA>
-#> 250                        kl Salab Poste de Sante                 <NA>
-#> 251                     kl Fambiesi Poste de Sante     31330209-3100399
-#> 252                      sk Mudusa Centre de Sante     62280409-6200881
-#> 253                      it Badiya Centre de Sante     54510501-5400850
-#> 254                    ks Bethesda Centre de Sante     92410212-9200274
-#> 255                   nk Alimbongo Centre de Sante     61230201-6100001
-#> 256                sk Kiniezire Centre Hospitalier                 <NA>
-#> 257                 kl Kimbanguiste Poste de Sante                 <NA>
-#> 258                       it Ngenge Poste de Sante                 <NA>
-#> 259                lm Muana Muzang Centre de Sante     82410115-8200112
-#> 260                       mn Kaswa Centre de Sante     63220104-6300231
-#> 261                      eq Bolingo Centre Medical     41240303-4100488
-#> 262                   ks Diezelayi Centre de Sante                 <NA>
-#> 263                          ks BLM Poste de Sante                 <NA>
-#> 264                   hk Suzanella Centre de Sante     71130208-7101058
-#> 265                    sn Ometshuha Poste de Sante     83360211-8300274
-#> 266                      hk Gabaon Centre de Sante     71140109-7100943
-#> 267                     hl Kabunda Centre de Sante     72530106-7200150
-#> 268                    lm Kamatombo Poste de Sante     82410216-8200305
-#> 269                      mg Bolombo Poste de Sante     42610202-4200115
-#> 270         kc Bidi Ngengomo Dispensaire Maternite                 <NA>
-#> 271                      ke Edidiom Poste de Sante     81120205-8100407
-#> 272               tn Majengo Mapya Centre de Sante     74650115-7400155
-#> 273                     mn Katambwe Poste de Sante     63250213-6300180
-#> 274                 kc Saint Pierre Centre Medical                 <NA>
-#> 275                        tp Ikela Poste de Sante     51280106-5100561
-#> 276                     kc Kimbauka Poste de Sante     20430308-2000821
-#> 277                   mn Penesenga Centre de Sante                 <NA>
-#> 278                      hu Djabir Centre de Sante     53440104-5300138
-#> 279                     kl Muwanda Centre de Sante     31320315-3100778
-#> 280                     hk Kabimbi Centre de Sante     71730202-7100286
-#> 281             kc Kinzau Mvuete B Centre de Sante     20320204-2001256
-#> 282                     sk Lumanya Centre de Sante                 <NA>
-#> 283                    kr Malongila Poste de Sante                 <NA>
-#> 284                       md Ngali Centre de Sante     33220121-3300280
-#> 285                      kc Khienge Centre Medical     20310304-2000584
-#> 286                        hk Doris Poste de Sante                 <NA>
-#> 287                         nk Butembo Antenne PEV                 <NA>
-#> 288            tu Yaa Centre de Sante de Reference     43710134-4300082
-#> 289                       tn Musebe Poste de Sante     74660125-7400307
-#> 290                kn Maman Celine Centre de Sante                 <NA>
-#> 291                  kc Nienze Bata Poste de Sante     20320202-2001242
-#> 292                   it Drobukolo Centre de Sante     54550204-5400005
-#> 293                       eq Mpombi Poste de Sante                 <NA>
-#> 294                   kc Christ Roi Centre Medical     20110109-2000943
-#> 295                  it Apala Etat Centre de Sante     54540203-5400055
-#> 296                     sn Omeonga Centre de Sante     83340412-8300042
-#> 297               kc ABEF-Kimpese Centre Convivial                 <NA>
-#> 298                      kn Bomoko Centre de Sante                 <NA>
-#> 299                       sk Ikoma Centre de Sante     62210107-6201005
-#> 300                   kc De la Paix Centre Medical     20330110-2000252
-#> 301                     lm Alcament Poste de Sante     82530105-8200536
-#> 302                       ke Kyria Centre de Sante     81150102-8100159
-#> 303                        eq Wamba Poste de Sante     41210123-4100036
-#> 304                    mg Yanbenga Centre de Sante     42620516-4200526
-#> 305                 it Panvitalisme Poste de Sante     54510214-5400321
-#> 306                  ll Fraternite Centre de Sante                 <NA>
-#> 307           kn Fonction Publique Centre de Sante     10160101-1000178
-#> 308                          it Rau Poste de Sante     54550123-5400156
-#> 309                       tp Mokote Poste de Sante                 <NA>
-#> 310            hl MÃ¨re du Sauveur Centre de Sante     72510119-7200214
-#> 311                       tp Yatoko Poste de Sante     51240211-5100646
-#> 312                       hu Wanga centre de Sante                 <NA>
-#> 313                      tp Mokongo Poste de Sante     51270108-5100129
-#> 314                     ks Lungumba Poste de Sante     92310210-9200851
-#> 315                       tp Rekapi Centre Medical                 <NA>
-#> 316                       sk Miowe Centre de Sante     62260220-6200051
-#> 317                   kl Mudimbimbi Poste de Sante                 <NA>
-#> 318                hk Hero Medical Centre de Sante     71120309-7100810
-#> 319                    mn Afia Bora Centre Medical                 <NA>
-#> 320                     kr Tujukayi Poste de Sante                 <NA>
-#> 321                kn Christ Amour Centre de Sante                 <NA>
-#> 322                   kr Lulengele Centre de Sante     91230313-9100542
-#> 323                     kr Kalualua Poste de Sante     91230206-9100207
-#> 324                       it Mutubi Poste de Sante                 <NA>
-#> 325                        it Ukemo Poste de Sante     54540601-5400868
-#> 326                      hu 3 Ponts Poste de Sante     53410109-5300400
-#> 327                      kr Kasamba Poste de Sante                 <NA>
-#> 328                    sk Muranvya Centre de Sante     62220220-6200118
-#> 329                      it Tujenge Poste de Sante     54531004-5400773
-#> 330                    hk Kilombwa Centre de Sante     71750215-7100457
-#> 331                   lm Tshilundu Centre de Sante     82410125-8200136
-#> 332                  eq Boso-inzoke Poste de Sante     41220204-4100397
-#> 333                       lm Musuyi Poste de Sante                 <NA>
-#> 334                   nk Saint Raphael Dispensaire     61420114-6100197
-#> 335                         it Pono Poste de Sante                 <NA>
-#> 336                    ke La Kenda Centre de Sante     81120112-8100619
-#> 337                       kn Shift Centre de Sante                 <NA>
-#> 338                      hu Nadumbe Poste de Sante     53410204-5300221
-#> 339                    kr Tudimuena Poste de Sante     91110201-9100692
-#> 340                  hk La Charite Centre de Sante     71130111-7100154
-#> 341                  kc Kiasi Kolo Centre de Sante     20410104-2000009
-#> 342          hk Christ vainqueur 2 Centre de Sante                 <NA>
-#> 343                     kn Mubiala Centre de Sante                 <NA>
-#> 344                      md Bokenge Poste de Sante                 <NA>
-#> 345                su Bogose Nubea Centre de Sante     45310409-4500025
-#> 346          md Mbien Centre de Sante de Reference     33240211-3300155
-#> 347                      md Lebama Centre de Sante     33240313-3300434
-#> 348                       hk Uzima Centre de Sante                 <NA>
-#> 349              kc Tsanga Makuanzi Poste de Sante     20310109-2000471
-#> 350                      nk Katiri Centre de Sante     61310406-6100596
-#> 351                        ks CMTK Centre de Sante     92430114-9200391
-#> 352                kr Shatshikumba Centre de Sante     91130105-9100647
-#> 353                        md Ikila Poste de Sante     33230124-3300546
-#> 354               kl Dibaya Matadi Centre de Sante                 <NA>
-#> 355                 ks Kampungu Centre Hospitalier     92340113-9200794
-#> 356               kl Dongo Selenge Centre de Sante     31350302-3100784
-#> 357                  kl Bumba Puta Centre de Sante     31310303-3100603
-#> 358                    hk St Felix Centre de Sante     71130115-7100176
-#> 359                    su Kondonga Centre de Sante     45330218-4500120
-#> 360                        kl Nenga Poste de Sante                 <NA>
-#> 361                    ke Kabala 2 Centre de Sante     81240107-8100013
-#> 362                md Mabala Kasai Centre de Sante     33240315-3300440
-#> 363                         kc Istm Centre Medical     20310402-2001344
-#> 364                     kl Kimbulu Centre de Sante     31310412-3100940
-#> 365                     hu Abhamva Centre de Sante     53440308-5300015
-#> 366                     lm Babengie Poste de Sante                 <NA>
-#> 367             kr Kamanga Kamukasa Poste de Sante     91220310-9100506
-#> 368                       kl Kinga Centre de Sante     31350309-3100793
-#> 369                     sk Kakenge Centre de Sante     62230307-6200629
-#> 370       kn Centre de Transfusion Sanguine (PNTS)                 <NA>
-#> 371                 kn PÃ¨re Damien Centre Medical     10300110-1000145
-#> 372                   it Masumbuko Centre de Sante     54530309-5400373
-#> 373                        sk Dima Centre de Sante     62250102-6200917
-#> 374                     ks Kapepula Poste de Sante     92410108-9200309
-#> 375                      hk Bonzola Poste de Sante                 <NA>
-#> 376                    ke Carriere Centre de Sante     81240217-8100151
-#> 377                     kn Accacia Centre de Sante                 <NA>
-#> 378                     sk Labotte Centre de Sante                 <NA>
-#> 379                    sk Bushonga Centre de Sante     62270104-6200169
-#> 380                      tn Balanga Poste de Sante                 <NA>
-#> 381                       it Marie Claire Clinique     54510201-5400271
-#> 382                      kn Naweza Centre de Sante                 <NA>
-#> 383        kc Tuidi Mambengo Dispensaire Maternite                 <NA>
-#> 384                       kn Funzi Centre de Sante     10310112-1000655
-#> 385                       hu Matete Poste de Sante                 <NA>
-#> 386                     ke Berkamed Poste de Sante     81120205-8100405
-#> 387                       kl Nkili Centre de Sante     31340222-3100367
-#> 388                       eq Mekoko Poste de Sante                 <NA>
-#> 389                        tp Akebo Poste de Sante     51210207-5100168
-#> 390                        kl Ngadi Poste de Sante     31320419-3100870
-#> 391             kr Mukanya Kalamba Centre de Sante     91240116-9100157
-#> 392                         kc SNEL Poste de Sante                 <NA>
-#> 393    hk Au secours de l'humanite Centre de Sante                 <NA>
-#> 394                     mg Liyango Centre de Sante     42640114-4200093
-#> 395                   mg Boso Mane Centre de Sante     42640208-4200157
-#> 396                       bu Ebale Centre de Sante     52340112-5200031
-#> 397                         mg Pem Centre de Sante     42620308-4200423
-#> 398                  ks Ngela Longo Poste de Sante     92330310-9200570
-#> 399                      eq Boyera Centre de Sante     41230209-4100308
-#> 400               kl Kanzombi Etat Centre de Sante     31430132-3100485
-#> 401                       bu Sombe Centre de Sante     52330310-5200130
-#> 402                mn La Vie Combat Centre Medical                 <NA>
-#> 403                   sk Camp Saio Centre de Sante                 <NA>
-#> 404                      kn Mpongo Centre de Sante                 <NA>
-#> 405                     it Aungusto Poste de Sante     54530106-5400208
-#> 406           ks Kalala Ngangabuka Centre de Sante     92410118-9200331
-#> 407                     hk Kalunda Centre de Sante     71160104-7100012
-#> 408                      kl Kaggwa Centre de Sante     31430130-3100481
-#> 409               kl Ngunda minango Poste de Sante     31320303-3100800
-#> 410                 sk Sky Born Centre Hospitalier     62130111-6200145
-#> 411                     eq Lobengo Centre de Sante     41270308-4100382
-#> 412                kc Nkaka Mawete Centre de Sante     20410211-2000162
-#> 413                ll Tshimbalanga Centre de Sante     73420123-7300425
-#> 414                 kn Arc-en-ciel Centre de Sante                 <NA>
-#> 415                      nu Pasagba Poste de Sante     44810107-4400085
-#> 416                   mn Dieu Benit Centre Medical     63110104-6300011
-#> 417                     sk Bwegera Centre de Sante     62220305-6200564
-#> 418                         hk Kiba Poste de Sante     71730102-7100262
-#> 419               eq Makolo Manonga Poste de Sante                 <NA>
-#> 420               mn Nyembo Lukengo Poste de Sante                 <NA>
-#> 421                          hl Baraka Dispensaire                 <NA>
-#> 422    kc Tsanga Nord Centre de Sante de Reference     20310310-2000602
-#> 423                  lm Kananganan Centre de Sante                 <NA>
-#> 424                  nk Katolo Lac Centre de Sante     61230109-6100650
-#> 425                       ks Mbelo Centre de Sante                 <NA>
-#> 426                      nk Ibanga Centre de Sante                 <NA>
-#> 427                        kn Elie Centre de Sante                 <NA>
-#> 428             kr Ntambue Kayembe Centre de Sante     91240312-9100598
-#> 429                      kg Mapungu Poste de Sante     32510111-3200230
-#> 430                      mg Bodala Centre de Sante     42640304-4200180
-#> 431                        ks Buinu Poste de Sante                 <NA>
-#> 432                       nk Kasave Poste de Sante     61250310-6100131
-#> 433                      kn Mpongo Centre de Sante                 <NA>
-#> 434         mg Bumba HÃ´pital General de Reference     42620102-4200227
-#> 435                             it Shalom Clinique     54510203-5400285
-#> 436                         kn Cna Centre de Sante     10110103-1000151
-#> 437                     kn Galilee Centre de Sante     10260204-1000084
-#> 438                       kr Mabala Poste de Sante     92340506-9100059
-#> 439                      sk Kitoga Centre de Sante     62220214-6200111
-#> 440              kg Sefu/Swa-tenda Centre de Sante     32540207-3200339
-#> 441                       mn Kakiki Poste de Sante                 <NA>
-#> 442                      tu Iyenge Centre de Sante     43710135-4300083
-#> 443                         ks CMK Centre de Sante     92420114-9200958
-#> 444                    mg Boso Godo Poste de Sante     42610134-4200336
+#>                                     orgunitlevel5 organisationunitid
+#> 1            bu Assa Centre de Sante de Reference        O03K0oAbMAV
+#> 2                    hk Mwangaza  Centre de Sante        EeY2KsYQkkY
+#> 3                      eq Ngondola Poste de Sante        Z6x7hwNSVBC
+#> 4                       kn Elykia Centre de Sante        xLo1SLilzEu
+#> 5                      ll Mapendo Centre de Sante        edJKDeFAoLu
+#> 6                     it Tuendelee Poste de Sante        vnc5ETZyRfs
+#> 7                     sk Mugawaji Centre de Sante        e2os34LyOjk
+#> 8                       kl Muhange Poste de Sante        qd7v5PbwcgC
+#> 9                    hk Ste Agnes Centre de Sante        Oco3QFcis6D
+#> 10                     sn Longala Centre de Sante        HrRpSxdUXJK
+#> 11                       hk Benita Centre Medical        qZcy9DdJiPZ
+#> 12                       hk Gradi Centre de Sante        iLdZWsnnnnQ
+#> 13                   it Deogratias Poste de Sante        BnPwHryPZt7
+#> 14                      mn Kahimbe Poste de Sante        XDuxPkt7Ucy
+#> 15           nk Lume Centre de Sante de Reference        Sh0C931x2Qr
+#> 16                   kn E Manenga Centre de Sante        AIfKweNVYhj
+#> 17                        hl Nkana Poste de Sante        BPnDDzJKFZN
+#> 18                  it La Guerison Poste de Sante        PYd1gaqThUV
+#> 19                     ke La Grace Poste de Sante        WbxKv8LV0SP
+#> 20                   nk Binyambuli Poste de Sante        h6pVQzJoCEV
+#> 21                ks Tuye Kumpala Centre de Sante        DF8JHfQtmBo
+#> 22                        md Manga Poste de Sante        o0P5irQMKni
+#> 23                      lm Misombo Poste de Sante        KBy7NKfWdQz
+#> 24                  ks Domiongo 2 Centre de Sante        KE5gI66LXv2
+#> 25              kr Ntambue Lomami Centre de Sante        oK9Bkb5AsMm
+#> 26                     lm Katabayi Poste de Sante        tEUF9fMqSJb
+#> 27                     hk Euphata Centre de Sante        xTjz4tDmcdW
+#> 28                      it Rikazu Centre de Sante        NFYNP2MW6Ci
+#> 29                      mn Samueli Poste de Sante        dqETQa9F7zU
+#> 30                    hk Cepromec Centre de Sante        eyeaJd3WoRO
+#> 31                    hk Andralie Centre de Sante        LuH1TMBNhNV
+#> 32             kc Sagesse Kongo 2 Centre de Sante        z0aDWRmL8aR
+#> 33                      su Boyafio Poste de Sante        cH2Woh7qBoZ
+#> 34                   kl Munzabala Centre de Sante        Ije9766RL1k
+#> 35                      kn La Foi Centre de Sante        grufnOSIcco
+#> 36                      sn Efefete Poste de Sante        x46Igd17FH5
+#> 37                       hk JEIEL Centre de Sante        oSYrpkc9VRf
+#> 38                 kc El Rapha Centre Hospitalier        JmoKu13Wvzk
+#> 39                      it Ndrele Centre de Sante        N2MV9lMmdM3
+#> 40               it Eru Yofenyiri Centre de Sante        JF1GrHzZvpO
+#> 41                     mg Bomenge Centre de Sante        hGl82mYpb9i
+#> 42    lm Kalonda Est Hopital General de Reference        yuKN4pTHjf0
+#> 43                     mn Longonya Poste de Sante        Qaw3Wv9cExa
+#> 44                      ll Mulesu Centre de Sante        ihDa2H3enbu
+#> 45                     kg Kabuita Centre de Sante        ka5pRNS1sEL
+#> 46                   kr Kalombayi Centre de Sante        CNw8ZNZgqcQ
+#> 47                      kc Kisiama Poste de Sante        B6kSe9oQqeT
+#> 48                       tu Lokata Poste de Sante        tHaPU4YK95b
+#> 49                      mn Amuladi Poste de Sante        SnUYxWzxzgE
+#> 50                      hk Kapata Centre de Sante        AukZw5HuSpd
+#> 51                    sk Tshigoma Centre de Sante        gL3tROtVBxa
+#> 52                    hk Victoire Centre de Sante        ggdhT4Wfklf
+#> 53                  it Nyakasanza Centre de Sante        ecyp6W3PbDS
+#> 54                 kc Henri Dunant Poste de Sante        XYO68dwTqdV
+#> 55            hk OUA Centre de Sante de Reference        uMUz9eI97er
+#> 56  hu Boma Mangbetu Hopital General de Reference        p29OeOPpWTs
+#> 57                  kc La Moisson Centre de Sante        LneYx1yz47T
+#> 58                      kg Katondi Poste de Sante        rhD6jtIQFVh
+#> 59                        sn Owala Poste de Sante        y1CcIFyD2VL
+#> 60           hk Christ Redempteur Centre de Sante        sdYFvX9Hfvq
+#> 61                 kc Beto na Beto Centre Medical        XFP0zO8audA
+#> 62                     kc Patience Centre Medical        njYpLY2dICs
+#> 63                      ll Ntembu Centre de Sante        GrAHBIihRnG
+#> 64          kl Pierre Declerck Centre Hospitalier        qMLWaJ4ldEl
+#> 65         tn Manono Hopital General de Reference        elSnjDOghqS
+#> 66                       hu Ngili Centre de Sante        aAtHok4P3aI
+#> 67                 bu Maselebende Centre de Sante        Q5gDzl0RG0q
+#> 68                  kc Tsese Ntinu Poste de Sante        xF9hfENPzFb
+#> 69                       md Monsui Poste de Sante        UBQTL7xwq54
+#> 70                     lm Tshileu Centre de Sante        X97cz1GV0vp
+#> 71                       it Avari Centre de Sante        gT4mD7tCDpE
+#> 72                      mn Kasuku Centre de Sante        s6BR4Z32WzI
+#> 73                      tp Bodela Centre de Sante        gaOKK3Z6JMi
+#> 74                    kl Kitambwe Centre de Sante        t0MQvfynBft
+#> 75                     sn Kabondo Centre de Sante        ymchfojqgV7
+#> 76               kc La Benediction Poste de Sante        Km2vIlOmTxq
+#> 77                      kc Bosembo Poste de Sante        efa2tOoNx8n
+#> 78                         kn CMV Centre de Sante        UsbUNHKB1JJ
+#> 79                       md Police Poste de Sante        WdmBguuckes
+#> 80                   tp Bafwagali Centre de Sante        NfmIRy8UyBT
+#> 81                    kl Kimwanza Centre de Sante        AjpQEXtz1UQ
+#> 82                      hk Pauline Centre Medical        hCo4u2MyHu9
+#> 83                        hk Neema Centre Medical        YxufOjs3Bbk
+#> 84                   hk Dikulushi Centre de Sante        w34SvU1cM7v
+#> 85                     hu Makpulu Centre de Sante        CoiYvmUlIc6
+#> 86                       it ABEF Centre Convivial        IYeo5omA522
+#> 87                kc Gloire a Dieu Poste de Sante        Mse3SVOfaIn
+#> 88                 it Bongwupanda Centre de Sante        Lat3g7gHWNm
+#> 89                  ks Sanga Sanga Poste de Sante        o5bZT8kDAND
+#> 90                      it Mandje Centre de Sante        LFy6Vivy8Bp
+#> 91                 kc Kikongomenga Poste de Sante        XXCcpQyJeMW
+#> 92                   hk Vainqueur Centre de Sante        U9c9uuJFwqr
+#> 93                      kn Breche Centre de Sante        bDGxa8R94DJ
+#> 94                   kn Espoir MS Centre de Sante        L15ZoYEO8ZP
+#> 95            nk Methodistes Unis Centre de Sante        myoEbppkCrp
+#> 96               nk Muhatikani Centre Hospitalier        rUxaJBHw2si
+#> 97                     kc Kingoma Centre de Sante        RwLNKR7Xx65
+#> 98                     kc Prosante Centre Medical        Xmjlk4t8DRi
+#> 99                  kn C.C.Koweit Centre de Sante        KVXxPdhK9r1
+#> 100                       it Ayini Poste de Sante        ZzxEw1PCD5b
+#> 101                     tp Bokpeku Poste de Sante        N8fCI0PpggB
+#> 102                       kc Diasi Poste de Sante        zUbtTc1yc1f
+#> 103                    kc Kinzinga Poste de Sante        lZ91pWWWMmS
+#> 104         kl Ekubi Centre de Sante de Reference        qEH8SPr7GSH
+#> 105                  hk Mine d'Or Centre de Sante        qCY4fMbaVvV
+#> 106                     it Wadaka Centre de Sante        xatj2S3Uj5L
+#> 107            kn Saint Victorien Centre de Sante        VnRBPG4Ng5L
+#> 108                    kl Kimputu Centre de Sante        ybFvvblz2bh
+#> 109                   bu Bonzengo Centre de Sante        o1InspXtiT1
+#> 110                     bu Dembia Centre de Sante        XqfB1mmEF5H
+#> 111          kn Bon Berger de Sao Centre de Sante        buL5mdtnjj1
+#> 112                 hu La Guerison Poste de Sante        ymdV40EUTCO
+#> 113                      kn Exauce Centre Medical        ymrQrhWb9xi
+#> 114                     nu Bomago Centre de Sante        HHCs2FPMY47
+#> 115             kr Luse lua Nzambi Poste de Sante        HD0IXQDbH23
+#> 116                    nk Mabambi Centre de Sante        sCmYIvKTvhW
+#> 117                    eq Bongale Centre de Sante        e0aKE7GSoRF
+#> 118                            it Shalom Clinique        NwN44Msmzbo
+#> 119                      kg Lobiko Poste de Sante        oAuWYcW68Kz
+#> 120                     tn Kasawa Centre de Sante        SzqlqHT405C
+#> 121                  hk St Martin Centre de Sante        ckqgWJHCQwW
+#> 122                      hl Kayeye Poste de Sante        nzlgPBVwbK1
+#> 123                     kn Mushie Centre de Sante        OX6ejkgImed
+#> 124                     nk Midede Centre de Sante        U1DEF1lITn4
+#> 125                     kn Lutete Centre de Sante        zNFMZ4ltpn9
+#> 126                     eq Bondeko Centre Medical        bHZwCW9GOLv
+#> 127                     sk Ekengya Poste de Sante        WsveEHleHQq
+#> 128                      it Salama Poste de Sante        FTzBoKa2Oqi
+#> 129                    kl Mabundu Centre de Sante        hyj1pWYwOZd
+#> 130                       eq Orlus Poste de Sante        GpZlP9U9IAS
+#> 131                     sn Tshendo Poste de Sante        xzmHA0MMqWC
+#> 132                       kn Diki Centre de Sante        gM1znqasKSv
+#> 133                       md Mobie Poste de Sante        TUmSdxJsx8e
+#> 134                    sk Ishungu Centre de Sante        RZJHrCngfJ1
+#> 135                  ke Merveille Centre de Sante        mrnmka8wpDq
+#> 136                     tu Yampete Poste de Sante        P8WglX5ad4Q
+#> 137                        hl Buyo Poste de Sante        w86M75lz9HM
+#> 138                        ke Syka Poste de Sante        LCai1uGkeaH
+#> 139                     kr Sauveur Poste de Sante        vukruxvGuS2
+#> 140                     kn Kitoko Centre de Sante        HFEEwI5VGWx
+#> 141                    kr Luyamba Centre de Sante        ETBdtRl7N3t
+#> 142                    hu Makoleru Poste de Sante        o0XocVzL3rm
+#> 143                  kc Kikiangala Poste de Sante        XZGwmmiyk7Q
+#> 144                    ks Malenga Centre de Sante        tgC6vIJYDKA
+#> 145        kl Anciens Combattants Centre de Sante        LhaxSjpB7nx
+#> 146       md Lonio 1 Centre de Sante de Reference        WG4wo1i19D3
+#> 147             kn Salem Kimbwala Centre de Sante        MSFPGVCn5lc
+#> 148                      kn Libiki Centre Medical        HgXkzhZ9B2S
+#> 149                      hk Joyce Centre de Sante        r2HqqN0uyhF
+#> 150                      tp Ketele Poste de Sante        CFvxBXuQZWG
+#> 151                      lm Kapele Poste de Sante        SeW1eov8vJw
+#> 152                       eq Bosie Poste de Sante        Gavhmi6CCmf
+#> 153                    lm Kanyana Centre de Sante        QhyayAudV1m
+#> 154                     kc Kimbala Poste de Sante        P7zJz5Ng3Dr
+#> 155                     ks Ilenge Centre de Sante        ieQ9GsSYIQ7
+#> 156                    it Sanduku Centre de Sante        aJZC3cFLaP2
+#> 157                         kn OCC Centre Medical        JUOdHT9Nn5l
+#> 158                     hk Nehema Centre de Sante        wpJWHpxxUpb
+#> 159                  ke Kaleya Centre Hospitalier        HL7kernsEOy
+#> 160                       hk Elim Centre de Sante        PGIkuP3xh41
+#> 161               kc Mbanza Ngombe Poste de Sante        LsVizLUwMyB
+#> 162                     kc Kalungu Poste de Sante        M8yqVXgioYu
+#> 163                 mn Penendjali Centre de Sante        plLHxyZKawR
+#> 164       hk Adra 41 Centre de Sante de Reference        s3J65WytnNX
+#> 165                      mg Upoto Centre de Sante        OH6r9M26K7Y
+#> 166                      tn Kyoko Centre de Sante        IrKtCwNN8Hk
+#> 167                  eq Boso Nduku Poste de Sante        qIQ7qplIuoD
+#> 168                   sk Numbi Centre Hospitalier        BAXjZBVazBB
+#> 169                    ks Malundu Centre de Sante        w53kcvQ7OwC
+#> 170                   it Mungu Mupinyaji Clinique        XTF4fop8cjl
+#> 171                     kn Kamifa Centre de Sante        ghvf5a3ySHz
+#> 172       ks Kinda 1 Centre de Sante de Reference        jpoLB1gPnBW
+#> 173                  nu Capsabolo Centre de Sante        xJdj5gtlU3v
+#> 174                   sk Bitobolo Centre de Sante        jqwVtbf270E
+#> 175                    sn Kingombe Poste de Sante        bHASljdd9gb
+#> 176                        sk Espoir Polyclinique        ZtppvZMFqxR
+#> 177                sn Kole Pilote Centre de Sante        KyLcdOpkhzi
+#> 178                      it Faraja Poste de Sante        ZE43FjKUQbX
+#> 179                      eq Lokoba Poste de Sante        jKoGzbrqYM3
+#> 180                kc Gued Medical Poste de Sante        P1kdBotv0yx
+#> 181                     ke Buloba Centre de Sante        Am1gPDelX0h
+#> 182                    hk Emmanuel Centre Medical        tfMS77qEgoQ
+#> 183                       tu Isaka Poste de Sante        LtTlT6q1rUP
+#> 184                     sk Luganda Poste de Sante        xzy2Bt9dqZg
+#> 185              hk La Gloire Kal Centre de Sante        ZzkmxDvJZ8U
+#> 186                    mg Bandala Centre de Sante        rc7JjAJUq6c
+#> 187                       it Dz'lo Poste de Sante        iF9AJiq473B
+#> 188                    hk Propice Centre de Sante        jaHFBfcL8Xk
+#> 189       eq Lusengo Centre de Sante de Reference        Q4XF1xZfW5U
+#> 190                  kl Kinguendi Centre de Sante        cLc2uthCRfm
+#> 191                nk Bethesda Centre Hospitalier        sTVzd2ikl1v
+#> 192                   nk Kyaghala Centre de Sante        aKZLEwKZXwc
+#> 193                      md Bosano Poste de Sante        H8wGLfSi8A0
+#> 194                  hk Saint Luc Centre de Sante        YaKc6EAbjyo
+#> 195              kl Bon Samaritin Centre de Sante        C88x3rqtopm
+#> 196                kc Kimbanguiste Poste de Sante        FibYkHdN4cV
+#> 197                       kn Onyx Centre de Sante        sXCqayKuFCZ
+#> 198           lm Meres et Enfants Centre de Sante        xM9lLvwKwO3
+#> 199                    sn Mukwasa Centre de Sante        l59Io57vB4A
+#> 200                    lm Nsungula Poste de Sante        RoYshw9v4QU
+#> 201                  it Mont Meyo Centre de Sante        LsI8b44wKma
+#> 202                  tu Catholique Poste de Sante        Fco9rgzcIDa
+#> 203             kc La Consolatrice Poste de Sante        NF8EG50NTAl
+#> 204            lm Sainte Irene Centre Hospitalier        HZ3YlO3QH2v
+#> 205                     bu Bokoyo Centre de Sante        Bd8yRtcEUGN
+#> 206                  hk 3eme Pull Centre de Sante        xUp21QW6WHt
+#> 207                mg Boso Mayale Centre de Sante        t5cywpQdxgv
+#> 208                     sk La Charite Dispensaire        aEIbneE5YK8
+#> 209                       it Wadda Poste de Sante        SpghXptkB8O
+#> 210                  lm Wa Kubuila Poste de Sante        GadtB4okoAz
+#> 211     hk Disanga 2 Centre de Sante de Reference        gnOTB6ZHxHL
+#> 212                 ks Muena Luse Centre de Sante        YQXVub7JsFs
+#> 213            hk Secours Medical Centre de Sante        HAsWDhBe2HO
+#> 214          kc Patu Centre de Sante de Reference        n7XJIPnSwf9
+#> 215                  hl Kasengayi Centre de Sante        Db2EhcbIcdG
+#> 216                      nk Baraka Centre Medical        BPXVTdHE962
+#> 217                      it Ondere Poste de Sante        RoticnTW1xG
+#> 218                   su Ngbulutu Centre de Sante        XfAI2KDXHAF
+#> 219               kr Mbumba chutte Poste de Sante        KwNd29KgQpV
+#> 220                      md Lukeni Poste de Sante        pPvkmxqVVAT
+#> 221                     hk Mwinda Centre de Sante        vCo9gG2PrxQ
+#> 222           II Mission Possible Centre de Sante        Y2Zno48cVsM
+#> 223                     kc Mankala Poste de Sante        Wow4EJOZvn7
+#> 224                  sk Kitopo Centre Hospitalier        Ty9uFgaLApU
+#> 225                     tn Kiluba Centre de Sante        yUpHNdXdYU5
+#> 226                     kc Kinkasi Poste de Sante        MFSPAFxNkuY
+#> 227                     lm Musuma Centre de Sante        ZpW4jUk7BKs
+#> 228   ke Bakwa Sumba Centre de Sante de Reference        CBbI0px8S67
+#> 229                    kn Bosungi Centre de Sante        d61awNCltB0
+#> 230                       tn Keba Centre de Sante        GqK4aLSui8L
+#> 231                    hk light KM Centre Medical        sdosa6ZhzNz
+#> 232                  bu Nebanguma Centre de Sante        qKiTm3ox0hQ
+#> 233                     sk Saint Luc Polyclinique        uodZW3ueeRu
+#> 234                       kn Dina Centre de Sante        hAYVvlY3AgF
+#> 235                     kc Pelerin Centre Medical        TYLifnutAIQ
+#> 236        sn Lomela Hopital General de Reference        mLUfiypCjB6
+#> 237          tp Mumba Losuna Etat Centre de Sante        Zy9WvI066Hx
+#> 238                     md Bombole Poste de Sante        UdR3vtzuTuW
+#> 239                      ks Luhelo Poste de Sante        kjxX95YohCd
+#> 240                    ks Muanetu Centre de Sante        GQErhde7mDV
+#> 241                    tu Mondjoku Poste de Sante        METJ1QOpEsc
+#> 242                nu Kongba Bema Centre de Sante        SN8EKtXSdnI
+#> 243                  it Bora Uzima Poste de Sante        YzEFB0h7tMC
+#> 244                     md Nzinzi Centre de Sante        lQy6FpdKrSg
+#> 245                       md Tahou Poste de Sante        xYymMOTAvlw
+#> 246             ke Tshiaba Centre Centre de Sante        isFHLrivA10
+#> 247                 ks Dienzelayi Centre de Sante        xYPQDDYdaLW
+#> 248                      kc APHBAC Poste de Sante        Yhe6cwdtdAG
+#> 249                      kn Joyce Centre de Sante        WSRWnvoitzf
+#> 250                       kl Salab Poste de Sante        oRaf0R8OTCD
+#> 251                    kl Fambiesi Poste de Sante        UQucHEezJf3
+#> 252                     sk Mudusa Centre de Sante        aHycetrS1gn
+#> 253                     it Badiya Centre de Sante        Lj7L8PXCBEZ
+#> 254                   ks Bethesda Centre de Sante        LAflktAcc4n
+#> 255                  nk Alimbongo Centre de Sante        hITUDafuo1b
+#> 256               sk Kiniezire Centre Hospitalier        VRIDwqmuITt
+#> 257                kl Kimbanguiste Poste de Sante        XLyPO0rY2CI
+#> 258                      it Ngenge Poste de Sante        t51FDEr9mvC
+#> 259               lm Muana Muzang Centre de Sante        P4539sFaCh8
+#> 260                      mn Kaswa Centre de Sante        EqVCznDyUAG
+#> 261                     eq Bolingo Centre Medical        J0qjAIi3G39
+#> 262                  ks Diezelayi Centre de Sante        y4xzytchW6L
+#> 263                         ks BLM Poste de Sante        zq7ZAJtuv0m
+#> 264                  hk Suzanella Centre de Sante        GFLPMADAyR7
+#> 265                   sn Ometshuha Poste de Sante        kXU5995InIa
+#> 266                     hk Gabaon Centre de Sante        aWAC92AnTld
+#> 267                    hl Kabunda Centre de Sante        Dz7AztEYC2D
+#> 268                   lm Kamatombo Poste de Sante        LHioDdLx62t
+#> 269                     mg Bolombo Poste de Sante        LRC5QrxMOVA
+#> 270        kc Bidi Ngengomo Dispensaire Maternite        cjGFXK0oB5p
+#> 271                     ke Edidiom Poste de Sante        XYgTAyeu6t8
+#> 272              tn Majengo Mapya Centre de Sante        s5VwcWoRDBm
+#> 273                    mn Katambwe Poste de Sante        E2eWvfBk2e2
+#> 274                kc Saint Pierre Centre Medical        c4FXh2Fi722
+#> 275                       tp Ikela Poste de Sante        tKHflFCQnwe
+#> 276                    kc Kimbauka Poste de Sante        DSxVuDZ1eGn
+#> 277                  mn Penesenga Centre de Sante        Vvt704lhpcZ
+#> 278                     hu Djabir Centre de Sante        GxalZjK8ByU
+#> 279                    kl Muwanda Centre de Sante        rISAxx1ZkNN
+#> 280                    hk Kabimbi Centre de Sante        UlbbjwtQTY3
+#> 281            kc Kinzau Mvuete B Centre de Sante        U3HET5zzJDE
+#> 282                    sk Lumanya Centre de Sante        wSpMfCTLjhE
+#> 283                   kr Malongila Poste de Sante        YytE49WZJsn
+#> 284                      md Ngali Centre de Sante        nrPS87OZAvJ
+#> 285                     kc Khienge Centre Medical        bbvJ1UBnaYu
+#> 286                       hk Doris Poste de Sante        dWUHr3MBwjL
+#> 287                        nk Butembo Antenne PEV        GOnegWPOvKX
+#> 288           tu Yaa Centre de Sante de Reference        GbmuvaX7DAH
+#> 289                      tn Musebe Poste de Sante        fWjDr4lYJO6
+#> 290               kn Maman Celine Centre de Sante        XaOidTR1hoZ
+#> 291                 kc Nienze Bata Poste de Sante        YtC4YWg24fV
+#> 292                  it Drobukolo Centre de Sante        ZkqJ16bTzKi
+#> 293                      eq Mpombi Poste de Sante        i20zrtseFf5
+#> 294                  kc Christ Roi Centre Medical        tyylDZV0DLH
+#> 295                 it Apala Etat Centre de Sante        OamOl6uBYbr
+#> 296                    sn Omeonga Centre de Sante        dY4kiVZJlwf
+#> 297              kc ABEF-Kimpese Centre Convivial        pql9dON2jZp
+#> 298                     kn Bomoko Centre de Sante        SRgwNZCegv9
+#> 299                      sk Ikoma Centre de Sante        SoemzCgdKWf
+#> 300                  kc De la Paix Centre Medical        nSRATppiTnf
+#> 301                    lm Alcament Poste de Sante        BeJ21EjYV5Q
+#> 302                      ke Kyria Centre de Sante        uVCqw93A9z0
+#> 303                       eq Wamba Poste de Sante        elrLZPHGC2f
+#> 304                   mg Yanbenga Centre de Sante        difTpChNCB9
+#> 305                it Panvitalisme Poste de Sante        HL9QBc9C25K
+#> 306                 ll Fraternite Centre de Sante        axcSYWdqi9U
+#> 307          kn Fonction Publique Centre de Sante        EGaO0lEldOW
+#> 308                         it Rau Poste de Sante        hkEQEpkRaaS
+#> 309                      tp Mokote Poste de Sante        b7caNkQNSvW
+#> 310            hl Mere du Sauveur Centre de Sante        clky9c8yLoP
+#> 311                      tp Yatoko Poste de Sante        mdrACwTUmVz
+#> 312                      hu Wanga centre de Sante        fAlR1fFOdOd
+#> 313                     tp Mokongo Poste de Sante        VLeDRPnDfma
+#> 314                    ks Lungumba Poste de Sante        oLmXNEKbPq6
+#> 315                      tp Rekapi Centre Medical        YDGJd00jtJ1
+#> 316                      sk Miowe Centre de Sante        OLU0htLZx2r
+#> 317                  kl Mudimbimbi Poste de Sante        SAq1NRC7Cj4
+#> 318               hk Hero Medical Centre de Sante        LyXT47zhren
+#> 319                   mn Afia Bora Centre Medical        qyXI8TLv6Zy
+#> 320                    kr Tujukayi Poste de Sante        YvazA1L2DMp
+#> 321               kn Christ Amour Centre de Sante        K9799BY7t90
+#> 322                  kr Lulengele Centre de Sante        rIlwbzNNalx
+#> 323                    kr Kalualua Poste de Sante        cafMucNhKzQ
+#> 324                      it Mutubi Poste de Sante        gDKzxVkIjVJ
+#> 325                       it Ukemo Poste de Sante        DL1lqxcbqGP
+#> 326                     hu 3 Ponts Poste de Sante        pmKcgF9vyaR
+#> 327                     kr Kasamba Poste de Sante        liXfwqqrnsu
+#> 328                   sk Muranvya Centre de Sante        qM2lWiqWAzY
+#> 329                     it Tujenge Poste de Sante        vtCVudPhE1D
+#> 330                   hk Kilombwa Centre de Sante        F8DGzeuC7SW
+#> 331                  lm Tshilundu Centre de Sante        ab4hRHzeUH0
+#> 332                 eq Boso-inzoke Poste de Sante        zjVKmQu6T0A
+#> 333                      lm Musuyi Poste de Sante        YL9eENr2xkb
+#> 334                  nk Saint Raphael Dispensaire        E59qmoTt2zz
+#> 335                        it Pono Poste de Sante        Ozj8Ir9IJES
+#> 336                   ke La Kenda Centre de Sante        YoPoSPPgDiB
+#> 337                      kn Shift Centre de Sante        E1S87JYgJ4R
+#> 338                     hu Nadumbe Poste de Sante        NyDu8otp7Qy
+#> 339                   kr Tudimuena Poste de Sante        IWGTaqGDVtg
+#> 340                 hk La Charite Centre de Sante        tmyi8A7JZpT
+#> 341                 kc Kiasi Kolo Centre de Sante        bp7pkwnLRSg
+#> 342         hk Christ vainqueur 2 Centre de Sante        Jafq2uYrpOW
+#> 343                    kn Mubiala Centre de Sante        CVbFxOnksnA
+#> 344                     md Bokenge Poste de Sante        Hka20AKwYDq
+#> 345               su Bogose Nubea Centre de Sante        H691EzR1gti
+#> 346         md Mbien Centre de Sante de Reference        LM5OwAqZdk2
+#> 347                     md Lebama Centre de Sante        p4LWbZsWhNE
+#> 348                      hk Uzima Centre de Sante        ZAkQzqLWSp2
+#> 349             kc Tsanga Makuanzi Poste de Sante        HquOOIAU9p8
+#> 350                     nk Katiri Centre de Sante        MedZym3cKVb
+#> 351                       ks CMTK Centre de Sante        FK7YodkGMpt
+#> 352               kr Shatshikumba Centre de Sante        kLfCDiOs4oa
+#> 353                       md Ikila Poste de Sante        UguS17vAFb6
+#> 354              kl Dibaya Matadi Centre de Sante        JHjYEv08Jz7
+#> 355                ks Kampungu Centre Hospitalier        dvMGojVGPXM
+#> 356              kl Dongo Selenge Centre de Sante        sIk9iRW4avE
+#> 357                 kl Bumba Puta Centre de Sante        HtULefrJQAw
+#> 358                   hk St Felix Centre de Sante        GCRInSq8C4w
+#> 359                   su Kondonga Centre de Sante        iZCi648iMiE
+#> 360                       kl Nenga Poste de Sante        LbjvNEYwPSY
+#> 361                   ke Kabala 2 Centre de Sante        CLMhtKsOpyu
+#> 362               md Mabala Kasai Centre de Sante        fak3Fy0hHGP
+#> 363                        kc Istm Centre Medical        Ql4zqvyiL4R
+#> 364                    kl Kimbulu Centre de Sante        PFzvFlMeLg8
+#> 365                    hu Abhamva Centre de Sante        lj4f8JVluOc
+#> 366                    lm Babengie Poste de Sante        IgfIkObA7da
+#> 367            kr Kamanga Kamukasa Poste de Sante        dNWMXycOAci
+#> 368                      kl Kinga Centre de Sante        A54TK5cwitP
+#> 369                    sk Kakenge Centre de Sante        FHNsUEaVav4
+#> 370      kn Centre de Transfusion Sanguine (PNTS)        SGIUpdeASip
+#> 371                 kn Pere Damien Centre Medical        zRlMQN4ZJBx
+#> 372                  it Masumbuko Centre de Sante        CokuB8e0GYz
+#> 373                       sk Dima Centre de Sante        h9Wnu3cY7Fc
+#> 374                    ks Kapepula Poste de Sante        m6EMsy79jPm
+#> 375                     hk Bonzola Poste de Sante        vmC5IpYrDh4
+#> 376                   ke Carriere Centre de Sante        eVB7M3IEpBg
+#> 377                    kn Accacia Centre de Sante        g4pglmjl0Dp
+#> 378                    sk Labotte Centre de Sante        yPfhsrF15h3
+#> 379                   sk Bushonga Centre de Sante        pN2hrwoPqYn
+#> 380                     tn Balanga Poste de Sante        dL5YPxXAAzG
+#> 381                      it Marie Claire Clinique        O4e7imgKbGJ
+#> 382                     kn Naweza Centre de Sante        LssN5almqFa
+#> 383       kc Tuidi Mambengo Dispensaire Maternite        cbYlVlEaGIE
+#> 384                      kn Funzi Centre de Sante        EvjhzoUjhRX
+#> 385                      hu Matete Poste de Sante        KlTxT82X7Rh
+#> 386                    ke Berkamed Poste de Sante        p5xhvPGSouM
+#> 387                      kl Nkili Centre de Sante        ik2qggg0cyU
+#> 388                      eq Mekoko Poste de Sante        GANwDad0Gmh
+#> 389                       tp Akebo Poste de Sante        jVfbIqFZ44q
+#> 390                       kl Ngadi Poste de Sante        qxjwyucdBe9
+#> 391            kr Mukanya Kalamba Centre de Sante        tSA4pXRgxMl
+#> 392                        kc SNEL Poste de Sante        xZo0d0VJN4k
+#> 393   hk Au secours de l'humanite Centre de Sante        XRCKKlYfF9C
+#> 394                    mg Liyango Centre de Sante        SQVLsXDJ0Cs
+#> 395                  mg Boso Mane Centre de Sante        V2nFlOtC3RI
+#> 396                      bu Ebale Centre de Sante        AH3ntXTEQ3Q
+#> 397                        mg Pem Centre de Sante        mRALI7Mvn9O
+#> 398                 ks Ngela Longo Poste de Sante        bPLUQ6IHn37
+#> 399                     eq Boyera Centre de Sante        xxRkkcfLKaF
+#> 400              kl Kanzombi Etat Centre de Sante        A7qpwafHb9k
+#> 401                      bu Sombe Centre de Sante        PL78OjzLRmB
+#> 402               mn La Vie Combat Centre Medical        tDX3ybI3PrZ
+#> 403                  sk Camp Saio Centre de Sante        NrX2Mx5VWBn
+#> 404                     kn Mpongo Centre de Sante        beD2W36UL1o
+#> 405                    it Aungusto Poste de Sante        gHBmU2hU3Oz
+#> 406          ks Kalala Ngangabuka Centre de Sante        POurD4pJxyq
+#> 407                    hk Kalunda Centre de Sante        yPkIJR9ZiUv
+#> 408                     kl Kaggwa Centre de Sante        pPHJKcBHhfv
+#> 409              kl Ngunda minango Poste de Sante        m8g6XHDD4bj
+#> 410                sk Sky Born Centre Hospitalier        ab7syIH2pDH
+#> 411                    eq Lobengo Centre de Sante        iwh9gE9pbyG
+#> 412               kc Nkaka Mawete Centre de Sante        hipslD3FfZC
+#> 413               ll Tshimbalanga Centre de Sante        ruK9K1pYZQL
+#> 414                kn Arc-en-ciel Centre de Sante        JacZLVsRgBE
+#> 415                     nu Pasagba Poste de Sante        cH8q58a1FAl
+#> 416                  mn Dieu Benit Centre Medical        a5FsI2S8E1w
+#> 417                    sk Bwegera Centre de Sante        RWIRHkhBOoo
+#> 418                        hk Kiba Poste de Sante        ZwP6CzgsLJP
+#> 419              eq Makolo Manonga Poste de Sante        g6qEcbm6cDc
+#> 420              mn Nyembo Lukengo Poste de Sante        XV9JonW2aCC
+#> 421                         hl Baraka Dispensaire        rvOoQTdjnWj
+#> 422   kc Tsanga Nord Centre de Sante de Reference        Ucy6XSgMJ8B
+#> 423                 lm Kananganan Centre de Sante        XCsnrobqyhl
+#> 424                 nk Katolo Lac Centre de Sante        re55QdOheaC
+#> 425                      ks Mbelo Centre de Sante        VNpbVynMTcD
+#> 426                     nk Ibanga Centre de Sante        ShrZPVgomwh
+#> 427                       kn Elie Centre de Sante        gjk9OtwAuZw
+#> 428            kr Ntambue Kayembe Centre de Sante        T4jCnJ9JuwB
+#> 429                     kg Mapungu Poste de Sante        nG6ZXTiXqA3
+#> 430                     mg Bodala Centre de Sante        bQgQvh8JLJh
+#> 431                       ks Buinu Poste de Sante        u16QWkjcxrF
+#> 432                      nk Kasave Poste de Sante        Z9q0T27pCKy
+#> 433                     kn Mpongo Centre de Sante        beD2W36UL1o
+#> 434         mg Bumba Hopital General de Reference        UByIbrLg3NO
+#> 435                            it Shalom Clinique        HLX5Ak5UDOM
+#> 436                        kn Cna Centre de Sante        SoBXhGz59YR
+#> 437                    kn Galilee Centre de Sante        PBLfp91XGpa
+#> 438                      kr Mabala Poste de Sante        IooZ6Lgo20p
+#> 439                     sk Kitoga Centre de Sante        nDWXtw4y1xe
+#> 440             kg Sefu/Swa-tenda Centre de Sante        mCwMG3juTMq
+#> 441                      mn Kakiki Poste de Sante        vyKqqj7B39t
+#> 442                     tu Iyenge Centre de Sante        etbI8uYd5sQ
+#> 443                        ks CMK Centre de Sante        dec1yWQSt9r
+#> 444                   mg Boso Godo Poste de Sante        K9wfvmurjPb
+#>                              organisationunitname organisationunitcode
+#> 1            bu Assa Centre de Sante de Reference                 <NA>
+#> 2                    hk Mwangaza  Centre de Sante                 <NA>
+#> 3                      eq Ngondola Poste de Sante     41240307-4100498
+#> 4                       kn Elykia Centre de Sante     10230102-1000685
+#> 5                      ll Mapendo Centre de Sante     73470110-7300377
+#> 6                     it Tuendelee Poste de Sante     54520305-5400742
+#> 7                     sk Mugawaji Centre de Sante     62230218-6200510
+#> 8                       kl Muhange Poste de Sante     31350320-3100810
+#> 9                    hk Ste Agnes Centre de Sante     71120120-7100716
+#> 10                     sn Longala Centre de Sante                 <NA>
+#> 11                       hk Benita Centre Medical                 <NA>
+#> 12                       hk Gradi Centre de Sante                 <NA>
+#> 13                   it Deogratias Poste de Sante                 <NA>
+#> 14                      mn Kahimbe Poste de Sante                 <NA>
+#> 15           nk Lume Centre de Sante de Reference     61310613-6100884
+#> 16                   kn E Manenga Centre de Sante     10280108-1000726
+#> 17                        hl Nkana Poste de Sante                 <NA>
+#> 18                  it La Guerison Poste de Sante                 <NA>
+#> 19                     ke La Grace Poste de Sante     81110107-8100634
+#> 20                   nk Binyambuli Poste de Sante     61220311-6100537
+#> 21                ks Tuye Kumpala Centre de Sante                 <NA>
+#> 22                        md Manga Poste de Sante     33230126-3300550
+#> 23                      lm Misombo Poste de Sante     82410205-8200277
+#> 24                  ks Domiongo 2 Centre de Sante     92340409-9200654
+#> 25              kr Ntambue Lomami Centre de Sante     91210209-9100120
+#> 26                     lm Katabayi Poste de Sante                 <NA>
+#> 27                     hk Euphata Centre de Sante                 <NA>
+#> 28                      it Rikazu Centre de Sante     54550216-5400021
+#> 29                      mn Samueli Poste de Sante     63250207-6300170
+#> 30                    hk Cepromec Centre de Sante                 <NA>
+#> 31                    hk Andralie Centre de Sante     71120109-7100649
+#> 32             kc Sagesse Kongo 2 Centre de Sante                 <NA>
+#> 33                      su Boyafio Poste de Sante     45310506-4500355
+#> 34                   kl Munzabala Centre de Sante                 <NA>
+#> 35                      kn La Foi Centre de Sante     10310204-1000665
+#> 36                      sn Efefete Poste de Sante                 <NA>
+#> 37                       hk JEIEL Centre de Sante     71110112-7100330
+#> 38                 kc El Rapha Centre Hospitalier                 <NA>
+#> 39                      it Ndrele Centre de Sante     54540517-5400623
+#> 40               it Eru Yofenyiri Centre de Sante     54550112-5400142
+#> 41                     mg Bomenge Centre de Sante     42620204-4200341
+#> 42    lm Kalonda Est Hopital General de Reference                 <NA>
+#> 43                     mn Longonya Poste de Sante     63260309-6300477
+#> 44                      ll Mulesu Centre de Sante                 <NA>
+#> 45                     kg Kabuita Centre de Sante     32510302-3200267
+#> 46                   kr Kalombayi Centre de Sante     91240112-9100151
+#> 47                      kc Kisiama Poste de Sante                 <NA>
+#> 48                       tu Lokata Poste de Sante     43750202-4300125
+#> 49                      mn Amuladi Poste de Sante     63270208-6300368
+#> 50                      hk Kapata Centre de Sante                 <NA>
+#> 51                    sk Tshigoma Centre de Sante     62260225-6200058
+#> 52                    hk Victoire Centre de Sante                 <NA>
+#> 53                  it Nyakasanza Centre de Sante     54510215-5400329
+#> 54                 kc Henri Dunant Poste de Sante     20330109-2000245
+#> 55            hk OUA Centre de Sante de Reference     71710113-7100515
+#> 56  hu Boma Mangbetu Hopital General de Reference     53460208-5300052
+#> 57                  kc La Moisson Centre de Sante                 <NA>
+#> 58                      kg Katondi Poste de Sante                 <NA>
+#> 59                        sn Owala Poste de Sante                 <NA>
+#> 60           hk Christ Redempteur Centre de Sante                 <NA>
+#> 61                 kc Beto na Beto Centre Medical                 <NA>
+#> 62                     kc Patience Centre Medical                 <NA>
+#> 63                      ll Ntembu Centre de Sante     73430119-7300236
+#> 64          kl Pierre Declerck Centre Hospitalier     31430134-3100489
+#> 65         tn Manono Hopital General de Reference     74630103-7400175
+#> 66                       hu Ngili Centre de Sante     53440214-5300302
+#> 67                 bu Maselebende Centre de Sante     52310107-5200076
+#> 68                  kc Tsese Ntinu Poste de Sante     20330103-2000218
+#> 69                       md Monsui Poste de Sante     33630115-3300383
+#> 70                     lm Tshileu Centre de Sante                 <NA>
+#> 71                       it Avari Centre de Sante     54540310-5400176
+#> 72                      mn Kasuku Centre de Sante     63220103-6300229
+#> 73                      tp Bodela Centre de Sante     51210106-5100067
+#> 74                    kl Kitambwe Centre de Sante     31350411-3100834
+#> 75                     sn Kabondo Centre de Sante                 <NA>
+#> 76               kc La Benediction Poste de Sante                 <NA>
+#> 77                      kc Bosembo Poste de Sante                 <NA>
+#> 78                         kn CMV Centre de Sante     10200211-1000538
+#> 79                       md Police Poste de Sante                 <NA>
+#> 80                   tp Bafwagali Centre de Sante     51220105-5100033
+#> 81                    kl Kimwanza Centre de Sante                 <NA>
+#> 82                      hk Pauline Centre Medical                 <NA>
+#> 83                        hk Neema Centre Medical                 <NA>
+#> 84                   hk Dikulushi Centre de Sante                 <NA>
+#> 85                     hu Makpulu Centre de Sante     53410207-5300228
+#> 86                       it ABEF Centre Convivial                 <NA>
+#> 87                kc Gloire a Dieu Poste de Sante                 <NA>
+#> 88                 it Bongwupanda Centre de Sante     54520106-5400712
+#> 89                  ks Sanga Sanga Poste de Sante     92330323-9200631
+#> 90                      it Mandje Centre de Sante     54531006-5400780
+#> 91                 kc Kikongomenga Poste de Sante                 <NA>
+#> 92                   hk Vainqueur Centre de Sante     71110215-7100583
+#> 93                      kn Breche Centre de Sante     10180105-1000555
+#> 94                   kn Espoir MS Centre de Sante                 <NA>
+#> 95            nk Methodistes Unis Centre de Sante     61120112-6100361
+#> 96               nk Muhatikani Centre Hospitalier     61230608-6100745
+#> 97                     kc Kingoma Centre de Sante     20430103-2000276
+#> 98                     kc Prosante Centre Medical     20210111-2000131
+#> 99                  kn C.C.Koweit Centre de Sante                 <NA>
+#> 100                       it Ayini Poste de Sante                 <NA>
+#> 101                     tp Bokpeku Poste de Sante                 <NA>
+#> 102                       kc Diasi Poste de Sante                 <NA>
+#> 103                    kc Kinzinga Poste de Sante                 <NA>
+#> 104         kl Ekubi Centre de Sante de Reference                 <NA>
+#> 105                  hk Mine d'Or Centre de Sante                 <NA>
+#> 106                     it Wadaka Centre de Sante     54540318-5400189
+#> 107            kn Saint Victorien Centre de Sante                 <NA>
+#> 108                    kl Kimputu Centre de Sante     31310225-3100213
+#> 109                   bu Bonzengo Centre de Sante     52320107-5200007
+#> 110                     bu Dembia Centre de Sante     52350105-5200093
+#> 111          kn Bon Berger de Sao Centre de Sante     10330116-1000599
+#> 112                 hu La Guerison Poste de Sante     53460105-5300428
+#> 113                      kn Exauce Centre Medical     10150108-1000043
+#> 114                     nu Bomago Centre de Sante                 <NA>
+#> 115             kr Luse lua Nzambi Poste de Sante     91250207-9100382
+#> 116                    nk Mabambi Centre de Sante     61230710-6100836
+#> 117                    eq Bongale Centre de Sante     41220308-4100469
+#> 118                            it Shalom Clinique     54550114-5400746
+#> 119                      kg Lobiko Poste de Sante                 <NA>
+#> 120                     tn Kasawa Centre de Sante     74650206-7400206
+#> 121                  hk St Martin Centre de Sante     71110111-7100327
+#> 122                      hl Kayeye Poste de Sante     72550307-7200098
+#> 123                     kn Mushie Centre de Sante     10210113-1000445
+#> 124                     nk Midede Centre de Sante     61230509-6100725
+#> 125                     kn Lutete Centre de Sante                 <NA>
+#> 126                     eq Bondeko Centre Medical     41120106-4100426
+#> 127                     sk Ekengya Poste de Sante                 <NA>
+#> 128                      it Salama Poste de Sante                 <NA>
+#> 129                    kl Mabundu Centre de Sante                 <NA>
+#> 130                       eq Orlus Poste de Sante     41210117-4100028
+#> 131                     sn Tshendo Poste de Sante                 <NA>
+#> 132                       kn Diki Centre de Sante     10320105-1000792
+#> 133                       md Mobie Poste de Sante     33240301-3300401
+#> 134                    sk Ishungu Centre de Sante     62280406-6200874
+#> 135                  ke Merveille Centre de Sante     81150105-8100170
+#> 136                     tu Yampete Poste de Sante     43740218-4300329
+#> 137                        hl Buyo Poste de Sante     72550318-7200134
+#> 138                        ke Syka Poste de Sante                 <NA>
+#> 139                     kr Sauveur Poste de Sante                 <NA>
+#> 140                     kn Kitoko Centre de Sante     10310106-1000634
+#> 141                    kr Luyamba Centre de Sante     91240307-9100590
+#> 142                    hu Makoleru Poste de Sante     53440115-5300156
+#> 143                  kc Kikiangala Poste de Sante     20530105-2000397
+#> 144                    ks Malenga Centre de Sante     92310212-9200857
+#> 145        kl Anciens Combattants Centre de Sante     31430123-3100471
+#> 146       md Lonio 1 Centre de Sante de Reference     33210310-3300480
+#> 147             kn Salem Kimbwala Centre de Sante     10280205-1000757
+#> 148                      kn Libiki Centre Medical                 <NA>
+#> 149                      hk Joyce Centre de Sante                 <NA>
+#> 150                      tp Ketele Poste de Sante     51120109-5100322
+#> 151                      lm Kapele Poste de Sante                 <NA>
+#> 152                       eq Bosie Poste de Sante                 <NA>
+#> 153                    lm Kanyana Centre de Sante     82430305-8200479
+#> 154                     kc Kimbala Poste de Sante     20410302-2000308
+#> 155                     ks Ilenge Centre de Sante                 <NA>
+#> 156                    it Sanduku Centre de Sante     54530714-5400565
+#> 157                         kn OCC Centre Medical     10160102-1000184
+#> 158                     hk Nehema Centre de Sante                 <NA>
+#> 159                  ke Kaleya Centre Hospitalier     81210212-8100106
+#> 160                       hk Elim Centre de Sante     71150107-7100359
+#> 161               kc Mbanza Ngombe Poste de Sante     20420210-2001158
+#> 162                     kc Kalungu Poste de Sante     20330112-2000263
+#> 163                 mn Penendjali Centre de Sante     63240208-6300399
+#> 164       hk Adra 41 Centre de Sante de Reference     71160102-7100006
+#> 165                      mg Upoto Centre de Sante     42610134-4200337
+#> 166                      tn Kyoko Centre de Sante     74610209-7400259
+#> 167                  eq Boso Nduku Poste de Sante                 <NA>
+#> 168                   sk Numbi Centre Hospitalier     62260316-6200662
+#> 169                    ks Malundu Centre de Sante                 <NA>
+#> 170                   it Mungu Mupinyaji Clinique                 <NA>
+#> 171                     kn Kamifa Centre de Sante                 <NA>
+#> 172       ks Kinda 1 Centre de Sante de Reference     92340314-9200198
+#> 173                  nu Capsabolo Centre de Sante     44540110-4400048
+#> 174                   sk Bitobolo Centre de Sante     62260203-6200030
+#> 175                    sn Kingombe Poste de Sante     83310103-8300201
+#> 176                        sk Espoir Polyclinique                 <NA>
+#> 177                sn Kole Pilote Centre de Sante     83320105-8300109
+#> 178                      it Faraja Poste de Sante     54510214-5400324
+#> 179                      eq Lokoba Poste de Sante     41110104-4100532
+#> 180                kc Gued Medical Poste de Sante     20520111-2000882
+#> 181                     ke Buloba Centre de Sante     81210208-8100096
+#> 182                    hk Emmanuel Centre Medical                 <NA>
+#> 183                       tu Isaka Poste de Sante     43710107-4300042
+#> 184                     sk Luganda Poste de Sante                 <NA>
+#> 185              hk La Gloire Kal Centre de Sante                 <NA>
+#> 186                    mg Bandala Centre de Sante     42620301-4200410
+#> 187                       it Dz'lo Poste de Sante     54530812-5400591
+#> 188                    hk Propice Centre de Sante     71130114-7100169
+#> 189       eq Lusengo Centre de Sante de Reference     41270310-4100384
+#> 190                  kl Kinguendi Centre de Sante     31320208-3100691
+#> 191                nk Bethesda Centre Hospitalier     61110110-6100228
+#> 192                   nk Kyaghala Centre de Sante     61250517-6100510
+#> 193                      md Bosano Poste de Sante     33220202-3300561
+#> 194                  hk Saint Luc Centre de Sante                 <NA>
+#> 195              kl Bon Samaritin Centre de Sante                 <NA>
+#> 196                kc Kimbanguiste Poste de Sante                 <NA>
+#> 197                       kn Onyx Centre de Sante                 <NA>
+#> 198           lm Meres et Enfants Centre de Sante                 <NA>
+#> 199                    sn Mukwasa Centre de Sante     83310111-8300215
+#> 200                    lm Nsungula Poste de Sante     82410122-8200129
+#> 201                  it Mont Meyo Centre de Sante     54550510-5400241
+#> 202                  tu Catholique Poste de Sante     43720101-4300002
+#> 203             kc La Consolatrice Poste de Sante                 <NA>
+#> 204            lm Sainte Irene Centre Hospitalier                 <NA>
+#> 205                     bu Bokoyo Centre de Sante     52340107-5200026
+#> 206                  hk 3eme Pull Centre de Sante                 <NA>
+#> 207                mg Boso Mayale Centre de Sante     42640414-4200387
+#> 208                     sk La Charite Dispensaire     62240315-6200388
+#> 209                       it Wadda Poste de Sante     54530309-5400374
+#> 210                  lm Wa Kubuila Poste de Sante     82430118-8200645
+#> 211     hk Disanga 2 Centre de Sante de Reference     71760103-7100048
+#> 212                 ks Muena Luse Centre de Sante                 <NA>
+#> 213            hk Secours Medical Centre de Sante                 <NA>
+#> 214          kc Patu Centre de Sante de Reference     20330215-2000707
+#> 215                  hl Kasengayi Centre de Sante     72520108-7200245
+#> 216                      nk Baraka Centre Medical     61420108-6100180
+#> 217                      it Ondere Poste de Sante     54550116-5400149
+#> 218                   su Ngbulutu Centre de Sante     45320109-4500131
+#> 219               kr Mbumba chutte Poste de Sante                 <NA>
+#> 220                      md Lukeni Poste de Sante     33240206-3300146
+#> 221                     hk Mwinda Centre de Sante                 <NA>
+#> 222           II Mission Possible Centre de Sante                 <NA>
+#> 223                     kc Mankala Poste de Sante                 <NA>
+#> 224                  sk Kitopo Centre Hospitalier     62240208-6200213
+#> 225                     tn Kiluba Centre de Sante     74630212-7400316
+#> 226                     kc Kinkasi Poste de Sante                 <NA>
+#> 227                     lm Musuma Centre de Sante                 <NA>
+#> 228   ke Bakwa Sumba Centre de Sante de Reference     81210206-8100092
+#> 229                    kn Bosungi Centre de Sante                 <NA>
+#> 230                       tn Keba Centre de Sante     74650110-7400150
+#> 231                    hk light KM Centre Medical                 <NA>
+#> 232                  bu Nebanguma Centre de Sante     52350116-5200104
+#> 233                     sk Saint Luc Polyclinique     62130111-6200144
+#> 234                       kn Dina Centre de Sante                 <NA>
+#> 235                     kc Pelerin Centre Medical     20320106-2000192
+#> 236        sn Lomela Hopital General de Reference     83330110-8300178
+#> 237          tp Mumba Losuna Etat Centre de Sante     51250211-5100502
+#> 238                     md Bombole Poste de Sante     33230212-3300352
+#> 239                      ks Luhelo Poste de Sante     92410502-9200885
+#> 240                    ks Muanetu Centre de Sante     92410401-9200697
+#> 241                    tu Mondjoku Poste de Sante     43750311-4300429
+#> 242                nu Kongba Bema Centre de Sante     44520407-4400199
+#> 243                  it Bora Uzima Poste de Sante     54520407-5400833
+#> 244                     md Nzinzi Centre de Sante     33630118-3300391
+#> 245                       md Tahou Poste de Sante                 <NA>
+#> 246             ke Tshiaba Centre Centre de Sante     81230213-8100598
+#> 247                 ks Dienzelayi Centre de Sante                 <NA>
+#> 248                      kc APHBAC Poste de Sante     20240202-2001192
+#> 249                      kn Joyce Centre de Sante                 <NA>
+#> 250                       kl Salab Poste de Sante                 <NA>
+#> 251                    kl Fambiesi Poste de Sante     31330209-3100399
+#> 252                     sk Mudusa Centre de Sante     62280409-6200881
+#> 253                     it Badiya Centre de Sante     54510501-5400850
+#> 254                   ks Bethesda Centre de Sante     92410212-9200274
+#> 255                  nk Alimbongo Centre de Sante     61230201-6100001
+#> 256               sk Kiniezire Centre Hospitalier                 <NA>
+#> 257                kl Kimbanguiste Poste de Sante                 <NA>
+#> 258                      it Ngenge Poste de Sante                 <NA>
+#> 259               lm Muana Muzang Centre de Sante     82410115-8200112
+#> 260                      mn Kaswa Centre de Sante     63220104-6300231
+#> 261                     eq Bolingo Centre Medical     41240303-4100488
+#> 262                  ks Diezelayi Centre de Sante                 <NA>
+#> 263                         ks BLM Poste de Sante                 <NA>
+#> 264                  hk Suzanella Centre de Sante     71130208-7101058
+#> 265                   sn Ometshuha Poste de Sante     83360211-8300274
+#> 266                     hk Gabaon Centre de Sante     71140109-7100943
+#> 267                    hl Kabunda Centre de Sante     72530106-7200150
+#> 268                   lm Kamatombo Poste de Sante     82410216-8200305
+#> 269                     mg Bolombo Poste de Sante     42610202-4200115
+#> 270        kc Bidi Ngengomo Dispensaire Maternite                 <NA>
+#> 271                     ke Edidiom Poste de Sante     81120205-8100407
+#> 272              tn Majengo Mapya Centre de Sante     74650115-7400155
+#> 273                    mn Katambwe Poste de Sante     63250213-6300180
+#> 274                kc Saint Pierre Centre Medical                 <NA>
+#> 275                       tp Ikela Poste de Sante     51280106-5100561
+#> 276                    kc Kimbauka Poste de Sante     20430308-2000821
+#> 277                  mn Penesenga Centre de Sante                 <NA>
+#> 278                     hu Djabir Centre de Sante     53440104-5300138
+#> 279                    kl Muwanda Centre de Sante     31320315-3100778
+#> 280                    hk Kabimbi Centre de Sante     71730202-7100286
+#> 281            kc Kinzau Mvuete B Centre de Sante     20320204-2001256
+#> 282                    sk Lumanya Centre de Sante                 <NA>
+#> 283                   kr Malongila Poste de Sante                 <NA>
+#> 284                      md Ngali Centre de Sante     33220121-3300280
+#> 285                     kc Khienge Centre Medical     20310304-2000584
+#> 286                       hk Doris Poste de Sante                 <NA>
+#> 287                        nk Butembo Antenne PEV                 <NA>
+#> 288           tu Yaa Centre de Sante de Reference     43710134-4300082
+#> 289                      tn Musebe Poste de Sante     74660125-7400307
+#> 290               kn Maman Celine Centre de Sante                 <NA>
+#> 291                 kc Nienze Bata Poste de Sante     20320202-2001242
+#> 292                  it Drobukolo Centre de Sante     54550204-5400005
+#> 293                      eq Mpombi Poste de Sante                 <NA>
+#> 294                  kc Christ Roi Centre Medical     20110109-2000943
+#> 295                 it Apala Etat Centre de Sante     54540203-5400055
+#> 296                    sn Omeonga Centre de Sante     83340412-8300042
+#> 297              kc ABEF-Kimpese Centre Convivial                 <NA>
+#> 298                     kn Bomoko Centre de Sante                 <NA>
+#> 299                      sk Ikoma Centre de Sante     62210107-6201005
+#> 300                  kc De la Paix Centre Medical     20330110-2000252
+#> 301                    lm Alcament Poste de Sante     82530105-8200536
+#> 302                      ke Kyria Centre de Sante     81150102-8100159
+#> 303                       eq Wamba Poste de Sante     41210123-4100036
+#> 304                   mg Yanbenga Centre de Sante     42620516-4200526
+#> 305                it Panvitalisme Poste de Sante     54510214-5400321
+#> 306                 ll Fraternite Centre de Sante                 <NA>
+#> 307          kn Fonction Publique Centre de Sante     10160101-1000178
+#> 308                         it Rau Poste de Sante     54550123-5400156
+#> 309                      tp Mokote Poste de Sante                 <NA>
+#> 310            hl Mere du Sauveur Centre de Sante     72510119-7200214
+#> 311                      tp Yatoko Poste de Sante     51240211-5100646
+#> 312                      hu Wanga centre de Sante                 <NA>
+#> 313                     tp Mokongo Poste de Sante     51270108-5100129
+#> 314                    ks Lungumba Poste de Sante     92310210-9200851
+#> 315                      tp Rekapi Centre Medical                 <NA>
+#> 316                      sk Miowe Centre de Sante     62260220-6200051
+#> 317                  kl Mudimbimbi Poste de Sante                 <NA>
+#> 318               hk Hero Medical Centre de Sante     71120309-7100810
+#> 319                   mn Afia Bora Centre Medical                 <NA>
+#> 320                    kr Tujukayi Poste de Sante                 <NA>
+#> 321               kn Christ Amour Centre de Sante                 <NA>
+#> 322                  kr Lulengele Centre de Sante     91230313-9100542
+#> 323                    kr Kalualua Poste de Sante     91230206-9100207
+#> 324                      it Mutubi Poste de Sante                 <NA>
+#> 325                       it Ukemo Poste de Sante     54540601-5400868
+#> 326                     hu 3 Ponts Poste de Sante     53410109-5300400
+#> 327                     kr Kasamba Poste de Sante                 <NA>
+#> 328                   sk Muranvya Centre de Sante     62220220-6200118
+#> 329                     it Tujenge Poste de Sante     54531004-5400773
+#> 330                   hk Kilombwa Centre de Sante     71750215-7100457
+#> 331                  lm Tshilundu Centre de Sante     82410125-8200136
+#> 332                 eq Boso-inzoke Poste de Sante     41220204-4100397
+#> 333                      lm Musuyi Poste de Sante                 <NA>
+#> 334                  nk Saint Raphael Dispensaire     61420114-6100197
+#> 335                        it Pono Poste de Sante                 <NA>
+#> 336                   ke La Kenda Centre de Sante     81120112-8100619
+#> 337                      kn Shift Centre de Sante                 <NA>
+#> 338                     hu Nadumbe Poste de Sante     53410204-5300221
+#> 339                   kr Tudimuena Poste de Sante     91110201-9100692
+#> 340                 hk La Charite Centre de Sante     71130111-7100154
+#> 341                 kc Kiasi Kolo Centre de Sante     20410104-2000009
+#> 342         hk Christ vainqueur 2 Centre de Sante                 <NA>
+#> 343                    kn Mubiala Centre de Sante                 <NA>
+#> 344                     md Bokenge Poste de Sante                 <NA>
+#> 345               su Bogose Nubea Centre de Sante     45310409-4500025
+#> 346         md Mbien Centre de Sante de Reference     33240211-3300155
+#> 347                     md Lebama Centre de Sante     33240313-3300434
+#> 348                      hk Uzima Centre de Sante                 <NA>
+#> 349             kc Tsanga Makuanzi Poste de Sante     20310109-2000471
+#> 350                     nk Katiri Centre de Sante     61310406-6100596
+#> 351                       ks CMTK Centre de Sante     92430114-9200391
+#> 352               kr Shatshikumba Centre de Sante     91130105-9100647
+#> 353                       md Ikila Poste de Sante     33230124-3300546
+#> 354              kl Dibaya Matadi Centre de Sante                 <NA>
+#> 355                ks Kampungu Centre Hospitalier     92340113-9200794
+#> 356              kl Dongo Selenge Centre de Sante     31350302-3100784
+#> 357                 kl Bumba Puta Centre de Sante     31310303-3100603
+#> 358                   hk St Felix Centre de Sante     71130115-7100176
+#> 359                   su Kondonga Centre de Sante     45330218-4500120
+#> 360                       kl Nenga Poste de Sante                 <NA>
+#> 361                   ke Kabala 2 Centre de Sante     81240107-8100013
+#> 362               md Mabala Kasai Centre de Sante     33240315-3300440
+#> 363                        kc Istm Centre Medical     20310402-2001344
+#> 364                    kl Kimbulu Centre de Sante     31310412-3100940
+#> 365                    hu Abhamva Centre de Sante     53440308-5300015
+#> 366                    lm Babengie Poste de Sante                 <NA>
+#> 367            kr Kamanga Kamukasa Poste de Sante     91220310-9100506
+#> 368                      kl Kinga Centre de Sante     31350309-3100793
+#> 369                    sk Kakenge Centre de Sante     62230307-6200629
+#> 370      kn Centre de Transfusion Sanguine (PNTS)                 <NA>
+#> 371                 kn Pere Damien Centre Medical     10300110-1000145
+#> 372                  it Masumbuko Centre de Sante     54530309-5400373
+#> 373                       sk Dima Centre de Sante     62250102-6200917
+#> 374                    ks Kapepula Poste de Sante     92410108-9200309
+#> 375                     hk Bonzola Poste de Sante                 <NA>
+#> 376                   ke Carriere Centre de Sante     81240217-8100151
+#> 377                    kn Accacia Centre de Sante                 <NA>
+#> 378                    sk Labotte Centre de Sante                 <NA>
+#> 379                   sk Bushonga Centre de Sante     62270104-6200169
+#> 380                     tn Balanga Poste de Sante                 <NA>
+#> 381                      it Marie Claire Clinique     54510201-5400271
+#> 382                     kn Naweza Centre de Sante                 <NA>
+#> 383       kc Tuidi Mambengo Dispensaire Maternite                 <NA>
+#> 384                      kn Funzi Centre de Sante     10310112-1000655
+#> 385                      hu Matete Poste de Sante                 <NA>
+#> 386                    ke Berkamed Poste de Sante     81120205-8100405
+#> 387                      kl Nkili Centre de Sante     31340222-3100367
+#> 388                      eq Mekoko Poste de Sante                 <NA>
+#> 389                       tp Akebo Poste de Sante     51210207-5100168
+#> 390                       kl Ngadi Poste de Sante     31320419-3100870
+#> 391            kr Mukanya Kalamba Centre de Sante     91240116-9100157
+#> 392                        kc SNEL Poste de Sante                 <NA>
+#> 393   hk Au secours de l'humanite Centre de Sante                 <NA>
+#> 394                    mg Liyango Centre de Sante     42640114-4200093
+#> 395                  mg Boso Mane Centre de Sante     42640208-4200157
+#> 396                      bu Ebale Centre de Sante     52340112-5200031
+#> 397                        mg Pem Centre de Sante     42620308-4200423
+#> 398                 ks Ngela Longo Poste de Sante     92330310-9200570
+#> 399                     eq Boyera Centre de Sante     41230209-4100308
+#> 400              kl Kanzombi Etat Centre de Sante     31430132-3100485
+#> 401                      bu Sombe Centre de Sante     52330310-5200130
+#> 402               mn La Vie Combat Centre Medical                 <NA>
+#> 403                  sk Camp Saio Centre de Sante                 <NA>
+#> 404                     kn Mpongo Centre de Sante                 <NA>
+#> 405                    it Aungusto Poste de Sante     54530106-5400208
+#> 406          ks Kalala Ngangabuka Centre de Sante     92410118-9200331
+#> 407                    hk Kalunda Centre de Sante     71160104-7100012
+#> 408                     kl Kaggwa Centre de Sante     31430130-3100481
+#> 409              kl Ngunda minango Poste de Sante     31320303-3100800
+#> 410                sk Sky Born Centre Hospitalier     62130111-6200145
+#> 411                    eq Lobengo Centre de Sante     41270308-4100382
+#> 412               kc Nkaka Mawete Centre de Sante     20410211-2000162
+#> 413               ll Tshimbalanga Centre de Sante     73420123-7300425
+#> 414                kn Arc-en-ciel Centre de Sante                 <NA>
+#> 415                     nu Pasagba Poste de Sante     44810107-4400085
+#> 416                  mn Dieu Benit Centre Medical     63110104-6300011
+#> 417                    sk Bwegera Centre de Sante     62220305-6200564
+#> 418                        hk Kiba Poste de Sante     71730102-7100262
+#> 419              eq Makolo Manonga Poste de Sante                 <NA>
+#> 420              mn Nyembo Lukengo Poste de Sante                 <NA>
+#> 421                         hl Baraka Dispensaire                 <NA>
+#> 422   kc Tsanga Nord Centre de Sante de Reference     20310310-2000602
+#> 423                 lm Kananganan Centre de Sante                 <NA>
+#> 424                 nk Katolo Lac Centre de Sante     61230109-6100650
+#> 425                      ks Mbelo Centre de Sante                 <NA>
+#> 426                     nk Ibanga Centre de Sante                 <NA>
+#> 427                       kn Elie Centre de Sante                 <NA>
+#> 428            kr Ntambue Kayembe Centre de Sante     91240312-9100598
+#> 429                     kg Mapungu Poste de Sante     32510111-3200230
+#> 430                     mg Bodala Centre de Sante     42640304-4200180
+#> 431                       ks Buinu Poste de Sante                 <NA>
+#> 432                      nk Kasave Poste de Sante     61250310-6100131
+#> 433                     kn Mpongo Centre de Sante                 <NA>
+#> 434         mg Bumba Hopital General de Reference     42620102-4200227
+#> 435                            it Shalom Clinique     54510203-5400285
+#> 436                        kn Cna Centre de Sante     10110103-1000151
+#> 437                    kn Galilee Centre de Sante     10260204-1000084
+#> 438                      kr Mabala Poste de Sante     92340506-9100059
+#> 439                     sk Kitoga Centre de Sante     62220214-6200111
+#> 440             kg Sefu/Swa-tenda Centre de Sante     32540207-3200339
+#> 441                      mn Kakiki Poste de Sante                 <NA>
+#> 442                     tu Iyenge Centre de Sante     43710135-4300083
+#> 443                        ks CMK Centre de Sante     92420114-9200958
+#> 444                   mg Boso Godo Poste de Sante     42610134-4200336
 #>     organisationunitdescription periodid periodname periodcode
 #> 1                          <NA>   202501 2025-01-01     202501
 #> 2                          <NA>   202509 2025-09-01     202509

@@ -6,7 +6,15 @@ organization levels using DHIS2 exported data
 ## Usage
 
 ``` r
-vaccine_sums(data, vaccine, level, month = 1, accent = TRUE)
+vaccine_sums(
+  data,
+  vaccine,
+  level,
+  month = 1,
+  accent = TRUE,
+  vap_intro = pevrdc::vap_intro,
+  year = 2026
+)
 ```
 
 ## Arguments
@@ -36,6 +44,19 @@ vaccine_sums(data, vaccine, level, month = 1, accent = TRUE)
 
   A logical to specify whether the dataset values contains accented
   characters. Set to TRUE as default
+
+- vap_intro:
+
+  A dataframe of VAP introduction dates per health district, as the
+  built-in vap_intro dataset. Used only for VAP1 to VAP4: doses recorded
+  before a district introduced the vaccine, and doses in districts that
+  have not introduced it, are not counted. Set to NULL to count all
+  doses.
+
+- year:
+
+  The calendar year of the data, used to compare with the introduction
+  dates. Default 2026.
 
 ## Value
 

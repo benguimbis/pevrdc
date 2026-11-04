@@ -16,6 +16,7 @@
 <url><loc>/reference/clean_names_dhis.html</loc></url>
 <url><loc>/reference/correct_accent.html</loc></url>
 <url><loc>/reference/district_epi.html</loc></url>
+<url><loc>/reference/flag_outliers.html</loc></url>
 <url><loc>/reference/index.html</loc></url>
 <url><loc>/reference/is_outbreak.html</loc></url>
 <url><loc>/reference/pop2024.html</loc></url>
@@ -25,5 +26,6 @@
 <url><loc>/reference/vacc_data.html</loc></url>
 <url><loc>/reference/vaccine_coverage.html</loc></url>
 <url><loc>/reference/vaccine_sums.html</loc></url>
+<url><loc>/reference/vap_intro.html</loc></url>
 </urlset>
 

@@ -43,7 +43,15 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">vaccine_sums</span><span class="op">(</span><span class="va">data</span>, <span class="va">vaccine</span>, <span class="va">level</span>, month <span class="op">=</span> <span class="fl">1</span>, accent <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">vaccine_sums</span><span class="op">(</span></span>
+<span>  <span class="va">data</span>,</span>
+<span>  <span class="va">vaccine</span>,</span>
+<span>  <span class="va">level</span>,</span>
+<span>  month <span class="op">=</span> <span class="fl">1</span>,</span>
+<span>  accent <span class="op">=</span> <span class="cn">TRUE</span>,</span>
+<span>  vap_intro <span class="op">=</span> <span class="fu">pevrdc</span><span class="fu">::</span><span class="va"><a href="vap_intro.html">vap_intro</a></span>,</span>
+<span>  year <span class="op">=</span> <span class="fl">2026</span></span>
+<span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -68,6 +76,14 @@
 
 <dt id="arg-accent">accent<a class="anchor" aria-label="anchor" href="#arg-accent"></a></dt>
 <dd><p>A logical to specify whether the dataset values contains accented characters. Set to TRUE as default</p></dd>
+
+
+<dt id="arg-vap-intro">vap_intro<a class="anchor" aria-label="anchor" href="#arg-vap-intro"></a></dt>
+<dd><p>A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: doses recorded before a district introduced the vaccine, and doses in districts that have not introduced it, are not counted. Set to NULL to count all doses.</p></dd>
+
+
+<dt id="arg-year">year<a class="anchor" aria-label="anchor" href="#arg-year"></a></dt>
+<dd><p>The calendar year of the data, used to compare with the introduction dates. Default 2026.</p></dd>
 
 </dl></div>
     <div class="section level2">
