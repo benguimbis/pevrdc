@@ -17,10 +17,34 @@
 #' correct_accent(vacc, pattern =  "\u00C3\u00A9", replacement = "e")
 correct_accent <- function(data, pattern = "\u00C3\u00A9", replacement = "e") {
   variables <- colnames(data)
-  data_list <- Map(function(x)data[[x]] <- gsub(pattern, replacement, data[[x]], ), variables)
+
+  # UTF-8 characters decoded as Latin-1 (mojibake) commonly seen in DHIS 2
+  # exports, e.g. "Août" read as "AoÃ»t" or "Février" read as "FÃ©vrier".
+  mojibake <- c(
+    "\u00C3\u0080" = "A", "\u00C3\u0082" = "A", "\u00C3\u0084" = "A", "\u00C3\u0085" = "A",
+    "\u00C3\u0087" = "C", "\u00C3\u0088" = "E", "\u00C3\u0089" = "E", "\u00C3\u008A" = "E",
+    "\u00C3\u008B" = "E", "\u00C3\u008E" = "I", "\u00C3\u008F" = "I", "\u00C3\u0091" = "N",
+    "\u00C3\u0092" = "O", "\u00C3\u0094" = "O", "\u00C3\u0096" = "O", "\u00C3\u0099" = "U",
+    "\u00C3\u009B" = "U", "\u00C3\u009C" = "U",
+    "\u00C3\u00A0" = "a", "\u00C3\u00A2" = "a", "\u00C3\u00A3" = "a", "\u00C3\u00A4" = "a",
+    "\u00C3\u00A5" = "a", "\u00C3\u00A7" = "c", "\u00C3\u00A8" = "e", "\u00C3\u00A9" = "e",
+    "\u00C3\u00AA" = "e", "\u00C3\u00AB" = "e", "\u00C3\u00AC" = "i", "\u00C3\u00AE" = "i",
+    "\u00C3\u00AF" = "i", "\u00C3\u00B1" = "n", "\u00C3\u00B2" = "o", "\u00C3\u00B4" = "o",
+    "\u00C3\u00B6" = "o", "\u00C3\u00B9" = "u", "\u00C3\u00BB" = "u", "\u00C3\u00BC" = "u",
+    "\u00C3\u00BF" = "y"
+  )
+
+  data_list <- Map(function(x) {
+    out <- data[[x]]
+    out <- gsub(pattern, replacement, out)
+    for (i in seq_along(mojibake)) out <- gsub(names(mojibake)[i], mojibake[i], out)
+    out
+  }, variables)
+
   data <- as.data.frame(data_list)
 
   colnames(data) <- tolower(gsub("\\.", "_", colnames(data)))
+  for (i in seq_along(mojibake)) colnames(data) <- gsub(names(mojibake)[i], mojibake[i], colnames(data))
 
   return(data)
 }

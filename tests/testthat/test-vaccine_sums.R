@@ -10,3 +10,26 @@ penta3 <- vaccine_sums(vacc, DTC3, District, 2)
 test_that("vaccine_sums coherently aggregates vaccines numbers", {
   expect_true(sum(penta3$DTC3) <= sum(penta1$DTC1))
 })
+
+test_that("vaccine_sums keeps months with mojibake accents (Août)", {
+  df <- data.frame(
+    periodname = c("Janvier 2026", "F\u00C3\u00A9vrier 2026", "Mars 2026", "Avril 2026",
+                   "Mai 2026", "Juin 2026", "Juillet 2026", "Ao\u00C3\u00BBt 2026",
+                   "Septembre 2026"),
+    orgunitlevel1 = "Pays",
+    bcg_0_et_11_mois = c(rep(10, 7), 20, 30)
+  )
+  s8 <- vaccine_sums(df, BCG, Country, month = 8, accent = FALSE)
+  s9 <- vaccine_sums(df, BCG, Country, month = 9, accent = FALSE)
+  expect_equal(s8$BCG, 90)
+  expect_equal(s9$BCG, 120)
+})
+
+test_that("vaccine_sums errors on unrecognized periods instead of dropping them", {
+  df <- data.frame(
+    periodname = c("Janvier 2026", "Someday 2026"),
+    orgunitlevel1 = "Pays",
+    bcg_0_et_11_mois = c(1, 2)
+  )
+  expect_error(vaccine_sums(df, BCG, Country, accent = FALSE), "Unrecognized reporting period")
+})

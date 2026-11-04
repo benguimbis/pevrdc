@@ -7,9 +7,12 @@
 #' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District or Antenne 
 #' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
 #' @param pops An aggregated dataset of target populations.
+#' @param vap_intro A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: the target population of a district only counts the months since it introduced the vaccine, and districts that have not introduced it have no target (coverage NA). Set to NULL to use all months for all districts.
+#' @param year The calendar year of the data, used to compare with the introduction dates. Default 2026.
 #' @importFrom stats aggregate reformulate setNames
 #' @return
 #' A dataframe with vaccines coverage 
+#' For VAP1 to VAP4 the target population columns are prefixed with vap_ (vap_survivants_mois_admin, vap_survivant_mois_ajust) because they only cover the months since introduction, so they differ from the targets of the other vaccines and tables can be merged by key without losing rows.
 #' @export
 #'
 #' @examples
@@ -21,7 +24,7 @@
 #' vacc_tots <- vaccine_sums(vacc, DTC1, District, 2)
 #' vaccine_coverage(vacc_tots, DTC1, District, month = 2, pops = pops)
 #'
-vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
+vaccine_coverage <- function(data, vaccine, level, month = 1, pops, vap_intro = pevrdc::vap_intro, year = 2026) {
   vac <- c(
     "BCG", "DTC1", "DTC3", "VPO0", "VAA", "VAR1", "VAR2", "VPI1",
     "VPI2", "Pneumo13", "Rota1", "Rota2", "Rota3", "VAP1", "VAP2",
@@ -48,14 +51,22 @@ vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
   data <- stats::aggregate(stats::reformulate(level, response = vaccine), FUN = sum, data = data)
 
 
-  if (vaccine %in% c("BCG", "VPO0")) {
+  if (vaccine %in% c("BCG", "VPO0", "TD2")) {
     num_vars <- c("naissance_mois_admin", "naissance_mois_ajust")
   } else {
     num_vars <- c("survivants_mois_admin", "survivant_mois_ajust")
   }
 
-  pop1 <- agg_pop_2(num_vars[1],level, month = month, pops = pops)
-  pop2 <- agg_pop_2(num_vars[2],level, month = month, pops = pops)
+  is_vap <- !is.null(vap_intro) && vaccine %in% c("VAP1", "VAP2", "VAP3", "VAP4")
+  pop_month <- month
+  if (is_vap) {
+    active_months <- pmax(0, month - vap_start_month(pops[["orgunitlevel3"]], vap_intro, year) + 1)
+    pops[num_vars] <- pops[num_vars] * active_months
+    pop_month <- 1
+  }
+
+  pop1 <- agg_pop_2(num_vars[1],level, month = pop_month, pops = pops)
+  pop2 <- agg_pop_2(num_vars[2],level, month = pop_month, pops = pops)
 
 
   populations <- merge(pop1, pop2, by = level)
@@ -64,16 +75,48 @@ vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
 
   merged_data <- merge(data, populations, by = level)
 
-
-
+  dropped <- nrow(data) - nrow(merged_data)
+  if (dropped > 0) {
+    warning(dropped, " unit(s) have no matching target population and were dropped from the coverage table. Check that names in the data and in pops are spelled identically.", call. = FALSE)
+  }
+  
+  
+    if(vaccine == "VAR2"|vaccine == "VAP4"){
+      
+        merged_data[[paste0(vaccine, "_admin")]] <- round(100 * merged_data[[vaccine]] / (merged_data[[num_vars[1]]]* 0.97), 2)
+        merged_data[[paste0(vaccine, "_ajust")]] <- round(100 * merged_data[[vaccine]] / (merged_data[[num_vars[2]]]*0.97), 2)
+    
+    }else{
+      
   merged_data[[paste0(vaccine, "_admin")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[1]]], 2)
   merged_data[[paste0(vaccine, "_ajust")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[2]]], 2)
+      
+  }
+
+
+
+
+  if (is_vap) {
+    for (s in c("_admin", "_ajust")) {
+      v <- merged_data[[paste0(vaccine, s)]]
+      v[!is.finite(v)] <- NA
+      merged_data[[paste0(vaccine, s)]] <- v
+    }
+    names(merged_data)[names(merged_data) %in% num_vars] <- paste0("vap_", num_vars)
+  }
+
+  implausible <- sum(merged_data[[paste0(vaccine, "_admin")]] > 150, na.rm = TRUE)
+  if (implausible > 0) {
+    warning(implausible, " unit(s) have an administrative ", vaccine, " coverage above 150%: check for data entry errors in the numerator or for an under-estimated target population.", call. = FALSE)
+  }
 
   if(vaccine == "DTC1"){
     merged_data[["zero_dose_admin"]] <- round(merged_data[[num_vars[1]]] - merged_data[[vaccine]])
     merged_data[["zero_dose_ajust"]] <- round(merged_data[[num_vars[2]]] - merged_data[[vaccine]])
 
   }
+  
+
 
   return(merged_data)
 }

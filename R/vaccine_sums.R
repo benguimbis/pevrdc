@@ -7,6 +7,8 @@
 #' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District, or Antenne 
 #' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
 #' @param accent A logical to specify whether the dataset values contains accented characters. Set to TRUE as default 
+#' @param vap_intro A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: doses recorded before a district introduced the vaccine, and doses in districts that have not introduced it, are not counted. Set to NULL to count all doses.
+#' @param year The calendar year of the data, used to compare with the introduction dates. Default 2026.
 #' @importFrom stats aggregate reformulate setNames
 #' @return
 #' A dataframe with aggregated sums of vaccinated between 
@@ -17,7 +19,7 @@
 #'
 #' vacc <- readRDS(datafile)
 #' vaccine_sums(vacc, DTC1, District, 2)
-vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
+vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE, vap_intro = pevrdc::vap_intro, year = 2026) {
   vacc_list <- c(
     "BCG" = "bcg_0_et_11_mois",
     "DTC1" = "dtc_hepb_hib1_0_et_11",
@@ -28,7 +30,7 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
     "VAR2" = "var_2_rr_2_0_et_11_mois|var_2_rr_2_12_et_23_mois",
     "VPI1" = "vpi_1_0_et_11",
     "VPI2" = "vpi_2_0_et_11",
-    "Pneumo13" = "pcv_13__1__0_et_11",
+    "Pneumo13" = "pcv_13__3__0_et_11",
     "Rota1" = "rota_1_0_et_11",
     "Rota2" = "rota_2_0_et_11",
     "Rota3" = "rota_3_0_et_11",
@@ -66,8 +68,15 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
   vacc_name <- vaccine1
   vaccine <- vacc_list[vaccine1]
 
+  if (!is.null(vap_intro) && vacc_name %in% c("VAP1", "VAP2", "VAP3", "VAP4")) {
+    start_month <- vap_start_month(data[["orgunitlevel3"]], vap_intro, year)
+  } else {
+    start_month <- NULL
+  }
+
 
   data <- do.call(cbind, list(data["periodname"], data[level], Map(as.numeric, data[grepl(vaccine, colnames(data))])))
+  if (!is.null(start_month)) data$vap_start <- start_month
 
 
   # removing all NAs
@@ -87,18 +96,53 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
     "January" = 1, "February" = 2, "March" = 3, "April" = 4, "May" = 5, "June" = 6, "July" = 7,
     "August" = 8, "September" = 9, "October" = 10, "November" = 11, "December" = 12
   )
+  # Robust month number from a French or English month label, with or
+  # without accented characters ("Août 2026") or mojibake ("AoÃ»t 2026").
+  .month_number <- function(x) {
+    key4 <- c(
+      "janv" = 1, "janu" = 1, "fevr" = 2, "febr" = 2, "mars" = 3, "marc" = 3,
+      "avri" = 4, "apri" = 4, "mai" = 5, "may" = 5, "juin" = 6, "june" = 6,
+      "juil" = 7, "july" = 7, "aout" = 8, "augu" = 8, "sept" = 9,
+      "octo" = 10, "nove" = 11, "dece" = 12
+    )
+    corr <- c(
+      "\u00C3\u00A0" = "a", "\u00C3\u00A2" = "a", "\u00C3\u00A4" = "a", "\u00C3\u00A7" = "c",
+      "\u00C3\u00A8" = "e", "\u00C3\u00A9" = "e", "\u00C3\u00AA" = "e", "\u00C3\u00AB" = "e",
+      "\u00C3\u00AC" = "i", "\u00C3\u00AE" = "i", "\u00C3\u00AF" = "i",
+      "\u00C3\u00B2" = "o", "\u00C3\u00B4" = "o", "\u00C3\u00B6" = "o",
+      "\u00C3\u00B9" = "u", "\u00C3\u00BB" = "u", "\u00C3\u00BC" = "u",
+      "\u00C0" = "A", "\u00C2" = "A", "\u00C4" = "A", "\u00C7" = "C",
+      "\u00C8" = "E", "\u00C9" = "E", "\u00CA" = "E", "\u00CB" = "E",
+      "\u00CE" = "I", "\u00CF" = "I", "\u00D4" = "O", "\u00D6" = "O",
+      "\u00D9" = "U", "\u00DB" = "U", "\u00DC" = "U",
+      "\u00E0" = "a", "\u00E2" = "a", "\u00E4" = "a", "\u00E7" = "c",
+      "\u00E8" = "e", "\u00E9" = "e", "\u00EA" = "e", "\u00EB" = "e",
+      "\u00EC" = "i", "\u00EE" = "i", "\u00EF" = "i",
+      "\u00F2" = "o", "\u00F4" = "o", "\u00F6" = "o",
+      "\u00F9" = "u", "\u00FB" = "u", "\u00FC" = "u"
+    )
+    for (i in seq_along(corr)) x <- gsub(names(corr)[i], corr[i], x)
+    letters_only <- gsub("[^a-zA-Z]", "", x)
+    unname(key4[tolower(substr(letters_only, 1, 4))])
+  }
   if (all(nchar(as.character(data[["periodname"]])) == 10)) {
     data[, "periodname"] <- as.Date(data[["periodname"]])
     data$period <- period_eng[format(data$periodname, "%B")]
   } else {
-    data$period <- unname(period[trimws(gsub("[0-9]", "", data$periodname), "both")])
+    pn <- as.character(data[["periodname"]]); upn <- unique(pn); data$period <- .month_number(upn)[match(pn, upn)]
+  }
+  if (anyNA(data$period)) {
+    bad <- unique(as.character(data[["periodname"]][is.na(data$period)]))
+    stop("Unrecognized reporting period(s): ", paste(utils::head(bad, 5), collapse = "; "),
+         ". Month labels should contain French or English month names, e.g. 'Janvier 2026' or 'Août 2026'.")
   }
   
   data <- subset(data, period <= month)
 
   on.exit(Sys.setlocale(category = "LC_TIME", locale = syst_time))
 
-  data$vaccsum <- Reduce(`+`, data[, grepl(vaccine, colnames(data))])
+  data$vaccsum <- Reduce(`+`, data[, grepl(vaccine, colnames(data)), drop = FALSE])
+  if (!is.null(start_month)) data$vaccsum[data$period < data$vap_start] <- 0
 
   vacc_agg <- stats::aggregate(stats::reformulate(level, response = "vaccsum"), data = data, FUN = sum)
 

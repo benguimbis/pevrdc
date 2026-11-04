@@ -4,7 +4,15 @@
 \alias{vaccine_sums}
 \title{A function to compute the cummulative monthly tally of vaccinated per organization levels using DHIS2 exported data}
 \usage{
-vaccine_sums(data, vaccine, level, month = 1, accent = TRUE)
+vaccine_sums(
+  data,
+  vaccine,
+  level,
+  month = 1,
+  accent = TRUE,
+  vap_intro = pevrdc::vap_intro,
+  year = 2026
+)
 }
 \arguments{
 \item{data}{Dataframe, usually the DHIS2 immunization dataframe}
@@ -16,6 +24,10 @@ vaccine_sums(data, vaccine, level, month = 1, accent = TRUE)
 \item{month}{An integer between 1 to 12 that specifies the cummulative period of months to aggregate date}
 
 \item{accent}{A logical to specify whether the dataset values contains accented characters. Set to TRUE as default}
+
+\item{vap_intro}{A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: doses recorded before a district introduced the vaccine, and doses in districts that have not introduced it, are not counted. Set to NULL to count all doses.}
+
+\item{year}{The calendar year of the data, used to compare with the introduction dates. Default 2026.}
 }
 \value{
 A dataframe with aggregated sums of vaccinated between

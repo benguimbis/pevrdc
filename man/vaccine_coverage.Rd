@@ -4,7 +4,15 @@
 \alias{vaccine_coverage}
 \title{A function to compute the cummulative monthly vaccine coverage  per organization levels using DHIS2 exported data}
 \usage{
-vaccine_coverage(data, vaccine, level, month = 1, pops)
+vaccine_coverage(
+  data,
+  vaccine,
+  level,
+  month = 1,
+  pops,
+  vap_intro = pevrdc::vap_intro,
+  year = 2026
+)
 }
 \arguments{
 \item{data}{Dataframe, usually the DHIS2 immunization dataframe already aggregated}
@@ -16,9 +24,14 @@ vaccine_coverage(data, vaccine, level, month = 1, pops)
 \item{month}{An integer between 1 to 12 that specifies the cummulative period of months to aggregate date}
 
 \item{pops}{An aggregated dataset of target populations.}
+
+\item{vap_intro}{A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: the target population of a district only counts the months since it introduced the vaccine, and districts that have not introduced it have no target (coverage NA). Set to NULL to use all months for all districts.}
+
+\item{year}{The calendar year of the data, used to compare with the introduction dates. Default 2026.}
 }
 \value{
 A dataframe with vaccines coverage
+For VAP1 to VAP4 the target population columns are prefixed with vap_ (vap_survivants_mois_admin, vap_survivant_mois_ajust) because they only cover the months since introduction, so they differ from the targets of the other vaccines and tables can be merged by key without losing rows.
 }
 \description{
 A function to compute the cummulative monthly vaccine coverage  per organization levels using DHIS2 exported data

@@ -15,7 +15,8 @@ BugReports: https://github.com/benguimbis/pevrdc/issues
 Depends: 
     R (>= 3.5)
 Imports: 
-    stats
+    stats,
+    utils
 Suggests: 
     knitr,
     rmarkdown,

@@ -9,4 +9,11 @@ test_that("correct_accent replaces all the accented characters in the dataset", 
   expect_true(sum(grepl("^e", df_correct$b)) == sum(grepl("^è", df$B)) )
 })
 
+test_that("correct_accent fixes the full mojibake set, incl. Août", {
+  df_m <- data.frame(per = c("Ao\u00C3\u00BBt 2026", "F\u00C3\u00A9vrier 2026"), val = c(1, 2))
+  out <- correct_accent(df_m)
+  expect_true(any(grepl("Aout 2026", out$per)))
+  expect_true(any(grepl("Fevrier 2026", out$per)))
+})
+
 

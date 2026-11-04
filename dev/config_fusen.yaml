@@ -6,11 +6,16 @@ flat_first.Rmd:
   - R/agg_pop.R
   - R/correct_accent.R
   - R/is_outbreak.R
+  - R/flag_outliers.R
   - R/vaccine_coverage.R
   - R/vaccine_sums.R
+  - R/vap_start_month.R
+  - R/vap-introduction-dates.R
   - R/data.R
   tests:
   - tests/testthat/test-correct_accent.R
+  - tests/testthat/test-flag_outliers.R
+  - tests/testthat/test-vap_start_month.R
   - tests/testthat/test-vaccine_sums.R
   - tests/testthat/test-agg_pop.R
   - tests/testthat/test-vaccine_coverage.R

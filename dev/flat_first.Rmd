@@ -49,6 +49,7 @@ pop2026 <- readRDS(datafile[3])
 antennes <- readRDS(datafile[4])
 vacc_data <- readRDS(datafile[5])
 shape <- readRDS(datafile[6])
+vap_intro <- readRDS(system.file("vap_intro.RDS", package = "pevrdc"))
 
 usethis::use_data(pop2024, overwrite = TRUE)
 usethis::use_data(pop2025, overwrite = TRUE)
@@ -56,6 +57,7 @@ usethis::use_data(pop2026, overwrite = TRUE)
 usethis::use_data(antennes, overwrite = TRUE)
 usethis::use_data(vacc_data, overwrite = TRUE)
 usethis::use_data(shape, overwrite = TRUE)
+usethis::use_data(vap_intro, overwrite = TRUE)
 ```
 
 
@@ -93,10 +95,34 @@ After inflating the template
 #' @examples
 correct_accent <- function(data, pattern = "\u00C3\u00A9", replacement = "e") {
   variables <- colnames(data)
-  data_list <- Map(function(x)data[[x]] <- gsub(pattern, replacement, data[[x]], ), variables)
+
+  # UTF-8 characters decoded as Latin-1 (mojibake) commonly seen in DHIS 2
+  # exports, e.g. "Août" read as "AoÃ»t" or "Février" read as "FÃ©vrier".
+  mojibake <- c(
+    "\u00C3\u0080" = "A", "\u00C3\u0082" = "A", "\u00C3\u0084" = "A", "\u00C3\u0085" = "A",
+    "\u00C3\u0087" = "C", "\u00C3\u0088" = "E", "\u00C3\u0089" = "E", "\u00C3\u008A" = "E",
+    "\u00C3\u008B" = "E", "\u00C3\u008E" = "I", "\u00C3\u008F" = "I", "\u00C3\u0091" = "N",
+    "\u00C3\u0092" = "O", "\u00C3\u0094" = "O", "\u00C3\u0096" = "O", "\u00C3\u0099" = "U",
+    "\u00C3\u009B" = "U", "\u00C3\u009C" = "U",
+    "\u00C3\u00A0" = "a", "\u00C3\u00A2" = "a", "\u00C3\u00A3" = "a", "\u00C3\u00A4" = "a",
+    "\u00C3\u00A5" = "a", "\u00C3\u00A7" = "c", "\u00C3\u00A8" = "e", "\u00C3\u00A9" = "e",
+    "\u00C3\u00AA" = "e", "\u00C3\u00AB" = "e", "\u00C3\u00AC" = "i", "\u00C3\u00AE" = "i",
+    "\u00C3\u00AF" = "i", "\u00C3\u00B1" = "n", "\u00C3\u00B2" = "o", "\u00C3\u00B4" = "o",
+    "\u00C3\u00B6" = "o", "\u00C3\u00B9" = "u", "\u00C3\u00BB" = "u", "\u00C3\u00BC" = "u",
+    "\u00C3\u00BF" = "y"
+  )
+
+  data_list <- Map(function(x) {
+    out <- data[[x]]
+    out <- gsub(pattern, replacement, out)
+    for (i in seq_along(mojibake)) out <- gsub(names(mojibake)[i], mojibake[i], out)
+    out
+  }, variables)
+
   data <- as.data.frame(data_list)
 
   colnames(data) <- tolower(gsub("\\.", "_", colnames(data)))
+  for (i in seq_along(mojibake)) colnames(data) <- gsub(names(mojibake)[i], mojibake[i], colnames(data))
 
   return(data)
 }
@@ -148,9 +174,391 @@ test_that("correct_accent replaces all the accented characters in the dataset", 
   expect_true(sum(grepl("^e", df_correct$b)) == sum(grepl("^è", df$B)) )
 })
 
+test_that("correct_accent fixes the full mojibake set, incl. Août", {
+  df_m <- data.frame(per = c("Ao\u00C3\u00BBt 2026", "F\u00C3\u00A9vrier 2026"), val = c(1, 2))
+  out <- correct_accent(df_m)
+  expect_true(any(grepl("Aout 2026", out$per)))
+  expect_true(any(grepl("Fevrier 2026", out$per)))
+})
+
 
 ```
 
+
+# Outlier detection
+
+```{r function-flag_outliers}
+#' Flag outlying monthly vaccination counts
+#'
+#' For every unit of the chosen level and every vaccine, the monthly number of
+#' vaccinated children is compared only with the other months of that same unit.
+#' Five standard statistical rules are computed side by side and every
+#' statistic is returned, so the reason a month is flagged can be audited.
+#' Only base R is used.
+#'
+#' Monthly counts are the differences between consecutive cumulative totals
+#' from \code{\link{vaccine_sums}}, so the columns summed for each vaccine are
+#' exactly those used for the coverage computation.
+#'
+#' The rules, all applied to the unit's own monthly series:
+#' \itemize{
+#'   \item \strong{iqr}: Tukey fences, Q1 - k*IQR and Q3 + k*IQR (k = 1.5).
+#'   \item \strong{adjbox}: adjusted boxplot of Hubert and Vandervieren (2008). The fences are
+#'     skewed with the medcouple, which suits count data that are not symmetric.
+#'   \item \strong{zscore}: leave-one-out z-score. The month is compared with the mean and SD of the
+#'     unit's other months, so an extreme value cannot inflate the SD and hide itself (|z| > 3).
+#'   \item \strong{mad}: modified z-score of Iglewicz and Hoaglin, 0.6745 * (x - median) / MAD (|M| > 3.5).
+#'   \item \strong{gesd}: generalized extreme Studentized deviate test of Rosner (1983), which finds
+#'     up to several outliers while controlling the type I error (alpha = 0.05).
+#' }
+#' A month is flagged by a rule when it is outside that rule's limits and at least \code{min_diff}
+#' away from the unit's median (so tiny fluctuations in small units are ignored). The final
+#' \code{flagged} column is TRUE when at least \code{min_methods} rules agree.
+#'
+#' @param data Dataframe, the DHIS2 immunization dataframe (as passed to \code{vaccine_sums}).
+#' @param level The aggregation level of interest, specified as in \code{vaccine_sums}:
+#'   Country, Province, District, Aire, Fosa, Antenne, or a combination such as c(Antenne, District).
+#' @param vaccine Character vector of vaccine names (see \code{vaccine_sums}). NULL (default) uses
+#'   every vaccine the package knows.
+#' @param months Integer vector of months to consider. Months in which no unit reports any dose
+#'   of the vaccine are ignored. Default 1:12.
+#' @param min_methods Number of rules (out of 5) that must flag a month for \code{flagged} to be TRUE.
+#'   Default 2.
+#' @param flagged_only If TRUE (default) only flagged months are returned; if FALSE every
+#'   unit-vaccine-month is returned with its statistics.
+#' @param k_iqr Multiplier of the IQR fences. Default 1.5.
+#' @param z_cut Cutoff of the leave-one-out z-score. Default 3.
+#' @param mad_cut Cutoff of the modified z-score. Default 3.5.
+#' @param alpha Significance level of the GESD test. Default 0.05.
+#' @param min_diff Minimum absolute difference from the unit's median for a rule to flag a month.
+#'   Default 20.
+#' @param min_months Minimum number of reporting months needed to assess a unit. Default 5.
+#' @param accent Passed to \code{vaccine_sums}. Default FALSE (data already cleaned).
+#'
+#' @return A dataframe with one row per unit, vaccine and month containing: the unit column(s),
+#'   vaccine, month, value (monthly count), the series statistics (n, median, mean_other,
+#'   sd_other, q1, q3, iqr, mad, medcouple), ratio_median (value / median), each rule's
+#'   statistic and limits (iqr_lower, iqr_upper, adjbox_lower, adjbox_upper, z_loo, mod_z,
+#'   gesd_stat, gesd_crit), one logical flag per rule (flag_iqr, flag_adjbox, flag_zscore, flag_mad,
+#'   flag_gesd), n_flags, flagged and direction ("high", "low" or NA). Sorted by n_flags and
+#'   relative distance from the median.
+#' @export
+#'
+#' @references
+#' Hubert M, Vandervieren E (2008). An adjusted boxplot for skewed distributions.
+#' Computational Statistics and Data Analysis 52:5186-5201.
+#'
+#' Iglewicz B, Hoaglin D (1993). How to detect and handle outliers. ASQC Quality Press.
+#'
+#' Rosner B (1983). Percentage points for a generalized ESD many-outlier procedure.
+#' Technometrics 25:165-172.
+#'
+#' @examples
+#' \dontrun{
+#' flag_outliers(ri, District, vaccine = c("DTC1", "Pneumo13"), months = 1:9)
+#' flag_outliers(ri, c(Antenne, District), months = 1:9, min_methods = 3)
+#' flag_outliers(ri, District, vaccine = "BCG", flagged_only = FALSE)
+#' }
+flag_outliers <- function(data, level, vaccine = NULL, months = 1:12,
+                          min_methods = 2, flagged_only = TRUE,
+                          k_iqr = 1.5, z_cut = 3, mad_cut = 3.5, alpha = 0.05,
+                          min_diff = 20, min_months = 5, accent = FALSE) {
+  all_vacc <- c(
+    "BCG", "DTC1", "DTC2", "DTC3", "VPO0", "VPO1", "VPO2", "VPO3", "VAA",
+    "VAR1", "VAR2", "VPI1", "VPI2", "Pneumo13", "Pneumo13_2", "Rota1",
+    "Rota2", "Rota3", "VAP1", "VAP2", "VAP3", "VAP4", "TD2"
+  )
+  unit <- c(
+    "Country" = "orgunitlevel1", "Province" = "orgunitlevel2", "District" = "orgunitlevel3",
+    "Aire" = "orgunitlevel4", "Fosa" = "orgunitlevel5", "Antenne" = "orgunitlevel6"
+  )
+
+  level_expr <- substitute(level)
+  level_cols <- eval(level_expr, stats::setNames(as.list(unit), names(unit)), parent.frame())
+
+  months <- sort(unique(as.integer(months)))
+  stopifnot(
+    is.data.frame(data), all(level_cols %in% unit), all(months %in% 1:12),
+    is.numeric(min_methods), min_methods >= 1, min_methods <= 5,
+    is.logical(flagged_only), length(flagged_only) == 1,
+    is.numeric(k_iqr), k_iqr > 0, is.numeric(z_cut), z_cut > 0,
+    is.numeric(mad_cut), mad_cut > 0, is.numeric(alpha), alpha > 0, alpha < 1,
+    is.numeric(min_diff), min_diff >= 0, is.numeric(min_months), min_months >= 4
+  )
+  if (is.null(vaccine)) vaccine <- all_vacc
+  stopifnot(is.character(vaccine), all(vaccine %in% all_vacc))
+
+  results <- list()
+
+  for (v in vaccine) {
+    cumul <- tryCatch(
+      lapply(months, function(m) {
+        s <- eval(bquote(vaccine_sums(data, .(as.name(v)), .(level_expr), .(m), accent = .(accent))))
+        s$.month <- m
+        s
+      }),
+      error = function(e) {
+        message("Skipping ", v, ": ", conditionMessage(e))
+        NULL
+      }
+    )
+    if (is.null(cumul)) next
+
+    wide <- Reduce(function(a, b) merge(a, b, by = level_cols, all = TRUE), lapply(cumul, function(s) {
+      out <- s[, c(level_cols, v)]
+      names(out)[names(out) == v] <- paste0("m", s$.month[1])
+      out
+    }))
+    mat <- as.matrix(wide[, paste0("m", months), drop = FALSE])
+    mat[is.na(mat)] <- 0
+
+    monthly <- mat
+    if (ncol(mat) > 1) monthly[, -1] <- mat[, -1, drop = FALSE] - mat[, -ncol(mat), drop = FALSE]
+    colnames(monthly) <- months
+
+    reporting <- colSums(monthly) > 0
+    if (sum(reporting) < min_months) next
+    monthly <- monthly[, reporting, drop = FALSE]
+
+    per_unit <- lapply(seq_len(nrow(monthly)), function(i) {
+      x <- monthly[i, ]
+      st <- .outlier_stats(x, k_iqr, z_cut, mad_cut, alpha)
+      st$month <- as.integer(names(x))
+      st$value <- unname(x)
+      st$unit_row <- i
+      st
+    })
+    per_unit <- do.call(rbind, per_unit)
+    per_unit$vaccine <- v
+    results[[length(results) + 1]] <- cbind(wide[per_unit$unit_row, level_cols, drop = FALSE], per_unit)
+  }
+
+  cols <- c(
+    level_cols, "vaccine", "month", "value", "n", "median", "mean_other", "sd_other",
+    "q1", "q3", "iqr", "mad", "medcouple", "ratio_median", "iqr_lower", "iqr_upper",
+    "adjbox_lower", "adjbox_upper", "z_loo", "mod_z", "gesd_stat", "gesd_crit",
+    "flag_iqr", "flag_adjbox", "flag_zscore", "flag_mad", "flag_gesd",
+    "n_flags", "flagged", "direction"
+  )
+
+  if (length(results) == 0) {
+    out <- as.data.frame(matrix(NA, 0, length(cols)))
+    names(out) <- cols
+    return(out)
+  }
+
+  out <- do.call(rbind, results)
+  far <- abs(out$value - out$median) >= min_diff
+  flag_cols <- c("flag_iqr", "flag_adjbox", "flag_zscore", "flag_mad", "flag_gesd")
+  for (f in flag_cols) out[[f]] <- out[[f]] & far
+  out$n_flags <- rowSums(out[, flag_cols])
+  out$flagged <- out$n_flags >= min_methods
+  out$direction <- ifelse(out$n_flags > 0, ifelse(out$value > out$median, "high", "low"), NA_character_)
+  out$ratio_median <- round(out$value / out$median, 3)
+
+  if (flagged_only) out <- out[out$flagged, ]
+  out <- out[order(-out$n_flags, -abs(out$value - out$median) / pmax(out$median, 1)), cols]
+  rownames(out) <- NULL
+  out
+}
+
+.outlier_stats <- function(x, k_iqr, z_cut, mad_cut, alpha) {
+  n <- length(x)
+  med <- stats::median(x)
+  q <- stats::quantile(x, c(0.25, 0.75), names = FALSE, type = 7)
+  iqr <- q[2] - q[1]
+  madv <- stats::mad(x, constant = 1)
+
+  s <- sum(x)
+  m_other <- (s - x) / (n - 1)
+  var_other <- pmax((sum(x^2) - x^2 - (n - 1) * m_other^2) / (n - 2), 0)
+  sd_other <- sqrt(var_other)
+  z_loo <- (x - m_other) / sd_other
+  z_loo[sd_other == 0] <- ifelse(x[sd_other == 0] == m_other[sd_other == 0], 0, Inf * sign(x - m_other)[sd_other == 0])
+
+  mod_z <- if (madv > 0) {
+    0.6745 * (x - med) / madv
+  } else {
+    meanad <- mean(abs(x - med))
+    if (meanad > 0) (x - med) / (1.253314 * meanad) else rep(0, n)
+  }
+
+  mc <- .medcouple(x)
+  if (mc >= 0) {
+    adj_l <- q[1] - k_iqr * exp(-4 * mc) * iqr
+    adj_u <- q[2] + k_iqr * exp(3 * mc) * iqr
+  } else {
+    adj_l <- q[1] - k_iqr * exp(-3 * mc) * iqr
+    adj_u <- q[2] + k_iqr * exp(4 * mc) * iqr
+  }
+  iqr_l <- q[1] - k_iqr * iqr
+  iqr_u <- q[2] + k_iqr * iqr
+
+  g <- .gesd(x, alpha)
+
+  data.frame(
+    n = n, median = med, mean_other = round(m_other, 2), sd_other = round(sd_other, 2),
+    q1 = q[1], q3 = q[2], iqr = iqr, mad = madv, medcouple = round(mc, 3),
+    ratio_median = NA_real_,
+    iqr_lower = iqr_l, iqr_upper = iqr_u,
+    adjbox_lower = round(adj_l, 2), adjbox_upper = round(adj_u, 2),
+    z_loo = round(z_loo, 2), mod_z = round(mod_z, 2),
+    gesd_stat = round(g$stat, 2), gesd_crit = round(g$crit, 2),
+    flag_iqr = x < iqr_l | x > iqr_u,
+    flag_adjbox = x < adj_l | x > adj_u,
+    flag_zscore = abs(z_loo) > z_cut,
+    flag_mad = abs(mod_z) > mad_cut,
+    flag_gesd = g$flag,
+    row.names = NULL
+  )
+}
+
+.medcouple <- function(x) {
+  med <- stats::median(x)
+  lo <- x[x <= med]
+  hi <- x[x >= med]
+  h <- outer(hi, lo, function(xj, xi) ifelse(xj - xi == 0, NA, ((xj - med) - (med - xi)) / (xj - xi)))
+  h <- h[!is.na(h)]
+  if (length(h) == 0) 0 else stats::median(h)
+}
+
+.gesd <- function(x, alpha) {
+  n <- length(x)
+  r <- max(1, floor(n / 3))
+  idx <- seq_len(n)
+  removed <- integer(0)
+  stat <- crit <- rep(NA_real_, r)
+  keep <- idx
+  for (i in seq_len(r)) {
+    xs <- x[keep]
+    sdv <- stats::sd(xs)
+    if (!is.finite(sdv) || sdv == 0) break
+    dev <- abs(xs - mean(xs))
+    j <- which.max(dev)
+    stat[i] <- dev[j] / sdv
+    p <- 1 - alpha / (2 * (n - i + 1))
+    t <- stats::qt(p, n - i - 1)
+    crit[i] <- (n - i) * t / sqrt((n - i - 1 + t^2) * (n - i + 1))
+    removed <- c(removed, keep[j])
+    keep <- keep[-j]
+  }
+  k <- which(stat > crit)
+  k <- if (length(k)) max(k) else 0
+  flag <- rep(FALSE, n)
+  if (k > 0) flag[removed[seq_len(k)]] <- TRUE
+  st <- crit_v <- rep(NA_real_, n)
+  st[removed] <- stat[seq_along(removed)]
+  crit_v[removed] <- crit[seq_along(removed)]
+  list(flag = flag, stat = st, crit = crit_v)
+}
+```
+
+```{r tests-flag_outliers}
+test_that("flag_outliers flags a data-entry error within its own unit", {
+  months <- c("Janvier", "Fevrier", "Mars", "Avril", "Mai", "Juin", "Juillet", "Aout", "Septembre")
+  df <- data.frame(
+    periodname = rep(paste(months, 2026), 2),
+    orgunitlevel1 = "Pays", orgunitlevel2 = "p",
+    orgunitlevel3 = rep(c("kn A Zone de Sante", "kn B Zone de Sante"), each = 9),
+    bcg_0_et_11_mois = c(300, 310, 295, 305, 3905, 298, 302, 311, 300, rep(500, 9) + c(0, 5, -5, 3, -3, 2, -2, 4, -4))
+  )
+  out <- flag_outliers(df, District, vaccine = "BCG", months = 1:9)
+  expect_equal(nrow(out), 1)
+  expect_equal(out$orgunitlevel3, "kn A Zone de Sante")
+  expect_equal(out$month, 5L)
+  expect_equal(out$direction, "high")
+  expect_equal(out$n_flags, 5)
+  all_rows <- flag_outliers(df, District, vaccine = "BCG", months = 1:9, flagged_only = FALSE)
+  expect_equal(nrow(all_rows), 18)
+  expect_true(all(c("z_loo", "mod_z", "gesd_stat", "iqr_lower", "adjbox_upper", "medcouple") %in% names(all_rows)))
+  expect_equal(sum(all_rows$value[all_rows$orgunitlevel3 == "kn A Zone de Sante"]), 300+310+295+305+3905+298+302+311+300)
+  expect_equal(nrow(flag_outliers(df, District, vaccine = "BCG", months = 1:9, min_methods = 5)), 1)
+  expect_error(flag_outliers(df, District, vaccine = "nope"))
+})
+```
+
+# VAP introduction dates
+
+```{r function-vap_start_month}
+#' First month of the year in which a VAP dose can be counted for each health district
+#'
+#' @param orgunitlevel3 Character vector of health district names, as in the DHIS2 data or in the target populations. Accents, case and punctuation are ignored when matching.
+#' @param vap_intro A dataframe with the columns orgunitlevel3, intro_year and intro_month, as the built-in vap_intro dataset.
+#' @param year The calendar year of the data.
+#' @return
+#' A numeric vector the length of orgunitlevel3. 1 if the district introduced VAP before year, the introduction month if it introduced it during year, and Inf if it introduces it after year, has not introduced it, or is not in the VAP pyramid.
+#' @noRd
+vap_start_month <- function(orgunitlevel3, vap_intro, year = 2026) {
+  unit_key <- function(x) {
+    x <- gsub("[^a-z0-9]+", "_", tolower(iconv(as.character(x), to = "ASCII//TRANSLIT")))
+    gsub("^_|_$", "", x)
+  }
+  stopifnot(all(c("orgunitlevel3", "intro_year", "intro_month") %in% names(vap_intro)))
+  pos <- match(unit_key(orgunitlevel3), unit_key(vap_intro[["orgunitlevel3"]]))
+  yr <- vap_intro[["intro_year"]][pos]
+  mo <- vap_intro[["intro_month"]][pos]
+  start <- ifelse(yr < year, 1, ifelse(yr == year, mo, Inf))
+  start[is.na(start)] <- Inf
+  start
+}
+```
+
+```{r tests-vap_vaccines}
+test_that("VAP sums and coverage respect the introduction dates", {
+  vi <- data.frame(
+    orgunitlevel2 = "kn Province",
+    orgunitlevel3 = c("kn A Zone de Sante", "kn B Zone de Sante", "kn C Zone de Sante"),
+    in_pyramid = TRUE, intro_year = c(2025L, 2026L, NA), intro_month = c(8L, 3L, NA)
+  )
+  df <- data.frame(
+    periodname = rep(c("Janvier 2026", "Fevrier 2026", "Mars 2026", "Avril 2026"), 3),
+    orgunitlevel1 = "Pays", orgunitlevel2 = "kn Province",
+    orgunitlevel3 = rep(vi$orgunitlevel3, each = 4),
+    b_8_4_vap_1_0_et_11_mois__fixe = 10
+  )
+  s <- vaccine_sums(df, VAP1, District, month = 4, accent = FALSE, vap_intro = vi)
+  expect_equal(s$VAP1, c(40, 20, 0))
+  s_all <- vaccine_sums(df, VAP1, District, month = 4, accent = FALSE, vap_intro = NULL)
+  expect_equal(s_all$VAP1, c(40, 40, 40))
+  pops <- data.frame(
+    orgunitlevel1 = "Pays", orgunitlevel2 = "kn Province", orgunitlevel3 = vi$orgunitlevel3,
+    survivants_mois_admin = 10, survivant_mois_ajust = 20
+  )
+  cov <- vaccine_coverage(s, VAP1, District, month = 4, pops = pops, vap_intro = vi)
+  expect_equal(cov$VAP1_admin, c(100, 100, NA))
+  expect_equal(cov$VAP1_ajust, c(50, 50, NA))
+  expect_true(all(c("vap_survivants_mois_admin", "vap_survivant_mois_ajust") %in% names(cov)))
+  expect_false("survivants_mois_admin" %in% names(cov))
+  cov_c <- vaccine_coverage(vaccine_sums(df, VAP1, Country, month = 4, accent = FALSE, vap_intro = vi), VAP1, Country, month = 4, pops = pops, vap_intro = vi)
+  expect_equal(cov_c$VAP1_admin, round(100 * 60 / (40 + 20), 2))
+})
+```
+
+```{r tests-vap_start_month}
+test_that("vap_start_month works", {
+  vi <- data.frame(
+    orgunitlevel3 = c("bu Aketi Zone de Sant\u00e9", "kn Lemba Zone de Sant\u00e9", "it Bunia Zone de Sant\u00e9", "kl Bulungu Zone de Sant\u00e9"),
+    intro_year = c(2025L, NA, 2026L, 2027L), intro_month = c(8L, NA, 3L, 1L)
+  )
+  out <- vap_start_month(c("bu Aketi Zone de Sante", "kn Lemba Zone de Sante", "it Bunia Zone de Sante", "kl Bulungu Zone de Sante", "xx Unknown Zone de Sante"), vi, 2026)
+  expect_equal(out, c(1, Inf, 3, Inf, Inf))
+})
+```
+
+```{r function-vap_intro}
+#' A dataset containing the date VAP was introduced in each DRC health district
+#'
+#' @format A data frame with 519 observations and 5 variables, one per health district of pop2026:
+#' \describe{
+#'\item{orgunitlevel2}{character; Province}
+#'\item{orgunitlevel3}{character; Zone de santé (health district)  }
+#'\item{in_pyramid}{logical; TRUE if the district is listed in the VAP pyramid of 441 districts}
+#'\item{intro_year}{integer; year of introduction, NA if not yet introduced or not in the pyramid}
+#'\item{intro_month}{integer; month of introduction (1 to 12), NA if not yet introduced or not in the pyramid}
+#' }
+#' @source Programme Élargie de Vaccination de RDC, intro_vap.xlsx.
+"vap_intro"
+```
 
 # Tally of vaccinated 
 
@@ -163,13 +571,15 @@ test_that("correct_accent replaces all the accented characters in the dataset", 
 #' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District, or Antenne 
 #' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
 #' @param accent A logical to specify whether the dataset values contains accented characters. Set to TRUE as default 
+#' @param vap_intro A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: doses recorded before a district introduced the vaccine, and doses in districts that have not introduced it, are not counted. Set to NULL to count all doses.
+#' @param year The calendar year of the data, used to compare with the introduction dates. Default 2026.
 #' @importFrom stats aggregate reformulate setNames
 #' @return
 #' A dataframe with aggregated sums of vaccinated between 
 #' @export
 #'
 #' @examples
-vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
+vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE, vap_intro = pevrdc::vap_intro, year = 2026) {
   vacc_list <- c(
     "BCG" = "bcg_0_et_11_mois",
     "DTC1" = "dtc_hepb_hib1_0_et_11",
@@ -180,7 +590,7 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
     "VAR2" = "var_2_rr_2_0_et_11_mois|var_2_rr_2_12_et_23_mois",
     "VPI1" = "vpi_1_0_et_11",
     "VPI2" = "vpi_2_0_et_11",
-    "Pneumo13" = "pcv_13__1__0_et_11",
+    "Pneumo13" = "pcv_13__3__0_et_11",
     "Rota1" = "rota_1_0_et_11",
     "Rota2" = "rota_2_0_et_11",
     "Rota3" = "rota_3_0_et_11",
@@ -218,8 +628,15 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
   vacc_name <- vaccine1
   vaccine <- vacc_list[vaccine1]
 
+  if (!is.null(vap_intro) && vacc_name %in% c("VAP1", "VAP2", "VAP3", "VAP4")) {
+    start_month <- vap_start_month(data[["orgunitlevel3"]], vap_intro, year)
+  } else {
+    start_month <- NULL
+  }
+
 
   data <- do.call(cbind, list(data["periodname"], data[level], Map(as.numeric, data[grepl(vaccine, colnames(data))])))
+  if (!is.null(start_month)) data$vap_start <- start_month
 
 
   # removing all NAs
@@ -239,18 +656,53 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE) {
     "January" = 1, "February" = 2, "March" = 3, "April" = 4, "May" = 5, "June" = 6, "July" = 7,
     "August" = 8, "September" = 9, "October" = 10, "November" = 11, "December" = 12
   )
+  # Robust month number from a French or English month label, with or
+  # without accented characters ("Août 2026") or mojibake ("AoÃ»t 2026").
+  .month_number <- function(x) {
+    key4 <- c(
+      "janv" = 1, "janu" = 1, "fevr" = 2, "febr" = 2, "mars" = 3, "marc" = 3,
+      "avri" = 4, "apri" = 4, "mai" = 5, "may" = 5, "juin" = 6, "june" = 6,
+      "juil" = 7, "july" = 7, "aout" = 8, "augu" = 8, "sept" = 9,
+      "octo" = 10, "nove" = 11, "dece" = 12
+    )
+    corr <- c(
+      "\u00C3\u00A0" = "a", "\u00C3\u00A2" = "a", "\u00C3\u00A4" = "a", "\u00C3\u00A7" = "c",
+      "\u00C3\u00A8" = "e", "\u00C3\u00A9" = "e", "\u00C3\u00AA" = "e", "\u00C3\u00AB" = "e",
+      "\u00C3\u00AC" = "i", "\u00C3\u00AE" = "i", "\u00C3\u00AF" = "i",
+      "\u00C3\u00B2" = "o", "\u00C3\u00B4" = "o", "\u00C3\u00B6" = "o",
+      "\u00C3\u00B9" = "u", "\u00C3\u00BB" = "u", "\u00C3\u00BC" = "u",
+      "\u00C0" = "A", "\u00C2" = "A", "\u00C4" = "A", "\u00C7" = "C",
+      "\u00C8" = "E", "\u00C9" = "E", "\u00CA" = "E", "\u00CB" = "E",
+      "\u00CE" = "I", "\u00CF" = "I", "\u00D4" = "O", "\u00D6" = "O",
+      "\u00D9" = "U", "\u00DB" = "U", "\u00DC" = "U",
+      "\u00E0" = "a", "\u00E2" = "a", "\u00E4" = "a", "\u00E7" = "c",
+      "\u00E8" = "e", "\u00E9" = "e", "\u00EA" = "e", "\u00EB" = "e",
+      "\u00EC" = "i", "\u00EE" = "i", "\u00EF" = "i",
+      "\u00F2" = "o", "\u00F4" = "o", "\u00F6" = "o",
+      "\u00F9" = "u", "\u00FB" = "u", "\u00FC" = "u"
+    )
+    for (i in seq_along(corr)) x <- gsub(names(corr)[i], corr[i], x)
+    letters_only <- gsub("[^a-zA-Z]", "", x)
+    unname(key4[tolower(substr(letters_only, 1, 4))])
+  }
   if (all(nchar(as.character(data[["periodname"]])) == 10)) {
     data[, "periodname"] <- as.Date(data[["periodname"]])
     data$period <- period_eng[format(data$periodname, "%B")]
   } else {
-    data$period <- unname(period[trimws(gsub("[0-9]", "", data$periodname), "both")])
+    pn <- as.character(data[["periodname"]]); upn <- unique(pn); data$period <- .month_number(upn)[match(pn, upn)]
+  }
+  if (anyNA(data$period)) {
+    bad <- unique(as.character(data[["periodname"]][is.na(data$period)]))
+    stop("Unrecognized reporting period(s): ", paste(utils::head(bad, 5), collapse = "; "),
+         ". Month labels should contain French or English month names, e.g. 'Janvier 2026' or 'Août 2026'.")
   }
   
   data <- subset(data, period <= month)
 
   on.exit(Sys.setlocale(category = "LC_TIME", locale = syst_time))
 
-  data$vaccsum <- Reduce(`+`, data[, grepl(vaccine, colnames(data))])
+  data$vaccsum <- Reduce(`+`, data[, grepl(vaccine, colnames(data)), drop = FALSE])
+  if (!is.null(start_month)) data$vaccsum[data$period < data$vap_start] <- 0
 
   vacc_agg <- stats::aggregate(stats::reformulate(level, response = "vaccsum"), data = data, FUN = sum)
 
@@ -309,6 +761,29 @@ penta3 <- vaccine_sums(vacc, DTC3, District, 2)
 # Apply test on my function
 test_that("vaccine_sums coherently aggregates vaccines numbers", {
   expect_true(sum(penta3$DTC3) <= sum(penta1$DTC1))
+})
+
+test_that("vaccine_sums keeps months with mojibake accents (Août)", {
+  df <- data.frame(
+    periodname = c("Janvier 2026", "F\u00C3\u00A9vrier 2026", "Mars 2026", "Avril 2026",
+                   "Mai 2026", "Juin 2026", "Juillet 2026", "Ao\u00C3\u00BBt 2026",
+                   "Septembre 2026"),
+    orgunitlevel1 = "Pays",
+    bcg_0_et_11_mois = c(rep(10, 7), 20, 30)
+  )
+  s8 <- vaccine_sums(df, BCG, Country, month = 8, accent = FALSE)
+  s9 <- vaccine_sums(df, BCG, Country, month = 9, accent = FALSE)
+  expect_equal(s8$BCG, 90)
+  expect_equal(s9$BCG, 120)
+})
+
+test_that("vaccine_sums errors on unrecognized periods instead of dropping them", {
+  df <- data.frame(
+    periodname = c("Janvier 2026", "Someday 2026"),
+    orgunitlevel1 = "Pays",
+    bcg_0_et_11_mois = c(1, 2)
+  )
+  expect_error(vaccine_sums(df, BCG, Country, accent = FALSE), "Unrecognized reporting period")
 })
 ```
 
@@ -447,14 +922,17 @@ test_that("agg_pop outputs a dataframe of 2 columns, one character and the other
 #' @param level The column name or vector of column names of the aggregation level of interest. Should be any of Country, Province, District or Antenne 
 #' @param month An integer between 1 to 12 that specifies the cummulative period of months to aggregate date
 #' @param pops An aggregated dataset of target populations.
+#' @param vap_intro A dataframe of VAP introduction dates per health district, as the built-in vap_intro dataset. Used only for VAP1 to VAP4: the target population of a district only counts the months since it introduced the vaccine, and districts that have not introduced it have no target (coverage NA). Set to NULL to use all months for all districts.
+#' @param year The calendar year of the data, used to compare with the introduction dates. Default 2026.
 #' @importFrom stats aggregate reformulate setNames
 #' @return
 #' A dataframe with vaccines coverage 
+#' For VAP1 to VAP4 the target population columns are prefixed with vap_ (vap_survivants_mois_admin, vap_survivant_mois_ajust) because they only cover the months since introduction, so they differ from the targets of the other vaccines and tables can be merged by key without losing rows.
 #' @export
 #'
 #' @examples
 
-vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
+vaccine_coverage <- function(data, vaccine, level, month = 1, pops, vap_intro = pevrdc::vap_intro, year = 2026) {
   vac <- c(
     "BCG", "DTC1", "DTC3", "VPO0", "VAA", "VAR1", "VAR2", "VPI1",
     "VPI2", "Pneumo13", "Rota1", "Rota2", "Rota3", "VAP1", "VAP2",
@@ -481,14 +959,22 @@ vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
   data <- stats::aggregate(stats::reformulate(level, response = vaccine), FUN = sum, data = data)
 
 
-  if (vaccine %in% c("BCG", "VPO0")) {
+  if (vaccine %in% c("BCG", "VPO0", "TD2")) {
     num_vars <- c("naissance_mois_admin", "naissance_mois_ajust")
   } else {
     num_vars <- c("survivants_mois_admin", "survivant_mois_ajust")
   }
 
-  pop1 <- agg_pop_2(num_vars[1],level, month = month, pops = pops)
-  pop2 <- agg_pop_2(num_vars[2],level, month = month, pops = pops)
+  is_vap <- !is.null(vap_intro) && vaccine %in% c("VAP1", "VAP2", "VAP3", "VAP4")
+  pop_month <- month
+  if (is_vap) {
+    active_months <- pmax(0, month - vap_start_month(pops[["orgunitlevel3"]], vap_intro, year) + 1)
+    pops[num_vars] <- pops[num_vars] * active_months
+    pop_month <- 1
+  }
+
+  pop1 <- agg_pop_2(num_vars[1],level, month = pop_month, pops = pops)
+  pop2 <- agg_pop_2(num_vars[2],level, month = pop_month, pops = pops)
 
 
   populations <- merge(pop1, pop2, by = level)
@@ -497,16 +983,48 @@ vaccine_coverage <- function(data, vaccine, level, month = 1, pops) {
 
   merged_data <- merge(data, populations, by = level)
 
-
-
+  dropped <- nrow(data) - nrow(merged_data)
+  if (dropped > 0) {
+    warning(dropped, " unit(s) have no matching target population and were dropped from the coverage table. Check that names in the data and in pops are spelled identically.", call. = FALSE)
+  }
+  
+  
+    if(vaccine == "VAR2"|vaccine == "VAP4"){
+      
+        merged_data[[paste0(vaccine, "_admin")]] <- round(100 * merged_data[[vaccine]] / (merged_data[[num_vars[1]]]* 0.97), 2)
+        merged_data[[paste0(vaccine, "_ajust")]] <- round(100 * merged_data[[vaccine]] / (merged_data[[num_vars[2]]]*0.97), 2)
+    
+    }else{
+      
   merged_data[[paste0(vaccine, "_admin")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[1]]], 2)
   merged_data[[paste0(vaccine, "_ajust")]] <- round(100 * merged_data[[vaccine]] / merged_data[[num_vars[2]]], 2)
+      
+  }
+
+
+
+
+  if (is_vap) {
+    for (s in c("_admin", "_ajust")) {
+      v <- merged_data[[paste0(vaccine, s)]]
+      v[!is.finite(v)] <- NA
+      merged_data[[paste0(vaccine, s)]] <- v
+    }
+    names(merged_data)[names(merged_data) %in% num_vars] <- paste0("vap_", num_vars)
+  }
+
+  implausible <- sum(merged_data[[paste0(vaccine, "_admin")]] > 150, na.rm = TRUE)
+  if (implausible > 0) {
+    warning(implausible, " unit(s) have an administrative ", vaccine, " coverage above 150%: check for data entry errors in the numerator or for an under-estimated target population.", call. = FALSE)
+  }
 
   if(vaccine == "DTC1"){
     merged_data[["zero_dose_admin"]] <- round(merged_data[[num_vars[1]]] - merged_data[[vaccine]])
     merged_data[["zero_dose_ajust"]] <- round(merged_data[[num_vars[2]]] - merged_data[[vaccine]])
 
   }
+  
+
 
   return(merged_data)
 }
