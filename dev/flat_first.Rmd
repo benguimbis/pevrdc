@@ -587,7 +587,7 @@ vaccine_sums <- function(data, vaccine, level, month = 1, accent = TRUE, vap_int
     "VPO0" = "vpo_0_0_et_11",
     "VAA" = "vaa_0_et_11",
     "VAR1" = "var_1_rr_1_0_et_11",
-    "VAR2" = "var_2_rr_2_0_et_11_mois|var_2_rr_2_12_et_23_mois",
+    "VAR2" = "var_2_rr_2_12_et_23_mois",
     "VPI1" = "vpi_1_0_et_11",
     "VPI2" = "vpi_2_0_et_11",
     "Pneumo13" = "pcv_13__3__0_et_11",
